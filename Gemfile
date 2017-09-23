@@ -1,5 +1,11 @@
 source 'https://rubygems.org'
 
+#회원가입
+gem 'devise'
+gem 'rolify' 
+gem 'authority'
+
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'

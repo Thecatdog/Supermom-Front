@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'home/index1'
   get 'home/test'
   get 'home/mongodbtest'
