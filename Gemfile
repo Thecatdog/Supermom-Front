@@ -4,7 +4,7 @@ gem 'mechanize', '~> 2.7', '>= 2.7.4'
 gem 'rest-client'
 gem "ruby-readability", :require => 'readability'
 gem 'rjb'
-gem 'twitter-korean-text'
+gem 'twitter-korean-text-ruby'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
