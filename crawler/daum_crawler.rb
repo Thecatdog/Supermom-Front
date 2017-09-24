@@ -11,11 +11,11 @@ require 'rest-client'
 # main가져오기
 agent = Mechanize.new
 page = agent.get "http://naver.com"
-search_form = page.form_with :name => "sform"
-search_form.field_with(:name=>"query").value = "유모차"
-search_results = agent.submit search_form
-main_uri = search_results.uri
-# puts main_uri
+
+page = page.form_with :name => "sform"
+page.field_with(:name=>"query").value = "유모차"
+search_results = agent.submit page
+puts search_results.uri
 
 # 메인에서 블로그 이동
 page = agent.page.link_with(:text => '블로그').click
