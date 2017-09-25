@@ -14,6 +14,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :baby_weight
       t.string :baby_head_length
       t.string :categorys_id
+      
+      
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at

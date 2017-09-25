@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 20170923173439) do
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
+    t.string   "name"
+    t.string   "address"
+    t.string   "baby_name"
+    t.string   "baby_sex"
+    t.string   "baby_age"
+    t.string   "baby_height"
+    t.string   "baby_weight"
+    t.string   "baby_head_length"
+    t.string   "categorys_id"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

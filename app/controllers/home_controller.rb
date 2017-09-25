@@ -7,4 +7,5 @@ class HomeController < ApplicationController
   def mongodbtest 
     # @car = Car.all
   end
+  before_filter :authenticate_user!, :except =>[:index]
 end

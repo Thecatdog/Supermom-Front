@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>MoMCARE | Calendar</title>
+  <title>MoMCARE | Detail</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -25,17 +25,77 @@
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
+
+
+
+
 <body class="hold-transition skin-blue sidebar-mini">
+
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+                <!-- Box Comment -->
+                <div class="box box-widget">
+                
+                <div class="box-body">
+                    
+                    
+                    <% for i in 1..10 %>
+                    
+                  <!-- Attachment -->
+                  <div class="attachment-block clearfix">
+                    <!--<img class="attachment-img" src="../dist/img/photo1.png" alt="Attachment Image">-->
     
- <div class="control-sidebar-bg"></div>
+                    <!--<div class="attachment-pushed">-->
+                      <h4 class="attachment-heading"><a href="#">유아장난감 브이텍기차놀이 후기</a></h4><br>
+    
+                      <div class="attachment-text">
+                       전동기차 브이텍기차놀이 두돌 유아장난감으로 준비하다 이맘 때 아이들 자동차나 기차 장난감 참 좋아하더라고요 저희 아이 기차놀이 장난감 처음으로 준비해줬어요...
+                       <a href="#">more</a>
+                      </div>
+                      <!-- /.attachment-text -->
+                    <!--</div>-->
+                    <!-- /.attachment-pushed -->
+                  </div>
+                  <!-- /.attachment-block -->
+                  
+                  <br>
+                  <% end %>
+                  
+                </div>
+                <!-- /.box-body -->
+                
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        <div class="col-md-2"></div>
+    </div>
+    <!-- /.row -->
+  
+  
+    <center>
+    <ul class="pagination pagination-lg no-margin">
+        <li><a href="#">&laquo;</a></li>
+        <% for i in 1..10 %>
+            <li><a href="#"><%=i%></a></li>
+            <!--<li><a href="#">2</a></li>-->
+            <!--<li><a href="#">3</a></li>-->
+        <% end %>
+        <li><a href="#">&raquo;</a></li>
+    </ul>
+    </center>
+  
+  
+
+  <div class="control-sidebar-bg"></div>
+
 
 
 <!-- jQuery 3 -->
 <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
 <!-- Slimscroll -->
 <script src="../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
@@ -44,9 +104,5 @@
 <script src="../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
-<!-- fullCalendar -->
-<script src="../bower_components/moment/moment.js"></script>
-<script src="../bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
-
 </body>
 </html>
