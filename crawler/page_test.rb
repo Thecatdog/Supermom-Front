@@ -14,6 +14,7 @@
 require 'rubygems'
 require 'mechanize'
 require 'rest-client'
+require 'readability'
 
 # main가져오기
 agent = Mechanize.new
@@ -67,6 +68,13 @@ blog_link_uri = blog_head[0].attr('href')
 agent = Mechanize.new
 url   = blog_link_uri
 page  = agent.get(url)
-page  = page.search('frame#hiddenFrame' > 'body')
+frame_uri  = page.search('frame').attr('src')
+full = page.uri + frame_uri
 
-puts page
+# puts full
+
+page = agent.get(full)
+# page.encoding = "MS949"
+tag = page.search('div.post_footer_contents')
+puts tag
+
