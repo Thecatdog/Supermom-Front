@@ -33,7 +33,7 @@
     @blog_head.each_with_index do |v, i|
     # 	puts i
     	@all_content[i] = v.text 
-    	@keyword = "인형"
+    	@keyword = "떡뻥"
     	@keysearch = TwitterKorean::Processor.new
         @divide_content = @keysearch.extract_phrases(@all_content[i])
         @appear_count=0
@@ -67,7 +67,7 @@
               @noun_content << s
             else
             end
-            if s== @keyword
+            if s.include? @keyword
                 @appear_count=@appear_count+1
             else
             end
