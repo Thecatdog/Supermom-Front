@@ -53,17 +53,14 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     debug_inspector (0.0.3)
-<<<<<<< HEAD
     devise (4.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 4.1.0, < 5.2)
       responders
       warden (~> 1.2.3)
-=======
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
->>>>>>> b3ab1bee831decf873ae21fcb8b70150195a6010
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
@@ -105,11 +102,8 @@ GEM
     netrc (0.11.0)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
-<<<<<<< HEAD
-    orm_adapter (0.5.0)
-=======
     ntlm-http (0.1.1)
->>>>>>> b3ab1bee831decf873ae21fcb8b70150195a6010
+    orm_adapter (0.5.0)
     rack (1.6.8)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -142,21 +136,18 @@ GEM
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     rdoc (4.3.0)
-<<<<<<< HEAD
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
-    rolify (5.1.0)
-=======
     rest-client (2.0.2)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rjb (1.5.5)
+    rolify (5.1.0)
     ruby-readability (0.7.0)
       guess_html_encoding (>= 0.0.4)
       nokogiri (>= 1.6.0)
->>>>>>> b3ab1bee831decf873ae21fcb8b70150195a6010
     sass (3.5.1)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -217,13 +208,10 @@ DEPENDENCIES
   jquery-rails
   mechanize (~> 2.7, >= 2.7.4)
   rails (= 4.2.5)
-<<<<<<< HEAD
-  rolify
-=======
   rest-client
   rjb
+  rolify
   ruby-readability
->>>>>>> b3ab1bee831decf873ae21fcb8b70150195a6010
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
