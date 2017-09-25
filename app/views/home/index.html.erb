@@ -29,39 +29,13 @@
 
     
 
-<!--<h1>크롤링 후 데이터 분석 테스트</h1>-->
-<!--<p>키워드 : <#%=@keyword%></p>-->
-<!--<p>all content : <#%=@all_content%></p>-->
-<!--<p>형태소 분석기 가동 후 : <#%=@divide_content%></p>-->
-<!--<p>키워드 빈도수 : <#%=@appear_count%></p>-->
-<!--<p>기본사전 : <%#=@base_dic%></p>-->
-<!--<p>명사 뽑아내기 : <#%=@noun_content%></p>-->
-<!--<p>BASE_WORD 걸러내기 : <#%=@complete_fillter_content%></p>-->
-
-
-    <!--<#%=@blog_head.each_with_index do |v, i|%>-->
-    	<!--<#%=i%>-->
-    	<!--<#%=v.attr('title')%>-->
-    <!--<#%end%>-->
-    
-    
-    <!--<#%=@blog_content.each_with_index do |v, i|%>-->
-    <!--	<#%=i%>-->
-    <!--	<#%=v.text%>-->
-    <!--<#%end%>-->
-    
-    <!--<#%=@blog_date.each_with_index do |v, i|%>-->
-    <!--	<#%=i%>-->
-    <!--	<#%=v.first%>-->
-    <!--<#%end%>-->
-    
 <%
-    @blog_content.each_with_index do |v, i|
+    @blog_head.each_with_index do |v, i|
     # 	puts i
-    	@all_content = v.text 
-    	@keyword = "유모차"
+    	@all_content[i] = v.text 
+    	@keyword = "인형"
     	@keysearch = TwitterKorean::Processor.new
-        @divide_content = @keysearch.stem(@all_content)
+        @divide_content = @keysearch.extract_phrases(@all_content[i])
         @appear_count=0
       #   기본 단어 사전 불러오기 (사물명사가 아닌 카테고리와 연관성 없는 감정명사 등을 거르기 위함)
         aFile = File.new('public/word.txt','r')
@@ -103,11 +77,16 @@
         @noun_content.each do |n|
           if @base_dic.include? n
           else
-            @complete_fillter_content << n
+            if n.length > 3 and n.include? @keyword
+                @complete_fillter_content << n
+            else
+            end
           end
-        end%>
+        end
+        
+        %>
         <h3><%=i%></h3>
-        <p>all content : <%=@all_content%></p>
+        <p>all content : <%=@all_content[i]%></p>
         <p>형태소 분석기 가동 후 : <%=@divide_content%></p>
         <p>키워드 빈도수 : <%=@appear_count%></p>
         <p>명사 뽑아내기 : <%=@noun_content%></p>
@@ -116,7 +95,6 @@
     end
 %>
 
-    
  <div class="control-sidebar-bg"></div>
 
 
