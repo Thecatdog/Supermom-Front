@@ -9,6 +9,7 @@ gem 'twitter-korean-text-ruby'
 gem 'devise'
 gem 'rolify' 
 gem 'authority'
+gem 'rails_admin'
 
 
 
