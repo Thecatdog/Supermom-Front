@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
 
+gem 'mechanize', '~> 2.7', '>= 2.7.4'
+gem 'rest-client'
+gem "ruby-readability", :require => 'readability'
+gem 'rjb'
+gem 'twitter-korean-text-ruby'
 #회원가입
 gem 'devise'
 gem 'rolify' 
