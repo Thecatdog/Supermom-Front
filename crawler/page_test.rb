@@ -66,15 +66,9 @@ blog_head = blog_section.css('dt').css('a')
 blog_link_uri = blog_head[0].attr('href')
 
 agent = Mechanize.new
-url   = blog_link_uri
+url = 'https://m.blog.naver.com/nyobyjuddi/221105062980'
 page  = agent.get(url)
-frame_uri  = page.search('frame').attr('src')
-full = page.uri + frame_uri
-
-# puts full
-
-page = agent.get(full)
-# page.encoding = "MS949"
-tag = page.search('div.post_footer_contents')
+tag = page.search('div.post_tag')
 puts tag
 
+# 5번완료 

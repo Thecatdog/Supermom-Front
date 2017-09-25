@@ -32,14 +32,14 @@ for i in 2..5
 	blog_date = blog_section.css('dd.txt_inline')
 
 	# title 10개를 차례대로 뽑기
-	blog_head.each_with_index do |v, i|
-		puts i
+	blog_head.each_with_index do |v, j|
+		puts j
 		puts v.attr('title')
 	end
 
 	# 소주제 10개를 차례대로 뽑기
-	blog_mini_content.each_with_index do |v, i|
-		puts i
+	blog_mini_content.each_with_index do |v, j|
+		puts j
 		puts v.text
 	end
 
@@ -50,4 +50,13 @@ for i in 2..5
 	# end
 
 	page = agent.page.link_with(:text => '다음페이지').click
+
+	blog_link_uri = blog_head[i].attr('href')
+
+	agent = Mechanize.new
+	url = 'm.blog.naver.com/nyobyjuddi/221105062980'
+	page  = agent.get(url)
+	tag = page.search('div.post_tag')
+	puts tag
+
 end

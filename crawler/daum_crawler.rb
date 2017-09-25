@@ -18,5 +18,4 @@ search_results = agent.submit page
 # puts search_results.uri
 
 # 메인에서 블로그 이동
-puts search_results.css('a.tab tab_blog')
 # page = agent.page.link_with(:text => '블로그').click
