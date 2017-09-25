@@ -64,11 +64,9 @@ blog_head = blog_section.css('dt').css('a')
 
 # 5번 시작
 blog_link_uri = blog_head[0].attr('href')
-
-agent = Mechanize.new
-url = 'https://m.blog.naver.com/nyobyjuddi/221105062980'
-page  = agent.get(url)
+blog_link_uri = blog_link_uri.gsub("http://", "http://m.")
+page  = agent.get(blog_link_uri)
 tag = page.search('div.post_tag')
-puts tag
+puts tag.text
 
 # 5번완료 

@@ -49,14 +49,15 @@ for i in 2..5
 	# 	puts v.first
 	# end
 
+
+	# 블로그 본문으로 들어가기 
 	page = agent.page.link_with(:text => '다음페이지').click
 
 	blog_link_uri = blog_head[i].attr('href')
-
-	agent = Mechanize.new
-	url = 'm.blog.naver.com/nyobyjuddi/221105062980'
-	page  = agent.get(url)
+	blog_link_uri = blog_link_uri.gsub("http://", "http://m.")
+	page  = agent.get(blog_link_uri)
 	tag = page.search('div.post_tag')
-	puts tag
+	
+	puts tag.text
 
 end
