@@ -1,6 +1,26 @@
 
+# -----------------------------------------
+
+# THIS FILE IS ONLY FOR TEST. DO NOT USE AND EDIT IT.
+# final_test로 메인 controller에서 사용하지 마시오. 
+# 테스트용이므로 이 파일을 수정하지도 말기 
 
 # -----------------------------------------
+
+# -----------------------------------------
+# daum form_name : daumSearch
+	 # input : q
+# name form_name : sfrom
+	 # input : query 
+
+# 1. input 에 따른 주소가져오기
+# 2. input 결과 창에서 블로그 버튼 눌렀을때로 이동
+# 3. 블로그 결과에서 title, 소제 가져오기
+# 4. 다음 페이지로 넘어가기
+# 5. 링크로 들어가서 큰 content
+# 6. readability
+# -----------------------------------------
+
 # blog 본문에 들어가 tag를 가져오는 메소드 시작
 
 def get_tag(blog_link_uri)
@@ -23,8 +43,8 @@ def get_tag(blog_link_uri)
 	# 원래 페이지로 돌아가기
 	return
 end
-# blog 본문에 들어가 tag를 가져오는 메소드 끝
 
+# blog 본문에 들어가 tag를 가져오는 메소드 끝
 # -----------------------------------------
 
 require 'rubygems'
@@ -56,19 +76,19 @@ for i in 2..5
 
 	# title 10개를 차례대로 뽑기
 	blog_head.each_with_index do |v, i|
+		puts i
 		puts v.attr('title')
-	end
-
-	# 소주제 10개를 차례대로 뽑기
-	blog_mini_content.each_with_index do |v, i|
-		puts v.text
 	end
 
 	# 블로그 본문으로 들어가기 
 	page = agent.page.link_with(:text => '다음페이지').click
 	
+	puts "큰 한바퀴 "
+	puts i
 	for j in 1..9
 		blog_link_uri = blog_head[j].attr('href')
+		puts "작은 한바퀴"
+		puts j
 		get_tag(blog_link_uri)
 	end
 end

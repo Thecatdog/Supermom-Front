@@ -25,6 +25,9 @@ blog_head = blog_section.css('dt').css('a')
 
 # 5번 시작
 blog_link_uri = blog_head[7].attr('href')
+
+puts blog_link_uri
+
 html = agent.get(blog_link_uri)
 second_uri = html.search('frame').attr('src')
 page = agent.get(second_uri)
