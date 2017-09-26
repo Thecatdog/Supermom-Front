@@ -63,10 +63,9 @@ blog_head = blog_section.css('dt').css('a')
 # end
 
 # 5번 시작
-blog_link_uri = blog_head[0].attr('href')
+blog_link_uri = blog_head[6].attr('href')
 blog_link_uri = blog_link_uri.gsub("http://", "http://m.")
 page  = agent.get(blog_link_uri)
 tag = page.search('div.post_tag')
 puts tag.text
-
 # 5번완료 

@@ -49,7 +49,6 @@ for i in 2..5
 	# 	puts v.first
 	# end
 
-
 	# 블로그 본문으로 들어가기 
 	page = agent.page.link_with(:text => '다음페이지').click
 
