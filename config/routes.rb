@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  resources :meetings
   devise_for :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  
+  get 'meetings' => 'meetings#new'
   get 'home/index1'
   get 'home/test'
   get 'home/mongodbtest'

@@ -28,23 +28,23 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition login-page">
-<div class="login-box">
+<div class="login-box" style="margin-top:200px">
   <div class="login-logo">
-    <b>MoM</b>CARE</a>
+    <b>SUPER</b>MoM</a>
   </div>
   <!-- /.login-logo -->
-  <div class="login-box-body" style="background-color: #d2d6de">
-    <p class="login-box-msg">Sign in to start your session</p>
+  <div class="login-box-body" style="background-color: #4169E1">
+    <p class="login-box-msg" style="color:#F6F4F4">LOGIN please, Super MoM!</p>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <!--<form action="../../index2.html" method="post">-->
       <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+        <%= f.label :email, style: "color:#F6F4F4" %><br />
+        <%= f.email_field :email, autofocus: true, class: "form-control", style: "border:3px solid #FFA500;" %>
       </div>
       <div class="field">
-        <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+        <%= f.label :password, style: "color:#F6F4F4" %><br />
+        <%= f.password_field :password, autocomplete: "off", class: "form-control", style: "border:3px solid #FFA500;" %>
       </div>
       <br>
       <div class="row">
@@ -53,7 +53,7 @@
               <% if devise_mapping.rememberable? -%>
                 <div class="field">
                   <%= f.check_box :remember_me %>
-                  <%= f.label :remember_me %>
+                  <%= f.label :remember_me, style: "color:#F6F4F4" %>
                 </div>
               <% end -%>
           <!--</div>-->
@@ -61,7 +61,7 @@
         <!-- /.col -->
         <div class="col-xs-4">
           <div class="actions">
-            <%= f.submit "Log in", class: "btn btn-primary btn-block btn-flat" %>
+            <%= f.submit "Log in", class: "btn btn-primary btn-block btn-flat", style: "background-color:#ff6464 " %>
           </div>
         </div>
         <!-- /.col -->

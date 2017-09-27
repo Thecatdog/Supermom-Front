@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 gem 'rails_admin'
 
+gem "simple_calendar", "~> 2.0"
 gem 'mechanize', '~> 2.7', '>= 2.7.4'
 gem 'rest-client'
 gem "ruby-readability", :require => 'readability'
@@ -10,6 +11,7 @@ gem 'twitter-korean-text-ruby'
 gem 'devise'
 gem 'rolify' 
 gem 'authority'
+gem 'rails_admin'
 
 
 

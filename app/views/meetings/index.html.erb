@@ -1,0 +1,153 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>MoMCARE | Calendar</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="../bower_components/Ionicons/css/ionicons.min.css">
+  <!-- fullCalendar -->
+  <link rel="stylesheet" href="../bower_components/fullcalendar/dist/fullcalendar.min.css">
+  <link rel="stylesheet" href="../bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css">
+
+  <!-- Google Font -->
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+        <style>
+          
+          /* line 2, /usr/local/rvm/gems/ruby-2.3.4/gems/simple_calendar-2.2.6/app/assets/stylesheets/simple_calendar.scss */
+          .simple-calendar table {
+            -webkit-border-horizontal-spacing: 0px;
+            -webkit-border-vertical-spacing: 0px;
+            background-color: #ffffff;
+            border: 1px solid #dddddd;
+            border-collapse: collapse;
+            box-sizing: border-box;
+            max-width: 100%;
+            width: 100%;
+          }
+          /* line 13, /usr/local/rvm/gems/ruby-2.3.4/gems/simple_calendar-2.2.6/app/assets/stylesheets/simple_calendar.scss */
+          .simple-calendar tr {
+            border-collapse: collapse;
+          }
+          /* line 17, /usr/local/rvm/gems/ruby-2.3.4/gems/simple_calendar-2.2.6/app/assets/stylesheets/simple_calendar.scss */
+          .simple-calendar th {
+            padding: 6px;
+            border-bottom: 2px solid #dddddd;
+            border-collapse: collapse;
+            border-left: 1px solid #dddddd;
+            border-right: 1px solid #dddddd;
+            border-top: 0px none #333333;
+            box-sizing: border-box;
+            text-align: left;
+          }
+          /* line 28, /usr/local/rvm/gems/ruby-2.3.4/gems/simple_calendar-2.2.6/app/assets/stylesheets/simple_calendar.scss */
+          .simple-calendar td {
+            padding: 6px;
+            vertical-align: top;
+            width: 14%;
+            border: 1px solid #ddd;
+            border-top-color: #dddddd;
+            border-top-style: solid;
+            border-top-width: 1px;
+            border-right-color: #dddddd;
+            border-right-style: solid;
+            border-right-width: 1px;
+            border-bottom-color: #dddddd;
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+            border-left-color: #dddddd;
+            border-left-style: solid;
+            border-left-width: 1px;
+          }
+          /* line 48, /usr/local/rvm/gems/ruby-2.3.4/gems/simple_calendar-2.2.6/app/assets/stylesheets/simple_calendar.scss */
+          .simple-calendar .day {
+            height: 80px;
+          }
+          /* line 60, /usr/local/rvm/gems/ruby-2.3.4/gems/simple_calendar-2.2.6/app/assets/stylesheets/simple_calendar.scss */
+          .simple-calendar .today {
+            font-weight:bold;
+            background-color: #beccf5;
+          }
+          /* line 69, /usr/local/rvm/gems/ruby-2.3.4/gems/simple_calendar-2.2.6/app/assets/stylesheets/simple_calendar.scss */
+          .simple-calendar .prev-month {
+            color:#bdbbbb;
+          }
+          /* line 72, /usr/local/rvm/gems/ruby-2.3.4/gems/simple_calendar-2.2.6/app/assets/stylesheets/simple_calendar.scss */
+          .simple-calendar .next-month {
+            color:#bdbbbb;
+          }
+
+          .has-events div {
+            background: #ffd5d5;
+            /*font-weight:bold;*/
+          }
+          .calendar-heading {
+              text-align:center;
+              font-size:30px;
+              font-weight:bold;
+              margin-bottom:15px;
+              color: #FFA500;
+          }
+        </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+
+  <div class="control-sidebar-bg"></div>
+
+<p id="notice"><%= notice %></p>
+
+<div class="container" align="center">
+  <span class="logo-lg" style="font-size:40px"><b>EVENT CALENDAR</b></span>
+  <%= link_to 'NEW EVENT', new_meeting_path,style: "color:#fff; background:#ff6464; border:0px;vertical-align: middle; margin-bottom:20px; margin-left:10px", class:"menuLink btn btn-primary" %>
+
+<%= month_calendar events: @meetings do |date, meetings| %>
+     <%= date.day %>
+      <% meetings.each do |meeting| %>
+        <div>
+          <%= meeting.name %>
+          <%= link_to 'Edit', edit_meeting_path(meeting) %>
+          <%= link_to 'Destroy', meeting, method: :delete %>
+        </div>
+      <% end %>
+    <% end %>
+
+</div>
+<br>
+
+
+
+<!-- jQuery 3 -->
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
+<!-- Slimscroll -->
+<script src="../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="../bower_components/fastclick/lib/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../dist/js/demo.js"></script>
+<!-- fullCalendar -->
+<script src="../bower_components/moment/moment.js"></script>
+<script src="../bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+<!-- Page specific script -->
+
+</body>
+</html>

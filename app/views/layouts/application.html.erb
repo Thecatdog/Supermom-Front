@@ -18,32 +18,32 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../../plugins/iCheck/square/blue.css">
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini" >
 <% if user_signed_in? %>
   <div class="wrapper">
   
     <header class="main-header">
   
-      <a href="/home/index1" class="logo">
+      <a href="/home/index1" class="logo" style="background-color: #4169E1">
       
         <span class="logo-mini"><b>MoM</b></span>
         
-        <span class="logo-lg"><b>MoM</b>CARE</span>
+        <span class="logo-lg" style="background-color: #4169E1"><b>SUPER</b>MoM</span>
       </a>
        
-      <nav class="navbar navbar-static-top">
+      <nav class="navbar navbar-static-top" style="background-color: #4169E1">
         
-        <a href="#" class="sidebar-toggle glyphicon glyphicon-align-justify" data-toggle="push-menu" role="button">
+        <a href="#" class="sidebar-toggle glyphicon glyphicon-align-justify" data-toggle="push-menu" role="button" style="background-color: #4169E1">
           <!--<span class="sr-only">Toggle navigation</span>-->
           <!--<span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>-->
         </a>
@@ -303,79 +303,95 @@
       <section class="sidebar">
          <!--Sidebar user panel -->
         <div class="user-panel">
-          <div class="pull-left image">
-            <img src= "<%= image_path 'user2-160x160.jpg' %>" class="img-circle" alt="User Image">
+          <!--<div class="pull-left image">-->
+          <!--  <img src= "<#%= image_path 'user2-160x160.jpg' %>" class="img-circle" alt="User Image">-->
+          <!--</div>-->
+          <div class="info">
+            <p>Admin</p>  <a href="#" ><i class="fa fa-circle text-red"></i> Online</a>
           </div>
-          <div class="pull-left info">
-            <p>Admin</p>
-            <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-          </div>
+          <%= button_to "logout", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure?"}, style: "color:#fff; background:#ff6464; border:0px;height:40px ;vertical-align: middle", class:"menuLink btn btn-primary pull-right" %>
         </div>
    
-         <%= button_to "logout", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure?"}, style: "color:black; background:#fff; border:0px;height:40px ;vertical-align: middle", class:"menuLink" %>
-         
+
         <ul class="sidebar-menu" data-widget="tree">
-          <li class="header">아이정보</li>
-            <div class="box">
-              <li><i class="fa fa-circle-o text-red"></i> <span>키 : 120cm</span></a></li>
-              <li><i class="fa fa-circle-o text-yellow"></i> <span>나이 : 10세</span></a></li>
-              <li><i class="fa fa-circle-o text-aqua"></i> <span>성별 : 여</span></a></li>
+          <li class="header" style="background-color:#FFA500; color:#000; font-weight:bold">XXX님의 멋진/예쁜 왕자님/공주님 OOO</li>
+            <div class="box" style="margin-bottom:20px">
+              <li><i class="fa fa-circle-o text-red" style="margin-top:20px; margin-left:10px"></i> <span>나이 : 10세</span></a></li>
+              <li><i class="fa fa-circle-o text-yellow" style="margin-top:10px;margin-bottom:10px; margin-left:10px"></i> <span>신장 : 120cm</span></a></li>
+              <li><i class="fa fa-circle-o text-aqua" style="margin-bottom:10px; margin-left:10px"></i> <span>몸무게 : 여</span></a></li>
+              <li><i class="fa fa-circle-o text-red" style="margin-bottom:20px; margin-left:10px"></i> <span>머리둘레 : XXcm</span></a></li>
             </div>
         </ul>  
 
        
         <ul class="sidebar-menu" data-widget="tree">
-          <li class="header">카테고리 선택</li>
-            <div class="box">
-              <div class="checkbox">
-                <label><input type="checkbox">장난감</input></label><br>
-                <label><input type="checkbox">키즈파크</input></label><br>
-                <label><input type="checkbox">놀이공원</input></label><br>
-                <label><input type="checkbox">카페</input></label><br>
-              </div>
+<<<<<<< HEAD
+          <!--<li class="header">카테고리 선택</li>-->
+          <!--  <div class="box">-->
+          <!--    <div class="checkbox">-->
+          <!--      <label><input type="checkbox">장난감</input></label><br>-->
+          <!--      <label><input type="checkbox">키즈파크</input></label><br>-->
+          <!--      <label><input type="checkbox">놀이공원</input></label><br>-->
+          <!--      <label><input type="checkbox">카페</input></label><br>-->
+          <!--    </div>-->
               
-              <button type="button" class="btn btn-block btn-primary">Go</button>
+          <!--    <button type="button" class="btn btn-block btn-primary">Go</button>-->
+          <!--  </div>-->
+          
+          <!--<li class="header">MAIN NAVIGATION</li>-->
+          <!--<li class="active treeview">-->
+          <!--  <a href="#">-->
+          <!--    <i class="fa fa-dashboard"></i> <span>원하는 정보 선택</span>-->
+          <!--    <span class="pull-right-container">-->
+          <!--      <i class="fa fa-angle-left pull-right"></i>-->
+          <!--    </span>-->
+          <!--  </a>-->
+          <!--  <ul class="treeview-menu">-->
+          <!--    <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>-->
+          <!--    <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>-->
+          <!--  </ul>-->
+          <!--</li>-->
+          
+          <!--<li>-->
+          <!--  <a href="/home/hospital">-->
+=======
+          <li class="header" style="background-color:#FFA500; color:#000; font-weight:bold">선호 카테고리</li>
+            <div class="box" style="margin-bottom:20px; height:180px">
+              <li><i class="fa fa-circle-o text-red" style="margin-top:20px; margin-left:10px"></i>  <input type="checkbox" autocomplete="off"> 장난감</li>
+              <li><i class="fa fa-circle-o text-yellow" style="margin-top:10px;margin-bottom:10px; margin-left:10px"></i> <input type="checkbox" autocomplete="off"> 여행</li>
+              <li><i class="fa fa-circle-o text-aqua" style="margin-bottom:10px; margin-left:10px"></i> <input type="checkbox" autocomplete="off"> 음식</li>
+              <li><i class="fa fa-circle-o text-red" style="margin-bottom:10px; margin-left:10px"></i> <input type="checkbox" autocomplete="off"> 패션</li>
+              <li><i style="margin-bottom:60px; margin-left:10px"></i> <button style="color:#fff; background:#ff6464; border:0px;height:40px ;vertical-align: middle", class="menuLink btn btn-primary pull-right">SEARCH</button></li>
             </div>
-          
-          <li class="header">MAIN NAVIGATION</li>
-          <li class="active treeview">
-            <a href="#">
-              <i class="fa fa-dashboard"></i> <span>원하는 정보 선택</span>
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-              <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
-            </ul>
-          </li>
-          
-          <li>
-            <a href="/home/hospital">
-              <i class="fa fa-hospital-o"></i> <span>병원정보</span>
-              <span class="pull-right-container">
-                <small class="label pull-right bg-green">new</small>
-              </span>
-            </a>
-          </li>
-          <li class="treeview">
-            <a href="/home/hospital">
-              <i class="fa fa-pie-chart"></i>
-              <span>상대정보</span>
-            </a>
-          </li>
-          
-          <li>
-            <a href="/home/calendar">
-              <i class="fa fa-calendar"></i> <span>Calendar</span>
-              <span class="pull-right-container">
-                <small class="label pull-right bg-red">3</small>
-                <small class="label pull-right bg-blue">17</small>
-              </span>
-            </a>
-          </li>
+        </ul>
         
+        <ul class="sidebar-menu" data-widget="tree">
+          <li class="header" style="background-color:#FFA500; color:#000; font-weight:bold">SUB MENU</li>
+            <div class="box" style="margin-bottom:20px">
+              <li><i class="fa fa-circle-o text-red" style="margin-top:20px; margin-left:10px"></i>
+              <a href="/home/hospital" style="color:#000">
+>>>>>>> cdfb0437b105a527de495dc68f4100a06d8c1c76
+              <i class="fa fa-hospital-o"></i> <span>병원정보</span>
+              <!--<span class="pull-right-container">-->
+              <!--  <small class="label pull-right bg-green">new</small>-->
+              <!--</span>-->
+            </a>
+            </li>
+              <li><i class="fa fa-circle-o text-yellow" style="margin-top:10px;margin-bottom:10px; margin-left:10px"></i>
+                <a href="/home/hospital" style="color:#000">
+                <i class="fa fa-pie-chart"></i>
+                <span>우리아이 성장척도</span>
+                </a>
+              </li>
+              <li><i class="fa fa-circle-o text-aqua" style="margin-bottom:20px; margin-left:10px"></i>
+                <a href="/meetings" style="color:#000">
+                <i class="fa fa-calendar"></i> <span>EVENT CALENDAR</span>
+                </a>
+              </li>
+            </div>
+        </ul>
+          
+          
           <!--<li class="header">아이정보</li>-->
           <!--<div class="box">-->
           <!--  <li><i class="fa fa-circle-o text-red"></i> <span>키 : 120cm</span></a></li>-->
