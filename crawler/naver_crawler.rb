@@ -17,8 +17,10 @@ def get_tag(blog_link_uri)
 	end
 
 	page  = agent.get(blog_link_uri)
-	tag = page.search('div.post_tag')
-	puts tag.text
+	
+	page.search('div.post_tag').each do |t|
+  		puts t.text.gsub('#', '')
+  	end
 
 	# 원래 페이지로 돌아가기
 	return
