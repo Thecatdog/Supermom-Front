@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'rails_admin'
 
 gem 'mechanize', '~> 2.7', '>= 2.7.4'
 gem 'rest-client'
@@ -9,6 +10,7 @@ gem 'twitter-korean-text-ruby'
 gem 'devise'
 gem 'rolify' 
 gem 'authority'
+
 
 
 
