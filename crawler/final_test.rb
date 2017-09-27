@@ -55,7 +55,7 @@ require 'rest-client'
 agent = Mechanize.new
 page = agent.get "http://naver.com"
 search_form = page.form_with :name => "sform"
-search_form.field_with(:name=>"query").value = "유모차"
+search_form.field_with(:name=>"query").value = "장난감"
 search_results = agent.submit search_form
 main_uri = search_results.uri
 # puts main_uri
@@ -83,12 +83,20 @@ for i in 2..5
 	# 블로그 본문으로 들어가기 
 	page = agent.page.link_with(:text => '다음페이지').click
 	
-	puts "큰 한바퀴 "
-	puts i
+	puts page.uri
+	# if page.uri.include? "blog"
+		puts "큰 한바퀴 "
+		puts i
+
 	for j in 1..9
 		blog_link_uri = blog_head[j].attr('href')
 		puts "작은 한바퀴"
 		puts j
-		get_tag(blog_link_uri)
+		puts blog_link_uri
+
+		# 주소가 blog와 관련된 것만 태그를 뽑아옴 
+		if blog_link_uri.include? "blog"
+			get_tag(blog_link_uri)
+		end	
 	end
 end

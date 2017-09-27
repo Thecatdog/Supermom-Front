@@ -24,7 +24,6 @@ def get_tag(blog_link_uri)
 	return
 end
 # blog 본문에 들어가 tag를 가져오는 메소드 끝
-
 # -----------------------------------------
 
 require 'rubygems'
@@ -70,6 +69,10 @@ for i in 2..5
 	
 	for j in 1..9
 		blog_link_uri = blog_head[j].attr('href')
-		get_tag(blog_link_uri)
+
+		# 주소가 blog와 관련된 것만 태그를 뽑아옴 
+		if blog_link_uri.include? "blog"
+			get_tag(blog_link_uri)
+		end	
 	end
 end
