@@ -314,47 +314,25 @@
    
 
         <ul class="sidebar-menu" data-widget="tree">
-          <li class="header" style="background-color:#FFA500; color:#000; font-weight:bold">XXX님의 멋진/예쁜 왕자님/공주님 OOO</li>
+          <li class="header" style="background-color:#FFA500; color:#000; font-weight:bold">
+            <%=current_user.name%>님의 
+            <%if current_user.baby_sex.eql? "여" %>
+              예쁜 공주님
+            <%else%>  
+              멋진 왕자님
+            <% end %>
+            <%=current_user.baby_name%></li>
             <div class="box" style="margin-bottom:20px">
-              <li><i class="fa fa-circle-o text-red" style="margin-top:20px; margin-left:10px"></i> <span>나이 : 10세</span></a></li>
-              <li><i class="fa fa-circle-o text-yellow" style="margin-top:10px;margin-bottom:10px; margin-left:10px"></i> <span>신장 : 120cm</span></a></li>
-              <li><i class="fa fa-circle-o text-aqua" style="margin-bottom:10px; margin-left:10px"></i> <span>몸무게 : 여</span></a></li>
-              <li><i class="fa fa-circle-o text-red" style="margin-bottom:20px; margin-left:10px"></i> <span>머리둘레 : XXcm</span></a></li>
+              <li><i class="fa fa-circle-o text-red" style="margin-top:20px; margin-left:10px"></i> <span>나이 : <%=current_user.baby_age%></span></a></li>
+              <li><i class="fa fa-circle-o text-yellow" style="margin-top:10px;margin-bottom:10px; margin-left:10px"></i> <span>신장 : <%=current_user.baby_head_length%></span></a></li>
+              <li><i class="fa fa-circle-o text-aqua" style="margin-bottom:10px; margin-left:10px"></i> <span>몸무게 : <%=current_user.baby_weight%></span></a></li>
+              <li><i class="fa fa-circle-o text-red" style="margin-bottom:20px; margin-left:10px"></i> <span>머리둘레 : <%=current_user.baby_head_length%></span></a></li>
             </div>
         </ul>  
 
        
         <ul class="sidebar-menu" data-widget="tree">
-<<<<<<< HEAD
-          <!--<li class="header">카테고리 선택</li>-->
-          <!--  <div class="box">-->
-          <!--    <div class="checkbox">-->
-          <!--      <label><input type="checkbox">장난감</input></label><br>-->
-          <!--      <label><input type="checkbox">키즈파크</input></label><br>-->
-          <!--      <label><input type="checkbox">놀이공원</input></label><br>-->
-          <!--      <label><input type="checkbox">카페</input></label><br>-->
-          <!--    </div>-->
-              
-          <!--    <button type="button" class="btn btn-block btn-primary">Go</button>-->
-          <!--  </div>-->
-          
-          <!--<li class="header">MAIN NAVIGATION</li>-->
-          <!--<li class="active treeview">-->
-          <!--  <a href="#">-->
-          <!--    <i class="fa fa-dashboard"></i> <span>원하는 정보 선택</span>-->
-          <!--    <span class="pull-right-container">-->
-          <!--      <i class="fa fa-angle-left pull-right"></i>-->
-          <!--    </span>-->
-          <!--  </a>-->
-          <!--  <ul class="treeview-menu">-->
-          <!--    <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>-->
-          <!--    <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>-->
-          <!--  </ul>-->
-          <!--</li>-->
-          
-          <!--<li>-->
-          <!--  <a href="/home/hospital">-->
-=======
+
           <li class="header" style="background-color:#FFA500; color:#000; font-weight:bold">선호 카테고리</li>
             <div class="box" style="margin-bottom:20px; height:180px">
               <li><i class="fa fa-circle-o text-red" style="margin-top:20px; margin-left:10px"></i>  <input type="checkbox" autocomplete="off"> 장난감</li>
@@ -370,7 +348,6 @@
             <div class="box" style="margin-bottom:20px">
               <li><i class="fa fa-circle-o text-red" style="margin-top:20px; margin-left:10px"></i>
               <a href="/home/hospital" style="color:#000">
->>>>>>> cdfb0437b105a527de495dc68f4100a06d8c1c76
               <i class="fa fa-hospital-o"></i> <span>병원정보</span>
               <!--<span class="pull-right-container">-->
               <!--  <small class="label pull-right bg-green">new</small>-->
