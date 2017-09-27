@@ -12,11 +12,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   include Authority::UserAbilities
-  
+  has_many :meetings
   after_create :assign_default_role, if: Proc.new { User.count >1 }
   private
     def assign_default_role
     	add_role :user
     end
-
+  
 end

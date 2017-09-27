@@ -22,7 +22,7 @@ class HomeController < ApplicationController
       agent = Mechanize.new
       page = agent.get "http://naver.com"
       search_form = page.form_with :name => "sform"
-      search_form.field_with(:name=>"query").value = "떡뻥"
+      search_form.field_with(:name=>"query").value = "어린이 젤리"
       search_results = agent.submit search_form
       main_uri = search_results.uri
       # puts main_uri

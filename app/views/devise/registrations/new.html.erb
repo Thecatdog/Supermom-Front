@@ -28,71 +28,101 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition register-page">
-<div class="register-box">
+<div class="register-box" style="width:400px">
   <div class="register-logo">
-    <b>MoM</b>CARE</a>
+    <b>SUPER</b>MoM</a>
   </div>
 
-  <div class="register-box-body" style="background-color: #d2d6de">
-    <p class="login-box-msg">Register a new membership</p>
+  <div class="register-box-body" style="background-color: #4169E1">
+    <p class="login-box-msg" style="color:#F6F4F4">Register a new membership</p>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
       
     <!--<form action="../../index.html" method="post">-->
       <div class="field">
-          <%= f.label :name %><br/>
-          <%= f.text_field :name, autofocus: true, autocomplete: "off", class: "form-control" %>
+          <%= f.label :name, style: "color:#F6F4F4" %><br/>
+          <%= f.text_field :name, autofocus: true, autocomplete: "off", class: "form-control", style: "border:3px solid #FFA500;" %>
       </div>
       <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autocomplete: "off", class: "form-control" %>
+        <%= f.label :email, style: "color:#F6F4F4" %><br />
+        <%= f.email_field :email, autocomplete: "off", class: "form-control", style: "border:3px solid #FFA500;" %>
       </div>
       <div class="field">
-        <%= f.label :password %>
+        <%= f.label :password, style: "color:#F6F4F4" %>
         <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <em style="color:#F6F4F4">(<%= @minimum_password_length %> characters minimum)</em>
         <% end %><br />
-        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+        <%= f.password_field :password, autocomplete: "off", class: "form-control", style: "border:3px solid #FFA500;" %>
       </div>
       <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+        <%= f.label :password_confirmation, style: "color:#F6F4F4" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", style: "border:3px solid #FFA500;" %>
       </div>
       <div class="field">
-          <%= f.label :address %><br/>
-          <%= f.text_field :address, autocomplete: "off", class: "form-control" %>
+          <%= f.label :address, style: "color:#F6F4F4" %><br/>
+          <%= f.text_field :address, autocomplete: "off", class: "form-control", style: "border:3px solid #FFA500;" %>
       </div>
       <div class="social-auth-links text-center">
-        <p>- Baby Information -</p>
+        <p style="color:#F6F4F4">- Baby Information -</p>
       </div>
       <div class="field">
-          <%= f.label :baby_name %><br/>
-          <%= f.text_field :baby_name, autocomplete: "off", class: "form-control" %>
+          <%= f.label :baby_name, style: "color:#F6F4F4" %><br/>
+          <%= f.text_field :baby_name, autocomplete: "off", class: "form-control", style: "border:3px solid #FFA500;" %>
       </div>
       <div class="field">
-          <%= f.label :baby_sex %><br/>
-          <%= f.text_field :baby_sex, autocomplete: "off", class: "form-control" %>
+          <%= f.label :baby_sex, style: "color:#F6F4F4" %><br/>
+          <%= f.text_field :baby_sex, autocomplete: "off", class: "form-control", style: "border:3px solid #FFA500;" %>
       </div>
       <div class="field">
-          <%= f.label :baby_age %><br/>
-          <%= f.text_field :baby_age, autocomplete: "off", class: "form-control" %>
+          <%= f.label :baby_age, style: "color:#F6F4F4" %><br/>
+          <%= f.text_field :baby_age, autocomplete: "off", class: "form-control", style: "border:3px solid #FFA500;" %>
       </div>
       <div class="field">
-          <%= f.label :baby_height %><br/>
-          <%= f.text_field :baby_height, autocomplete: "off", class: "form-control" %>
+          <%= f.label :baby_height, style: "color:#F6F4F4" %><br/>
+          <%= f.text_field :baby_height, autocomplete: "off", class: "form-control", style: "border:3px solid #FFA500;" %>
       </div>
       <div class="field">
-          <%= f.label :baby_weight %><br/>
-          <%= f.text_field :baby_weight, autocomplete: "off", class: "form-control" %>
+          <%= f.label :baby_weight, style: "color:#F6F4F4" %><br/>
+          <%= f.text_field :baby_weight, autocomplete: "off", class: "form-control", style: "border:3px solid #FFA500;" %>
       </div>
       <div class="field">
-          <%= f.label :baby_head_length %><br/>
-          <%= f.text_field :baby_head_length, autocomplete: "off", class: "form-control" %>
+          <%= f.label :baby_head_length, style: "color:#F6F4F4" %><br/>
+          <%= f.text_field :baby_head_length, autocomplete: "off", class: "form-control", style: "border:3px solid #FFA500;" %>
       </div>
       <div class="field">
-          <%= f.label :categorys_id %><br/>
-          <%= f.text_field :categorys_id, autocomplete: "off", class: "form-control" %>
+          <%= f.label :categorys_id, style: "color:#F6F4F4" %><br/>
+          <!--<#%= f.text_field :categorys_id, autocomplete: "off", class: "form-control" %>-->
+          <div class="btn-group" data-toggle="buttons" align="center">
+            <label class="btn btn-primary" style="background-color:#ff6464;border:0px">
+              <input type="checkbox" autocomplete="off"> 건강
+            </label>
+            <label class="btn btn-primary" style="background-color:#ff6464;border:0px">
+              <input type="checkbox" autocomplete="off"> 교육
+            </label>
+            <label class="btn btn-primary" style="background-color:#ff6464;border:0px">
+              <input type="checkbox" autocomplete="off"> 독서
+            </label>
+            <label class="btn btn-primary" style="background-color:#ff6464;border:0px">
+              <input type="checkbox" autocomplete="off"> 생활용품
+            </label>
+          </div>
+          <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary" style="background-color:#ff6464;border:0px">
+              <input type="checkbox" autocomplete="off"> 장난감
+            </label>
+            <label class="btn btn-primary" style="background-color:#ff6464;border:0px">
+              <input type="checkbox" autocomplete="off"> 음식
+            </label>
+            <label class="btn btn-primary" style="background-color:#ff6464;border:0px">
+              <input type="checkbox" autocomplete="off"> 여행
+            </label>
+            <label class="btn btn-primary" style="background-color:#ff6464;border:0px">
+              <input type="checkbox" autocomplete="off"> 패션
+            </label>
+          </div>
+
+
       </div>
       <br>
       <div class="row">
@@ -100,7 +130,7 @@
         </div>
 
         <div class="actions col-xs-4">
-          <%= f.submit "Sign up", class: "btn btn-primary btn-block btn-flat" %>
+          <%= f.submit "Sign up", class: "btn btn-primary btn-block btn-flat", style:"background-color:#ff6464;border:0px" %>
         </div>
         <!-- /.col -->
       </div>
@@ -111,7 +141,7 @@
     <!--</form>-->
 
 
-    <a href="/home/index1" class="text-center">I already have a membership</a>
+    <a href="/home/index1" class="text-center" style="color:#F6F4F4">I already have a membership</a>
   </div>
   <!-- /.form-box -->
 </div>

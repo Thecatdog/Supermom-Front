@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem "simple_calendar", "~> 2.0"
 gem 'mechanize', '~> 2.7', '>= 2.7.4'
 gem 'rest-client'
 gem "ruby-readability", :require => 'readability'
