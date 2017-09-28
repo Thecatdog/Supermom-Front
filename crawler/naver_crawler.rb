@@ -1,9 +1,10 @@
 
-class naver_crawler
+class Naver_crawler
 	require 'rubygems'
 	require 'mechanize'
 	require 'rest-client'
 
+	agent = Mechanize.new
 	
 	# blog 본문에 들어가 tag를 가져오는 메소드 시작
 	def get_tag(blog_link_uri)
