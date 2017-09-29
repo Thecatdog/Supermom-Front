@@ -3,7 +3,6 @@
 <head>
   <title>Workspace</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   
   <meta charset="utf-8">
@@ -26,6 +25,7 @@
     <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../../plugins/iCheck/square/blue.css">
+  
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini" >
@@ -332,15 +332,21 @@
 
        
         <ul class="sidebar-menu" data-widget="tree">
-
+          <form name="choose_categories_form" method="post">
+            <input type="hidden" name="choose_categories" value="">
           <li class="header" style="background-color:#FFA500; color:#000; font-weight:bold">선호 카테고리</li>
-            <div class="box" style="margin-bottom:20px; height:180px">
-              <li><i class="fa fa-circle-o text-red" style="margin-top:20px; margin-left:10px"></i>  <input type="checkbox" autocomplete="off"> 장난감</li>
-              <li><i class="fa fa-circle-o text-yellow" style="margin-top:10px;margin-bottom:10px; margin-left:10px"></i> <input type="checkbox" autocomplete="off"> 여행</li>
-              <li><i class="fa fa-circle-o text-aqua" style="margin-bottom:10px; margin-left:10px"></i> <input type="checkbox" autocomplete="off"> 음식</li>
-              <li><i class="fa fa-circle-o text-red" style="margin-bottom:10px; margin-left:10px"></i> <input type="checkbox" autocomplete="off"> 패션</li>
-              <li><i style="margin-bottom:60px; margin-left:10px"></i> <button style="color:#fff; background:#ff6464; border:0px;height:40px ;vertical-align: middle", class="menuLink btn btn-primary pull-right">SEARCH</button></li>
+            <div class="box" style="margin-bottom:20px; height:320px">
+              <li><i class="fa fa-circle-o text-red" style="margin-top:20px; margin-left:10px"></i>  <input type="checkbox" autocomplete="off" name="category" value="건강"> 건강</li>
+              <li><i class="fa fa-circle-o text-yellow" style="margin-top:10px;margin-bottom:10px; margin-left:10px"></i> <input type="checkbox" autocomplete="off" name="category" value="교육"> 교육</li>
+              <li><i class="fa fa-circle-o text-aqua" style="margin-bottom:10px; margin-left:10px"></i> <input type="checkbox" autocomplete="off" name="category" value="도서"> 도서</li>
+              <li><i class="fa fa-circle-o text-red" style="margin-bottom:10px; margin-left:10px"></i> <input type="checkbox" autocomplete="off" name="category" value="생활용품"> 생활용품</li>
+              <li><i class="fa fa-circle-o text-red" style="margin-top:20px; margin-left:10px"></i>  <input type="checkbox" autocomplete="off" name="category" value="장난감"> 장난감</li>
+              <li><i class="fa fa-circle-o text-yellow" style="margin-top:10px;margin-bottom:10px; margin-left:10px"></i> <input type="checkbox" autocomplete="off" name="category" value="여행"> 여행</li>
+              <li><i class="fa fa-circle-o text-aqua" style="margin-bottom:10px; margin-left:10px"></i> <input type="checkbox" autocomplete="off" name="category" value="음식"> 음식</li>
+              <li><i class="fa fa-circle-o text-red" style="margin-bottom:10px; margin-left:10px"></i> <input type="checkbox" autocomplete="off" name="category" value="패션"> 패션</li>
+              <li><i style="margin-bottom:60px; margin-left:10px"></i> <button style="color:#fff; background:#ff6464; border:0px;height:40px ;vertical-align: middle", class="menuLink btn btn-primary pull-right", onClick="categoryMultiple();">SEARCH</button></li>
             </div>
+            </form>
         </ul>
         
         <ul class="sidebar-menu" data-widget="tree">
@@ -408,6 +414,8 @@
     
     <% else %>
       <%=yield%>
+          <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
     
   <%end%>
   
@@ -599,6 +607,24 @@
     <div class="control-sidebar-bg"></div>
   </div>
   <!--<#% end %>-->
-
+  <script>
+    function categoryMultiple(){
+      var categories = [];
+      var categories_checked = document.getElementsByName("category");
+      var j = 0;
+      for(var i = 0; i<categories_checked.length; i++){
+        if(categories_checked[i].checked==true){
+          categories[j] = categories_checked[i].value;
+          j++;
+        }
+      }
+      
+      // alert(categories);
+      document.choose_categories_form.choose_categories.value = categories;
+      document.choose_categories_form.action = "/home/index1";
+      document.choose_categories_form.submit;
+    }
+    
+  </script>
 </body>
 </html>

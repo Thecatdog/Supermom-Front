@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20170926132229) do
     t.string   "baby_height"
     t.string   "baby_weight"
     t.string   "baby_head_length"
-    t.string   "categorys_id"
+    t.string   "categories"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

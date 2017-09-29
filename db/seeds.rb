@@ -7,5 +7,5 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 admin_user = User.create(email: 'admin@email.com', password: '123456', name:'관리자', address: '서울', 
-                        baby_name: '김아가', baby_sex: '여', baby_age: '1', baby_height: '50cm', baby_weight: '10kg', baby_head_length: '20cm', categorys_id: '1')
+                        baby_name: '김아가', baby_sex: '여', baby_age: '1', baby_height: '50cm', baby_weight: '10kg', baby_head_length: '20cm')
 admin_user.add_role :admin

@@ -120,7 +120,7 @@
         <div>
           <%= meeting.name %>
           <%= link_to 'Edit', edit_meeting_path(meeting) %>
-          <%= link_to 'Destroy', meeting, method: :delete %>
+          <%= link_to 'Destroy', meeting, method: :delete, data: { confirm: "Are you sure?" } %>
         </div>
       <% end %>
     <% end %>
@@ -130,7 +130,6 @@
 
 
 
-<!-- jQuery 3 -->
 <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
