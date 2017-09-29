@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170926132229) do
+ActiveRecord::Schema.define(version: 20170927092709) do
+
+  create_table "crawlers", force: :cascade do |t|
+    t.string   "blog_title"
+    t.text     "blog_s_title"
+    t.text     "tag"
+    t.string   "blog_link"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "meetings", force: :cascade do |t|
     t.integer  "user_id"
