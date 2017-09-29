@@ -4,7 +4,6 @@ class CreateMeetings < ActiveRecord::Migration
       t.integer :user_id
       t.string :name
       t.datetime :start_time
-
       t.timestamps null: false
     end
   end

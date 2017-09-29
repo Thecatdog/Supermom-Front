@@ -36,8 +36,8 @@ class MeetingsController < ApplicationController
       end
     end
 
-  end     
-
+     
+end
 
   # GET /meetings
   # GET /meetings.json
