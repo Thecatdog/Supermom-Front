@@ -2,12 +2,12 @@ class MeetingsController < ApplicationController
   before_action :set_meeting, only: [:show, :edit, :update, :destroy]
   
   def get_location_info
-    Meeting.new
-    
     require 'rubygems'
     require 'mechanize'
     require 'rest-client'
-
+    
+    festival_date = []
+    festival_name = []
     search_arr = ['축제', '베이비페어']
 
     search_arr.each do | search |
@@ -22,27 +22,35 @@ class MeetingsController < ApplicationController
       html_doc = Nokogiri::HTML(html)
       
       html_doc.css('span.tit_box').css('span.date').each do |t|
-          puts t.text.slice!(0...10)
+          festival_date <<  t.text.slice!(0...10).gsub('.','-')
         end 
 
         if search.eql?('축제')
           html_doc.css('h5').each do |t|
-            puts t.text
+            festival_name << t.text
           end
-      else
-        html_doc.css('h6').each do |t|
-            puts t.text
+        else
+          html_doc.css('h6').each do |t|
+            festival_name << t.text
           end
-      end
+        end
+    end
+    
+    for i in 0..festival_name.length-1
+      @meeting = Meeting.new
+      @meeting.name = festival_name[i]
+      @meeting.start_time = DateTime.strptime(festival_date[i], "%Y-%m-%d")
+      @meeting.save
     end
 
-     
-end
+    redirect_to '/meetings'     
+  end
 
   # GET /meetings
   # GET /meetings.json
   def index
     @meetings = Meeting.all
+    # get_location_info
   end
 
   # GET /meetings/1

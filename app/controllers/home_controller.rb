@@ -10,6 +10,11 @@ class HomeController < ApplicationController
     end
     
   	def index
+  	  require '~/workspace/lib/naver_crawler.rb'
     	require 'twitter-korean-text-ruby'
+    	@test =  Naver_crawler.new
+    # 	@search_doll = @test.blog_search("인형")
+    # # 	@test.get_title_s_content(@search_doll, 5)
+    # @test.body_of_blog
   end
 end

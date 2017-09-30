@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
+  get 'get_location_info' => 'meetings#get_location_info'
   get 'meetings' => 'meetings#new'
   get 'home/index1'
   post '/home/index1' => 'home#index1'

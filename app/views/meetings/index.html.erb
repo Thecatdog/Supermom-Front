@@ -113,6 +113,8 @@
 <div class="container" align="center">
   <span class="logo-lg" style="font-size:40px"><b>EVENT CALENDAR</b></span>
   <%= link_to 'NEW EVENT', new_meeting_path,style: "color:#fff; background:#ff6464; border:0px;vertical-align: middle; margin-bottom:20px; margin-left:10px", class:"menuLink btn btn-primary" %>
+  <a href="get_location_info" style="color:#fff; background:#ff6464; border:0px;vertical-align: middle; margin-bottom:20px; margin-left:10px" class="menuLink btn btn-primary">GET FESTIVAL INFO</a>
+
 
 <%= month_calendar events: @meetings do |date, meetings| %>
      <%= date.day %>
@@ -127,7 +129,6 @@
 
 </div>
 <br>
-
 
 
 <script src="../bower_components/jquery/dist/jquery.min.js"></script>
