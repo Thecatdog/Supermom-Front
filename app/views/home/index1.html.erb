@@ -34,12 +34,13 @@
         
         <!-- ./col -->
         <%@categories_array.each do |cate|%>
-          <%if @categories.include? cate%>
+          <%#if @categories.include? cate%>
             <div class="col-lg-3 col-xs-6">
             <!-- small box -->
             <div class="small-box bg-<%=["black","red","aqua","blue","navy","teal","green","olive","yellow","orange","fuchsia","purple","maroon"].sample(1).join%>">
               <div class="inner">
                 <p>65 VIEW</p>
+                
                 <h3><center><%=cate%></center></h3><br><hr>
                 <center>
                   <p>1위. </p>
@@ -61,7 +62,7 @@
             </div>
             <!-- ./col -->
           
-          <%end%>
+          <%#end%>
         <%end%>
         </div>
       <!-- /.row -->
