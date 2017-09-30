@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get 'meetings' => 'meetings#new'
   get 'home/index1'
+  post '/home/index1' => 'home#index1'
   get 'home/test'
   get 'home/mongodbtest'
   get 'home/rename'
