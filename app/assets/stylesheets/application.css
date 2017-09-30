@@ -10,6 +10,21 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require _all-skins.min
+ *= require AdminLTE.min
+ *= require bootstrap-datepicker.min
+ *= require bootstrap.min
+ *= require bootstrap3-wysihtml5
+ *= require daterangepicker
+ *= require font-awesome.min
+ *= require fullcalendar.print.min
+ *= require fullcalendar.min
+ *= require ionicons.min
+ *= require jquery-jvectormap
+ *= require morris
+ *= require registration
+ *= requires scaffolds
+ *= require user
  *= require_tree .
  *= require_self
  */

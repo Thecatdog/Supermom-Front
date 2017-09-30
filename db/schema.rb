@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170927092709) do
+ActiveRecord::Schema.define(version: 20170929112317) do
 
   create_table "crawlers", force: :cascade do |t|
     t.string   "blog_title"
@@ -20,6 +20,26 @@ ActiveRecord::Schema.define(version: 20170927092709) do
     t.string   "blog_link"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "data_boys", force: :cascade do |t|
+    t.string   "baby_age"
+    t.string   "baby_weight"
+    t.string   "baby_height"
+    t.string   "bmi"
+    t.string   "baby_head_length"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "data_girls", force: :cascade do |t|
+    t.string   "baby_age"
+    t.string   "baby_weight"
+    t.string   "baby_height"
+    t.string   "bmi"
+    t.string   "baby_head_length"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "meetings", force: :cascade do |t|
