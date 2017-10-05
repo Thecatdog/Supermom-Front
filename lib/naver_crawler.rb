@@ -24,6 +24,7 @@ class Naver_cralwer
 		
 		page.search('div.post_tag').each do |t|
 	  		puts t.text.gsub('#', '')
+
 	  	end
 	
 		# 원래 페이지로 돌아가기
@@ -36,7 +37,7 @@ class Naver_cralwer
 	# -----------------------------------------
 	# 네이버 본문에서 keyword 검색 결과 가져오기
 	def keyword_rslt(keyword)
-		
+
 		# main가져오기
 		agent = Mechanize.new
 		page = agent.get "http://naver.com"
@@ -44,7 +45,7 @@ class Naver_cralwer
 		search_form.field_with(:name=>"query").value = keyword
 		search_results = agent.submit search_form
 		main_uri = search_results.uri
-		
+
 		return agent
 	end
 	# -----------------------------------------
@@ -54,16 +55,14 @@ class Naver_cralwer
 	def shift_to_blog(agent)
 
 		@blog = Blog.new
-		@blog.link = 
-		@blog.title = 
-		@blog.blog_s_content = 
-
-
+		@blog.crawler_id = Crawler_id
+		@crawler = Crawler.new
+      
 		# 메인에서 블로그 이동
 		page = agent.page.link_with(:text => '블로그').click
 		
 		# 페이지를 5번째 페이지까지
-		for i in 1..3
+		for i in 1..5
 		
 			html = agent.get(page.uri).body
 			html_doc = Nokogiri::HTML(html)
@@ -75,25 +74,38 @@ class Naver_cralwer
 			# title 10개를 차례대로 뽑기
 			blog_head.each_with_index do |v, i|
 				puts v.attr('title')
+				@blog.title = v.attr('title')
 			end
 		
 			# 소주제 10개를 차례대로 뽑기
 			blog_mini_content.each_with_index do |v, i|
 				puts v.text
+				@blog.blog_s_content = v.text
 			end
 		
 			# 블로그 본문으로 들어가기 
 			page = agent.page.link_with(:text => '다음페이지').click
 		
 			
-			for j in 1..3
+			for j in 1..9
 				blog_link_uri = blog_head[j].attr('href')
-		
+
+				@blog.link = blog_link_uri
+				@crawler.blog_link = blog_link_uri
+
+				ary = Array.new	
 				# 주소가 blog와 관련된 것만 태그를 뽑아옴 
 				if blog_link_uri.include? "blog"
-					get_tag(blog_link_uri)
+					ary.push( get_tag(blog_link_uri) )
 				end	
+				@blog.tag = ary
 			end
+
+			@blog.save
+
+			@category = Category.find(keyword: keyword)
+			@crawler.category_id = @category.id
+			@crawler.save
 		end
 	end
 	# -----------------------------------------

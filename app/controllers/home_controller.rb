@@ -17,7 +17,6 @@ class HomeController < ApplicationController
     	@agent = Mechanize.new
     	@agent = @test.keyword_rslt("인형")
     	@test.shift_to_blog(@agent)
-    	puts @test
 
     end
     
