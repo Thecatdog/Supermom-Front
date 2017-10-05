@@ -12,16 +12,6 @@ class HomeController < ApplicationController
   	def index
   	  require '~/workspace/lib/Naver_crawler.rb'
     	require 'twitter-korean-text-ruby'
-<<<<<<< HEAD
-    	
-    	@test = Naver_cralwer.new
-    	@agent = Mechanize.new
-    	@agent = @test.keyword_rslt("인형")
-    	@test.shift_to_blog(@agent)
-    	puts @test
-    	
-  end
-=======
       require 'rubygems'
   	  require 'mechanize'
   	  require 'rest-client'
@@ -140,5 +130,4 @@ class HomeController < ApplicationController
       end
       
     end
->>>>>>> 8f3f737cfdb3ba6c45aaa6eec52bff0730460659
 end

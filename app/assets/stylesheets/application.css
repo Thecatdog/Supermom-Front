@@ -10,6 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require jquery-jvectormap
  *= require _all-skins.min
  *= require AdminLTE.min
  *= require bootstrap-datepicker.min
@@ -20,7 +21,6 @@
  *= require fullcalendar.print.min
  *= require fullcalendar.min
  *= require ionicons.min
- *= require jquery-jvectormap
  *= require morris
  *= require registration
  *= requires scaffolds

@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>Workspace</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   
   <meta charset="utf-8">
@@ -25,7 +24,10 @@
     <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="/plugins/iCheck/square/blue.css">
-  
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini" >
@@ -216,6 +218,7 @@
         </section>
       
         <section class="content">
+          <%= yield %>
         </section>
       
       </div>
@@ -223,11 +226,7 @@
     <footer class="main-footer">
       <strong>Copyright &copy; 2017 엄마를 부탁해</a></strong> All rights reserved.
     </footer>
-    <%=yield%>
-      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <% else %>
-    <%=yield%>
-      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%end%>
   
 

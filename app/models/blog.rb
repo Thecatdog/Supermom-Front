@@ -1,3 +1,3 @@
 class Blog < ActiveRecord::Base
-    belongs_to :Crawler
+    belongs_to :crawlers
 end
