@@ -47,13 +47,28 @@
 
 <p id="notice"><%= notice %></p>
 
-<div class="container" align="center">
-      <h1>Editing Meeting</h1>
+<div class="register-box">
+  <div class="register-logo">
+    <a href="/">Editing Meeting</a>
+  </div>
+
+  <div class="register-box-body">
+    <p class="login-box-msg">이벤트를 수정해주세요</p>
     
     <%= render 'form' %>
-    
+
     <%= link_to 'Show', @meeting %> |
     <%= link_to 'Back', meetings_path %>
+  </div>
+</div>
+
+<div class="container" align="center">
+      <!--<h1>Editing Meeting</h1>-->
+    
+    <%#= render 'form' %>
+    
+    <%#= link_to 'Show', @meeting %> |
+    <%#= link_to 'Back', meetings_path %>
 
 </div>
 <br>

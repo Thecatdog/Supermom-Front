@@ -7,6 +7,9 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // compiled file.
 //
+// require jquery.simscroll.min.js
+// require sparkline.min.js
+//
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
@@ -23,8 +26,6 @@
 //= require jquery-ui.min.js
 //= require jquery.knob.min.js
 //= require jquery.min.js
-//= require jquery.simscroll.min.js
-//= require sparkline.min.js
 //= require locale-all.js
 //= require moment.js
 //= require moment.min.js
