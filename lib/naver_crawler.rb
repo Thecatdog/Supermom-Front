@@ -4,13 +4,12 @@ class Naver_cralwer
 	require 'rubygems'
 	require 'mechanize'
 	require 'rest-client'
-	
 	# -----------------------------------------
 	# blog 본문에 들어가 tag를 가져오는 메소드 시작
 	
 	def get_tag(blog_link_uri)
 		agent = Mechanize.new
-	
+		@tags = []
 		if blog_link_uri.include? "blog.me"
 			html = agent.get(blog_link_uri)
 			second_uri = html.search('frame').attr('src')
@@ -24,12 +23,12 @@ class Naver_cralwer
 		page  = agent.get(blog_link_uri)
 		
 		page.search('div.post_tag').each do |t|
-	  		puts t.text.gsub('#', '')
+	  		@tags= t.text.gsub('#', '')
 
 	  	end
 	
 		# 원래 페이지로 돌아가기
-		return
+		return @tags
 	end
 	# blog 본문에 들어가 tag를 가져오는 메소드 끝
 	# -----------------------------------------
@@ -37,13 +36,12 @@ class Naver_cralwer
 	
 	# -----------------------------------------
 	# 네이버 본문에서 keyword 검색 결과 가져오기
-	def keyword_rslt(keyword)
-
+	def keyword_rslt(key)
 		# main가져오기
 		agent = Mechanize.new
 		page = agent.get "http://naver.com"
 		search_form = page.form_with :name => "sform"
-		search_form.field_with(:name=>"query").value = keyword
+		search_form.field_with(:name=>"query").value = key
 		search_results = agent.submit search_form
 		main_uri = search_results.uri
 
@@ -54,17 +52,19 @@ class Naver_cralwer
 	# -----------------------------------------
 	# 메인에서 블로그 이동
 	def shift_to_blog(agent)
+		
 
-		@blog = Blog.new
-		@blog.crawler_id = Crawler_id
-		@crawler = Crawler.new
-      
 		# 메인에서 블로그 이동
 		page = agent.page.link_with(:text => '블로그').click
 		
 		# 페이지를 5번째 페이지까지
 		for i in 1..5
-		
+			@blog_title = []
+			@blog_s_content = []
+			@blog_link = []
+			@blog_tag = []
+			
+			
 			html = agent.get(page.uri).body
 			html_doc = Nokogiri::HTML(html)
 			blog_section = html_doc.css('ul#elThumbnailResultArea.type01')
@@ -75,41 +75,60 @@ class Naver_cralwer
 			# title 10개를 차례대로 뽑기
 			blog_head.each_with_index do |v, i|
 				puts v.attr('title')
-				@blog.title = v.attr('title')
+				@blog_title << v.attr('title')
+				# @blog.blog_title = v.attr('title')
 			end
 		
 			# 소주제 10개를 차례대로 뽑기
 			blog_mini_content.each_with_index do |v, i|
 				puts v.text
-				@blog.blog_s_content = v.text
+				@blog_s_content << v.text
+				# @blog.blog_s_content = v.text
 			end
 		
 			# 블로그 본문으로 들어가기 
 			page = agent.page.link_with(:text => '다음페이지').click
 		
 			
-			for j in 1..9
+			for j in 0..8
 				blog_link_uri = blog_head[j].attr('href')
-
-				@blog.link = blog_link_uri
-				@crawler.blog_link = blog_link_uri
+				
+				@blog_link << blog_link_uri
+				# @blog.blog_link = blog_link_uri
+				# @crawler.blog_link = blog_link_uri
 
 				ary = Array.new	
 				# 주소가 blog와 관련된 것만 태그를 뽑아옴 
 				if blog_link_uri.include? "blog"
-					ary.push( get_tag(blog_link_uri) )
+					ary=get_tag(blog_link_uri)
 				end	
-				@blog.tag = ary
+				@blog_tag << ary
+				# @blog.tag = ary
 			end
+			
+			for k in 0..8
+				@crawler = Crawler.new
+				@crawler.save
+				
+		    	@blog = Blog.new
+				@blog.crawler_id = @crawler.id
+				@blog.blog_title=@blog_title[k]
+				@blog.blog_s_content=@blog_s_content[k]
+				@blog.blog_link=@blog_link[k]
+				@crawler.blog_link=@blog_link[k]
+				@blog.tag=@blog_tag[k]
+				@blog.tag = @blog.tag.squish
+				@blog.save
+				@crawler.category_id = Category.where(keyword: "장난감").take.id
+				@crawler.save
+			end
+			# @blog.save
 
-			@blog.save
-
-			@category = Category.find(keyword: keyword)
-			@crawler.category_id = @category.id
-			@crawler.save
+			# @category = Category.find(keyword: keyword)
+			# @crawler.category_id = Category.where(keyword: "장난감").take.id
+			# @crawler.save
 		end
 	end
 	# -----------------------------------------
-	
 end
 

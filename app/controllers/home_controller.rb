@@ -10,12 +10,12 @@ class HomeController < ApplicationController
     end
     
   	def index
-  	  require '~/workspace/lib/Naver_crawler.rb'
+  	  require '~/workspace/lib/naver_crawler.rb'
     	require 'twitter-korean-text-ruby'
 
     	@test = Naver_cralwer.new
     	@agent = Mechanize.new
-    	@agent = @test.keyword_rslt("인형")
+    	@agent = @test.keyword_rslt("장난감")
     	@test.shift_to_blog(@agent)
 
     end

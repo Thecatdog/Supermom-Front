@@ -18,13 +18,13 @@ ActiveRecord::Schema.define(version: 20171005043655) do
     t.string   "blog_title"
     t.text     "blog_s_content"
     t.text     "tag"
+    t.integer  "crawler_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
 
   create_table "categories", force: :cascade do |t|
     t.string   "keyword"
-    t.integer  "crawler_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -32,8 +32,9 @@ ActiveRecord::Schema.define(version: 20171005043655) do
   create_table "crawlers", force: :cascade do |t|
     t.string   "blog_link"
     t.integer  "blog_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "data_boys", force: :cascade do |t|

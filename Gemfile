@@ -12,6 +12,7 @@ gem 'devise'
 gem 'rolify' 
 gem 'authority'
 gem 'rails_admin'
+gem 'rails4-autocomplete'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -27,7 +28,6 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -56,4 +56,8 @@ group :development do
   gem 'rails_db'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :assets do
+  gem 'jquery-rails'
 end
