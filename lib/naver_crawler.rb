@@ -1,5 +1,6 @@
 
 class Naver_cralwer
+	
 	require 'rubygems'
 	require 'mechanize'
 	require 'rest-client'
