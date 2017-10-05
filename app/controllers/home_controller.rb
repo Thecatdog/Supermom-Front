@@ -128,4 +128,19 @@ class HomeController < ApplicationController
       end
       
     end
+    
+    def edit
+      @user = User.find(params[:user_id])
+      @user.name = params[:name]
+      @user.email = params[:email]
+      @user.address = params[:address]
+      @user.baby_name = params[:baby_name]
+      @user.baby_sex = params[:baby_sex]
+      @user.baby_age = params[:baby_age]
+      @user.baby_height = params[:baby_height]
+      @user.baby_weight = params[:baby_weight]
+      @user.baby_head_length = params[:baby_head_length]
+      @user.save
+      redirect_to '/'
+    end
 end

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>MoMCARE | Update</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="../bower_components/Ionicons/css/ionicons.min.css">
+  <!-- fullCalendar -->
+  <link rel="stylesheet" href="../bower_components/fullcalendar/dist/fullcalendar.min.css">
+  <link rel="stylesheet" href="../bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css">
+
+  <!-- Google Font -->
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+
+
+
+<body class="hold-transition skin-blue sidebar-mini">
+
+<div class="register-box" style="width:400px">
+  <div class="register-logo">
+    회원정보 수정
+  </div>
+
+  <div class="register-box-body">
+    <p class="login-box-msg">회원정보를 수정해주세요</p>
+
+    <form action="/home/edit/<%=current_user.id%>">
+      
+        <div class="field">
+            <strong>Name</strong>
+            <input type="text" name="name" class="form-control" value="<%=current_user.name%>">
+        </div>
+        <div class="field">
+            <strong>Email</strong>
+            <input type="text" name="email" class="form-control" value="<%=current_user.email%>">
+        </div>
+        <div class="field">
+            <strong>Address</strong>
+            <input type="text" name="address" class="form-control" value="<%=current_user.address%>">
+        </div>
+        
+        <div class="social-auth-links text-center">
+            <p>- Baby Information -</p>
+        </div>
+        
+        <div class="field">
+            <strong>Baby Name</strong>
+            <input type="text" name="baby_name" class="form-control" value="<%=current_user.baby_name%>">
+        </div>
+        <div class="field">
+            <strong>Baby Sex</strong>
+            <input type="text" name="baby_sex" class="form-control" value="<%=current_user.baby_sex%>">
+        </div>
+        <div class="field">
+            <strong>Baby Age<br>(만 나이로 입력해주세요. 만2세 전일 경우 개월 수로 입력해주세요.)</strong>
+            <input type="text" name="baby_age" class="form-control" value="<%=current_user.baby_age%>">
+        </div>
+        <div class="field">
+            <strong>Baby Height</strong>
+            <input type="text" name="baby_height" class="form-control" value="<%=current_user.baby_height%>">
+        </div>
+        <div class="field">
+            <strong>Baby Weight</strong>
+            <input type="text" name="baby_weight" class="form-control" value="<%=current_user.baby_weight%>">
+        </div>
+        <div class="field">
+            <strong>Baby Head Length</strong>
+            <input type="text" name="baby_head_length" class="form-control" value="<%=current_user.baby_head_length%>">
+        </div> 
+      
+        <br>
+        
+        <div class="row">
+            <div class="col-xs-8">
+                <a href="/">뒤로</a>
+            </div>
+        
+            <div class="actions col-xs-4">
+              <button type="submit" class="btn btn-primary btn-block btn-flat">수정하기</button>
+            </div>
+        </div>
+      
+    </form>
+    <!--</form>-->
+
+  </div>
+  <!-- /.form-box -->
+</div>
+<!-- /.register-box -->
+
+
+
+
+</body>
+
+
+<!-- jQuery 3 -->
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Slimscroll -->
+<script src="../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="../bower_components/fastclick/lib/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../dist/js/demo.js"></script>
+</body>
+</html>
