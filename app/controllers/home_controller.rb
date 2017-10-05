@@ -20,13 +20,11 @@ class HomeController < ApplicationController
     	puts @test
 
       require 'rubygems'
-  	  require 'mechanize'
   	  require 'rest-client'
   	  
     	@test =  Naver_crawler.new
     	@search_doll = @test.blog_search("인형")
     	@test.get_title_s_content(@search_doll, 5)
-      @test.body_of_blog
     end
     
     def growth

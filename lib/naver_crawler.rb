@@ -52,6 +52,13 @@ class Naver_cralwer
 	# -----------------------------------------
 	# 메인에서 블로그 이동
 	def shift_to_blog(agent)
+
+		@blog = Blog.new
+		@blog.link = 
+		@blog.title = 
+		@blog.blog_s_content = 
+
+
 		# 메인에서 블로그 이동
 		page = agent.page.link_with(:text => '블로그').click
 		
