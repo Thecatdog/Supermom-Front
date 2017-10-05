@@ -32,12 +32,26 @@
 
 <p id="notice"><%= notice %></p>
 
+<div class="register-box">
+  <div class="register-logo">
+    <a href="/">New Meeting</a>
+  </div>
+
+  <div class="register-box-body">
+    <p class="login-box-msg">새로운 이벤트를 등록해주세요</p>
+    
+    <%= render 'form' %>
+
+    <%= link_to 'Back', meetings_path %>
+  </div>
+</div>
+
 <div class="container" align="center">
-  <h1>New Meeting</h1>
+  <!--<h1>New Meeting</h1>-->
 
-<%= render 'form' %>
+<%#= render 'form' %>
 
-<%= link_to 'Back', meetings_path %>
+<%#= link_to 'Back', meetings_path %>
 
 
 
