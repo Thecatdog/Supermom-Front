@@ -29,13 +29,13 @@ User.create(email: 'na@email.com', password: '123456', name:'관리자', address
 User.create(email: 'abc@email.com', password: '123456', name:'관리자', address: '서울', 
             baby_name: '김냥냥', baby_sex: '여', baby_age: '7', baby_height: '123.84', baby_weight: '22.81', baby_head_length: '')
 
-Category.create(keyword: '건강', crawler_id:'')
-Category.create(keyword: '교육', crawler_id:'')
-Category.create(keyword: '도서', crawler_id:'')
-Category.create(keyword: '생활용품', crawler_id:'')
-Category.create(keyword: '장난감', crawler_id:'')
-Category.create(keyword: '음식', crawler_id:'')
-Category.create(keyword: '여행', crawler_id:'')
-Category.create(keyword: '패션', crawler_id:'')
+Category.create(keyword: '건강')
+Category.create(keyword: '교육')
+Category.create(keyword: '도서')
+Category.create(keyword: '생활용품')
+Category.create(keyword: '장난감')
+Category.create(keyword: '음식')
+Category.create(keyword: '여행')
+Category.create(keyword: '패션')
 
 

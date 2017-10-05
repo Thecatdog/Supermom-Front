@@ -13,6 +13,16 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+// 
+//= require jquery
+//= require jquery_ujs
+//= require jquery-ui
+//= require autocomplete-rails
+//= require jquery-jvectormap-1.2.2.min.js
+//= require jquery-jvectormap-world-mill-en.js
+//= require jquery.knob.min.js
+//= require jquery.min.js
+//= require locale-all.js
 //= require bootstrap3-wysihtml5.all.min.js
 //= require dashboard.js
 //= require daterangepicker.js
@@ -21,12 +31,6 @@
 //= require fullcalendar.min.js
 //= require gcal.js
 //= require gcal.min.js
-//= require jquery-jvectormap-1.2.2.min.js
-//= require jquery-jvectormap-world-mill-en.js
-//= require jquery-ui.min.js
-//= require jquery.knob.min.js
-//= require jquery.min.js
-//= require locale-all.js
 //= require moment.js
 //= require moment.min.js
 //= require morris.min.js
@@ -35,8 +39,6 @@
 //= require bootstrap.min.js
 //= require bootstrap-datepicker.min.js
 //= require adminlte.min.js
-//= require jquery
-//= require jquery_ujs
 //= require bootstrap-datepicker.min
 //= require adminlte.min
 //= require turbolinks
