@@ -72,23 +72,24 @@
       </div>
       <div class="field">
           <%= f.label :baby_sex, style: "color:#F6F4F4" %><br/>
-          <%= f.text_field :baby_sex, autocomplete: "off", class: "form-control", style: "border:3px solid #FFA500;" %>
+          <%= f.text_field :baby_sex, autocomplete: "off", class: "form-control", style: "border:3px solid #FFA500;", placeholder: "남 / 여" %>
       </div>
       <div class="field">
           <%= f.label :baby_age, style: "color:#F6F4F4" %><br/>
-          <%= f.text_field :baby_age, autocomplete: "off", class: "form-control", style: "border:3px solid #FFA500;" %>
+          <p style="color:#F6F4F4">(만 나이로 입력해주세요. 만2세 전일 경우 개월 수로 입력해주세요.)</p>
+          <%= f.text_field :baby_age, autocomplete: "off", class: "form-control", style: "border:3px solid #FFA500;", placeholder: "개월 수는 뒤에 m을 붙여주세요." %>
       </div>
       <div class="field">
           <%= f.label :baby_height, style: "color:#F6F4F4" %><br/>
-          <%= f.text_field :baby_height, autocomplete: "off", class: "form-control", style: "border:3px solid #FFA500;" %>
+          <%= f.text_field :baby_height, autocomplete: "off", class: "form-control", style: "border:3px solid #FFA500;", placeholder: "단위(cm)는 입력하지 말아주세요." %>
       </div>
       <div class="field">
           <%= f.label :baby_weight, style: "color:#F6F4F4" %><br/>
-          <%= f.text_field :baby_weight, autocomplete: "off", class: "form-control", style: "border:3px solid #FFA500;" %>
+          <%= f.text_field :baby_weight, autocomplete: "off", class: "form-control", style: "border:3px solid #FFA500;", placeholder: "단위(kg)는 입력하지 말아주세요." %>
       </div>
       <div class="field">
           <%= f.label :baby_head_length, style: "color:#F6F4F4" %><br/>
-          <%= f.text_field :baby_head_length, autocomplete: "off", class: "form-control", style: "border:3px solid #FFA500;" %>
+          <%= f.text_field :baby_head_length, autocomplete: "off", class: "form-control", style: "border:3px solid #FFA500;", placeholder: "단위(cm)는 입력하지 말아주세요." %>
       </div>
       
       <br>
