@@ -12,19 +12,13 @@ class HomeController < ApplicationController
   	def index
   	  require '~/workspace/lib/Naver_crawler.rb'
     	require 'twitter-korean-text-ruby'
-    	
+
     	@test = Naver_cralwer.new
     	@agent = Mechanize.new
     	@agent = @test.keyword_rslt("인형")
     	@test.shift_to_blog(@agent)
     	puts @test
 
-      require 'rubygems'
-  	  require 'rest-client'
-  	  
-    	@test =  Naver_crawler.new
-    	@search_doll = @test.blog_search("인형")
-    	@test.get_title_s_content(@search_doll, 5)
     end
     
     def growth
