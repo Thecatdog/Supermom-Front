@@ -8,17 +8,11 @@ Rails.application.routes.draw do
   get 'meetings' => 'meetings#new'
   get 'home/index1'
   post '/home/index1' => 'home#index1'
-  get 'home/test'
-  get 'home/mongodbtest'
-  get 'home/rename'
-  get 'home/calendar'
   get 'home/hospital'
   get 'home/ranking'
   get 'home/detail'
-  get 'home/index'
   get 'home/growth'
-  # get 'home/update'
-  
+
   get '/home/update/:user_id' => 'home#update'
   get '/home/edit/:user_id' => 'home#edit'
   post '/home/edit/:user_id' => 'home#edit'
