@@ -78,8 +78,8 @@ for i in 2..5
 
 	# title 10개를 차례대로 뽑기
 	blog_head.each_with_index do |v, i|
-
 		puts v.attr('title')
+
 	end
 
 	# 블로그 본문으로 들어가기 

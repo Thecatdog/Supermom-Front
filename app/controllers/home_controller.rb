@@ -1,5 +1,4 @@
 class HomeController < ApplicationController
-  
   before_filter :authenticate_user!, :except =>[:index]
     def index1
       if params[:choose_categories].nil?
@@ -11,14 +10,14 @@ class HomeController < ApplicationController
     end
     
   	def index
-  	  require '~/workspace/lib/naver_crawler.rb'
+  	  require '~/workspace/lib/Naver_crawler.rb'
     	require 'twitter-korean-text-ruby'
 
     	@test = Naver_cralwer.new
     	@agent = Mechanize.new
     	@agent = @test.keyword_rslt("인형")
     	@test.shift_to_blog(@agent)
-    	puts @test
+
     end
     
     def growth
@@ -36,7 +35,6 @@ class HomeController < ApplicationController
             @girlHeadLength = g.baby_head_length
           end
         end
-        
       elsif current_user.baby_age.eql? ("16m" || "17m")
         if current_user.baby_sex.eql? "남"
           DataBoy.where(baby_age: "15m").each do |b|
