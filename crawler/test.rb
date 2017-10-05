@@ -78,22 +78,20 @@ for i in 2..5
 
 	# title 10개를 차례대로 뽑기
 	blog_head.each_with_index do |v, i|
-		puts i
+
 		puts v.attr('title')
 	end
 
 	# 블로그 본문으로 들어가기 
 	page = agent.page.link_with(:text => '다음페이지').click
 	
-	puts page.uri
+	# puts page.uri
 	# if page.uri.include? "blog"
-		puts "큰 한바퀴 "
-		puts i
+	
 
 	for j in 1..9
 		blog_link_uri = blog_head[j].attr('href')
-		puts "작은 한바퀴"
-		puts j
+	
 		puts blog_link_uri
 
 		# 주소가 blog와 관련된 것만 태그를 뽑아옴 

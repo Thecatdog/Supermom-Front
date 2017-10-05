@@ -36,5 +36,7 @@
 //= require adminlte.min.js
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-datepicker.min
+//= require adminlte.min
 //= require turbolinks
 //= require_tree .
