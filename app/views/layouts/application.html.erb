@@ -214,7 +214,6 @@
         </section>
       
         <section class="content">
-          <%= yield %>
         </section>
       
       </div>
@@ -222,12 +221,11 @@
     <footer class="main-footer">
       <strong>Copyright &copy; 2017 엄마를 부탁해</a></strong> All rights reserved.
     </footer>
-    
+    <%=yield%>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <% else %>
-      <%=yield%>
-          <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
-    
+    <%=yield%>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%end%>
   
 
