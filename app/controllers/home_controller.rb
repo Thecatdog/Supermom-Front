@@ -13,11 +13,14 @@ class HomeController < ApplicationController
   	  require '~/workspace/lib/naver_crawler.rb'
     	require 'twitter-korean-text-ruby'
 
-    	@test = Naver_cralwer.new
-    	@agent = Mechanize.new
-    	@agent = @test.keyword_rslt("장난감")
-    	@test.shift_to_blog(@agent)
-
+      category = Category.all
+      category.each do |k| 
+      	@test = Naver_cralwer.new
+      	@agent = Mechanize.new
+      	@agent = @test.keyword_rslt(category.keyword)
+      	@test.shift_to_blog(@agent, category.keyword)
+      end
+      
     end
     
     def growth

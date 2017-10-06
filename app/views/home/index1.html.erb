@@ -1,95 +1,51 @@
-<<<<<<< HEAD
-=======
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Calendar</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="/bower_components/Ionicons/css/ionicons.min.css">
-  <!-- fullCalendar -->
-  <link rel="stylesheet" href="/bower_components/fullcalendar/dist/fullcalendar.min.css">
-  <link rel="stylesheet" href="/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="/dist/css/skins/_all-skins.min.css">
->>>>>>> 5aaf83e15c6a972826c71fafcaf4c31a72ede319
+
 
       <div class="row">
         
         <!-- ./col -->
-        <%@categories_array.each do |cate|%>
-          <%if @categories.include? cate%>
-            <div class="col-lg-3 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-<%=["black","red","aqua","blue","navy","teal","green","olive","yellow","orange","fuchsia","purple","maroon"].sample(1).join%>">
-              <div class="inner">
-                <p>65 VIEW</p>
-                
-                <h3><center><%=cate%></center></h3><br><hr>
-                <center>
-                  <p>1위. </p>
-                  <p>2위. </p>
-                  <p>3위. </p>
-                  <p>4위. </p>
-                  <p>5위. </p>
-                </center>
-  
-  
-              </div>
-              <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="/home/ranking" class="small-box-footer">
-                More info <i class="fa fa-arrow-circle-right"></i>
-              </a>
-            </div>
-            </div>
-            <!-- ./col -->
-          
+
+        
+        <%if @categories==""%>
+        <div class="container" align="center">
+          <h1><b>SUPER</b>MoM</h1>
+          <h4>TAKE CARE OF OUR MoM</h4>
+          <p><엄마를 부탁해> 는 검색에 미숙하고 최신 트렌드에 뒤쳐진 엄마를 위한 사이트입니다.</p>
+          <p>1. 원하는 카테고리를 선택한 후 SEARCH 버튼을 클릭합니다. <img src= "<%= image_path '/category.png' %>" width="190px"></p>
+          <p>2. </p>
+        </div>
+        <%else%>
+          <%@categories_array.each do |cate|%>
+              <%if @categories.include? cate%>
+                <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-<%=["black","red","aqua","blue","navy","teal","green","olive","yellow","orange","fuchsia","purple","maroon"].sample(1).join%>">
+                  <div class="inner">
+                    <p>65 VIEW</p>
+                    
+                    <h3><center><%=cate%></center></h3><br><hr>
+                    <center>
+                      <p>1위. </p>
+                      <p>2위. </p>
+                      <p>3위. </p>
+                      <p>4위. </p>
+                      <p>5위. </p>
+                    </center>
+      
+      
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-pie-graph"></i>
+                  </div>
+                  <a href="/home/ranking" class="small-box-footer">
+                    More info <i class="fa fa-arrow-circle-right"></i>
+                  </a>
+                </div>
+                </div>
+                <!-- ./col -->
+              
+              <%end%>
           <%end%>
         <%end%>
         </div>
       <!-- /.row -->
-<<<<<<< HEAD
-=======
-<!-- Small boxes (Stat box) end-->
 
-
-
-      <div class="row">
-
-          
-          
-          
-          
-          
-<script src="/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="/bower_components/jquery-ui/jquery-ui.min.js"></script>
-<!-- Slimscroll -->
-<script src="/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="/bower_components/fastclick/lib/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="/dist/js/demo.js"></script>
-<!-- fullCalendar -->
-<script src="/bower_components/moment/moment.js"></script>
-<script src="/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
-<!-- Page specific script -->
-</body>
-</html>
->>>>>>> 5aaf83e15c6a972826c71fafcaf4c31a72ede319

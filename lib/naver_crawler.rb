@@ -51,8 +51,7 @@ class Naver_cralwer
 	
 	# -----------------------------------------
 	# 메인에서 블로그 이동
-	def shift_to_blog(agent)
-		
+	def shift_to_blog(agent, key)
 
 		# 메인에서 블로그 이동
 		page = agent.page.link_with(:text => '블로그').click
@@ -119,14 +118,9 @@ class Naver_cralwer
 				@blog.tag=@blog_tag[k]
 				@blog.tag = @blog.tag.squish
 				@blog.save
-				@crawler.category_id = Category.where(keyword: "장난감").take.id
+				@crawler.category_id = Category.where(keyword: key).take.id
 				@crawler.save
 			end
-			# @blog.save
-
-			# @category = Category.find(keyword: keyword)
-			# @crawler.category_id = Category.where(keyword: "장난감").take.id
-			# @crawler.save
 		end
 	end
 	# -----------------------------------------
