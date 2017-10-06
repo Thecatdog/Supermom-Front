@@ -1,79 +1,84 @@
+<%if (current_user.baby_height.empty? && current_user.baby_weight.empty?) || (@resultHeight==0 && @resultWeight==0) %>
+    <div class="box">
+        <div class="box-header">
+            <h2 class="box-title">아이의 신체정보(키, 몸무게<%if current_user.baby_age.include? "m" || current_user.baby_age.to_i < 7%>, 머리둘레<%end%>)를 입력하면 아이의 성장척도를 볼 수 있습니다.</h2>
+        </div>
+    </div>
+<%else%>
     <div class="box">
         <div class="box-header">
             <% if current_user.baby_age.include? "m" || current_user.baby_age.to_i < 7 %>
                 <h2 class="box-title">
                     당신의 아이는
-                    키 <%=current_user.baby_height%>cm로 
-                    <strong style="color:red">
-                        <%if current_user.baby_height.to_i > @resultHeight.to_i%>
-                            평균이상
-                        <%elsif current_user.baby_height.to_i < @resultHeight.to_i%>
-                            평균이하
-                        <%else%>
-                            평균
-                        <%end%>
-                    </strong>,    
-                    <!--상위 <strong style="color:red"> %</strong>, -->
                     
-                    몸무게 <%=current_user.baby_weight%>kg으로 
-                    <strong style="color:red">
-                        <%if current_user.baby_weight.to_i > @resultWeight.to_i%>
-                            평균이상
-                        <%elsif current_user.baby_weight.to_i < @resultWeight.to_i%>
-                            평균이하
-                        <%else%>
-                            평균
-                        <%end%>
-                    </strong>,    
-                    <!--상위 <strong style="color:red"> %</strong>,  -->
+                    <%if current_user.baby_height.empty?%>
+                    <%else%>
+                        키 <%=current_user.baby_height%>cm로 
+                        <strong style="color:red">
+                            <%if current_user.baby_height.to_i > @resultHeight.to_i%> 평균이상
+                            <%elsif current_user.baby_height.to_i < @resultHeight.to_i%> 평균이하
+                            <%else%> 평균
+                            <%end%>
+                        </strong>   
+                    <%end%>
+
+                    <%if current_user.baby_weight.empty?%>
+                    <%else%>
+                        몸무게 <%=current_user.baby_weight%>kg으로 
+                        <strong style="color:red">
+                            <%if current_user.baby_weight.to_i > @resultWeight.to_i%> 평균이상
+                            <%elsif current_user.baby_weight.to_i < @resultWeight.to_i%> 평균이하
+                            <%else%> 평균
+                            <%end%>
+                        </strong>   
+                    <%end%>
                     
-                    머리둘레 <%=current_user.baby_head_length%>cm로 
-                    <strong style="color:red">
-                        <%if current_user.baby_head_length.to_i > @resultHeadLength.to_i%>
-                            평균이상
-                        <%elsif current_user.baby_head_length.to_i < @resultHeadLength.to_i%>
-                            평균이하
-                        <%else%>
-                            평균
+                    <%if current_user.baby_head_length.empty?%>
+                    <%else%>
+                        머리둘레 <%=current_user.baby_head_length%>cm로 
+                        <strong style="color:red">
+                            <%if current_user.baby_head_length.to_i > @resultHeadLength.to_i%> 평균이상
+                            <%elsif current_user.baby_head_length.to_i < @resultHeadLength.to_i%> 평균이하
+                            <%else%> 평균
+                            <%end%>
+                        </strong>
                         <%end%>
-                    </strong>
-                    <!--상위 <strong style="color:red"> %</strong> 입니다. -->
                     입니다.
                 </h2>
             <% else %>
                 <h2 class="box-title">
                     당신의 아이는
-                    키 <%=current_user.baby_height%>cm로 
-                    <strong style="color:red">
-                        <%if current_user.baby_height.to_i > @resultHeight.to_i%>
-                            평균이상
-                        <%elsif current_user.baby_height.to_i < @resultHeight.to_i%>
-                            평균이하
-                        <%else%>
-                            평균
-                        <%end%>
-                    </strong>,  
+                    <%if current_user.baby_height.empty?%>
+                    <%else%>
+                        키 <%=current_user.baby_height%>cm로 
+                        <strong style="color:red">
+                            <%if current_user.baby_height.to_i > @resultHeight.to_i%> 평균이상
+                            <%elsif current_user.baby_height.to_i < @resultHeight.to_i%> 평균이하
+                            <%else%> 평균
+                            <%end%>
+                        </strong> 
+                    <%end%>
                     
-                    몸무게 <%=current_user.baby_weight%>kg으로 
-                    <strong style="color:red">
-                        <%if current_user.baby_weight.to_i > @resultWeight.to_i%>
-                            평균이상
-                        <%elsif current_user.baby_weight.to_i < @resultWeight.to_i%>
-                            평균이하
-                        <%else%>
-                            평균
-                        <%end%>
-                    </strong>
+                    <%if current_user.baby_weight.empty?%>
+                    <%else%>
+                        몸무게 <%=current_user.baby_weight%>kg으로 
+                        <strong style="color:red">
+                            <%if current_user.baby_weight.to_i > @resultWeight.to_i%> 평균이상
+                            <%elsif current_user.baby_weight.to_i < @resultWeight.to_i%> 평균이하
+                            <%else%> 평균
+                            <%end%>
+                        </strong>
+                    <%end%>
                     입니다.
                 </h2>
             <% end %>    
         </div>
         <div class="box-body">
-            <!--<p>상위 25%란, 동일 연령대 100명을 기준으로 작은 순을 1번으로 하였을 때 25번째를 의미합니다.</p>-->
             <p>기준 : 2007년 소아 청소년 표준성장도표, 보건복지부</p>
         </div>
     </div>
-            
+<%end%>
+
     <div class="row">
         <div class="col-lg-6 col-xs-6">
             <div class="box">

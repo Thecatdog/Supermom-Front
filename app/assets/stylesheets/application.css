@@ -27,4 +27,7 @@
  *= require user
  *= require_tree .
  *= require_self
+ @font-face {
+  asset-url('SangSangShinb7.ttf') format('truetype');
+}
  */
