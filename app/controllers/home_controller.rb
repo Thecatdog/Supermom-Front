@@ -247,13 +247,12 @@ class HomeController < ApplicationController
         
       end
     end
-    
+  
     def detail
       # 카테고리아이디를 이용해서 크롤러 접근 후 
       # 블로그에서 크롤러 아이디를 이용해서 데이터찾기
-      
       @cate_param = params[:category_id]
-      @crawler_id = Crawler.where(category_id: @category_id).ids
-      @blog = Blog.where(crawler_id: @crawler_id)
+      @crawler_id = Crawler.where(category_id: @cate_param).ids
+      # @blog = Blog.where(crawler_id: @crawler_id)
     end 
 end

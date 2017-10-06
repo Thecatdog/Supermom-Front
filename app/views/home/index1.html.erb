@@ -19,7 +19,7 @@
                 <div class="small-box bg-<%=["black","red","aqua","blue","navy","teal","green","olive","yellow","orange","fuchsia","purple","maroon"].sample(1).join%>">
                   <div class="inner">
                     <p>65 VIEW</p>
-                    
+                    <%@cate_send = cate%>
                     <h3><center>
                       <%
                       @baby_age = User.find(current_user.id).baby_age
@@ -63,20 +63,15 @@
                   <div class="icon">
                     <i class="ion ion-pie-graph"></i>
                   </div>
-                  <a href="/home/ranking" class="small-box-footer">
-                    More info <i class="fa fa-arrow-circle-right"></i>
+                  <% @cate_index = @categories_array.index(@cate_send) %>
+                  <a href="/home/ranking/<%=@cate_index+1%>" class="small-box-footer">
+                    More infdasdaso <i class="fa fa-arrow-circle-right"></i>
                   </a>
                 </div>
                 </div>
                 <!-- ./col -->
-              <% @cate_index = @categories_array.index(cate) %>
-              <a href="/home/ranking/<%= @cate_index+1 %>" class="small-box-footer">
-                More info <i class="fa fa-arrow-circle-right"></i>
-              </a>
-            </div>
-            </div>
-            <!-- ./col -->
-          
+              
+          <%end%>
           <%end%>
         <%end%>
         </div>

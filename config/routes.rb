@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'home/index1'
   post '/home/index1' => 'home#index1'
   get 'home/hospital'
-  get 'home/ranking'
+  # get 'home/ranking'
   get 'home/detail'
   get 'home/growth'
 
