@@ -7,7 +7,6 @@ class HomeController < ApplicationController
         @categories = params[:choose_categories]
       end
       @categories_array = ["건강","교육","도서","생활용품","장난감","음식","여행","패션"]
-      
     end
     
   	def index
@@ -194,8 +193,7 @@ class HomeController < ApplicationController
       # 블로그에서 크롤러 아이디를 이용해서 데이터찾기
       
       @cate_param = params[:category_id]
-      @crawler_id = Crawler.where(category_id: @category_id).id
+      @crawler_id = Crawler.where(category_id: @category_id).ids
       @blog = Blog.where(crawler_id: @crawler_id)
-      
     end 
 end

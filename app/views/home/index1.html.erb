@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-      <div class="row">
+<div class="row">
         
         <!-- ./col -->
         <%@categories_array.each do |cate|%>
@@ -36,56 +35,9 @@
             </div>
             <!-- ./col -->
           
-=======
-
-
-      <div class="row">
-        
-        <!-- ./col -->
-
-        
-        <%if @categories==""%>
-        <div class="container" align="center">
-          <h1><b>SUPER</b>MoM</h1>
-          <h4>TAKE CARE OF OUR MoM</h4>
-          <p><엄마를 부탁해> 는 검색에 미숙하고 최신 트렌드에 뒤쳐진 엄마를 위한 사이트입니다.</p>
-          <p>1. 원하는 카테고리를 선택한 후 SEARCH 버튼을 클릭합니다. <img src= "<%= image_path '/category.png' %>" width="190px"></p>
-          <p>2. </p>
-        </div>
-        <%else%>
-          <%@categories_array.each do |cate|%>
-              <%if @categories.include? cate%>
-                <div class="col-lg-3 col-xs-6">
-                <!-- small box -->
-                <div class="small-box bg-<%=["black","red","aqua","blue","navy","teal","green","olive","yellow","orange","fuchsia","purple","maroon"].sample(1).join%>">
-                  <div class="inner">
-                    <p>65 VIEW</p>
-                    
-                    <h3><center><%=cate%></center></h3><br><hr>
-                    <center>
-                      <p>1위. </p>
-                      <p>2위. </p>
-                      <p>3위. </p>
-                      <p>4위. </p>
-                      <p>5위. </p>
-                    </center>
-      
-      
-                  </div>
-                  <div class="icon">
-                    <i class="ion ion-pie-graph"></i>
-                  </div>
-                  <a href="/home/ranking" class="small-box-footer">
-                    More info <i class="fa fa-arrow-circle-right"></i>
-                  </a>
-                </div>
-                </div>
-                <!-- ./col -->
-              
-              <%end%>
->>>>>>> 1b999475f70dab18f9b66ef2d3ad688ffd5bb93c
           <%end%>
         <%end%>
         </div>
       <!-- /.row -->
+
 
