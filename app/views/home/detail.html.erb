@@ -4,21 +4,16 @@
             <!-- Box Comment -->
             <div class="box box-widget">
                 <div class="box-body">
-                <% @blog.each do |b| %>
-                
-                <!-- Attachment -->
-                    <div class="attachment-block clearfix">
-                      <h4 class="attachment-heading"><a href="<%= b.blog_link %>"><%= b.blog_title %></a></h4><br>
-
-                      <div class="attachment-text">
-                       <p><%= b.blog_s_content%></p>
-                       <a href="#">more</a>
+                    <%@crawler_id.each do |c_id|%>
+                        <%@blog = Blog.where(crawler_id: c_id).take%>
+                        <div class="attachment-block clearfix">
+                          <h4 class="attachment-heading"><a href="<%= @blog.blog_link %>"target="_blank"><%= @blog.blog_title %></a></h4><br>
+                          <div class="attachment-text">
+                           <p><%= @blog.blog_s_content%></p>
+                          </div>
                       </div>
-                  </div>
-
-                  <br>
-                  <% end %>
-                  
+                      <br>
+                  <%end%>
                 </div>
                 
                 </div>
@@ -26,16 +21,16 @@
         <div class="col-md-2"></div>
     </div>
 
-    <center>
-    <ul class="pagination pagination-lg no-margin">
-        <li><a href="#">&laquo;</a></li>
-        <% for i in 1..10 %>
-            <li><a href="#"><%=i%></a></li>
+    <!--<center>-->
+    <!--<ul class="pagination pagination-lg no-margin">-->
+    <!--    <li><a href="#">&laquo;</a></li>-->
+    <!--    <%# for i in 1..10 %>-->
+    <!--        <li><a href="#"><%#=i%></a></li>-->
             <!--<li><a href="#">2</a></li>-->
             <!--<li><a href="#">3</a></li>-->
-        <% end %>
-        <li><a href="#">&raquo;</a></li>
-    </ul>
-    </center>
+    <!--    <#% end %>-->
+    <!--    <li><a href="#">&raquo;</a></li>-->
+    <!--</ul>-->
+    <!--</center>-->
   
   

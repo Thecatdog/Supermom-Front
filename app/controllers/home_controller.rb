@@ -1,26 +1,86 @@
 class HomeController < ApplicationController
   before_filter :authenticate_user!, :except =>[:index]
+  require 'twitter-korean-text-ruby'
+  @module = TwitterKorean::Processor.new
     def index1
+      require '~/workspace/lib/naver_crawler.rb'
       if params[:choose_categories].nil?
         @categories = ""
       else
         @categories = params[:choose_categories]
       end
       @categories_array = ["건강","교육","도서","생활용품","장난감","음식","여행","패션"]
+
     end
     
-  	def index
-  	  require '~/workspace/lib/naver_crawler.rb'
-    	require 'twitter-korean-text-ruby'
-
-      category = Category.all
-      category.each do |k| 
-      	@test = Naver_cralwer.new
-      	@agent = Mechanize.new
-      	@agent = @test.keyword_rslt(category.keyword)
-      	@test.shift_to_blog(@agent, category.keyword)
+    def keyword_extraction(blog_title,keyword)
+      blog = Blog.where(blog_title: blog_title).take
+      blog_tags = blog.tag
+      blog_tags_ary = blog_tags.split(" ")
+      @b_title = blog_title
+      @divide_b_title = @module.extract_phrases(@b_title)
+      base_dic=base_word
+      @noun_content = []
+      @divide_b_title.each do |s|
+        if s.length>3
+          @metadata = s.metadata
+          if @metadata.pos.to_s.include? "noun"
+              if base_dic.include? s
+              else
+                  @noun_content << s
+              end
+          elsif @metadata.pos.to_s.include? "alpha"
+            @noun_content << s
+          else
+          end
+        end
       end
       
+      @complete = []
+      @noun_content.each do |n|
+        n = n.gsub(" ","")
+        blog_tags_ary.each do |t|
+          if n.include? t
+            @complete << t
+          end
+        end
+      end
+      @complete = @complete.uniq
+      
+      crawler = Crawler.where(blog_link: blog.blog_link).take
+      crawler.regulated_tag = ""
+      @complete.each do |c|
+        if c==keyword
+          @complete.delete(c)
+        end
+      end
+      
+      @complete.each do |c|
+        crawler.regulated_tag = crawler.regulated_tag + c + " "
+      end
+      
+      crawler.save
+
+
+    end
+    
+    def base_word
+      aFile = File.new('public/base_word.txt','r')
+      fSize = aFile.stat.size
+      if aFile
+        content = aFile.sysread(fSize)
+      else
+          puts 'Unable open file'
+      end
+      base = content.to_s.force_encoding("UTF-8")
+      base_dic = @module.stem(base)
+      base_dic.delete("\",\"")
+      base_dic.delete("\"]")
+      base_dic.delete("[\"")
+      base_dic.delete(";\",\"")
+      josa = ["이","가","께서","의","을","를","에","에게","께","한테","에서","와","과","로","으로","로서","으로서","로써","으로써","보다","랑","이랑","만큼","하고","더러","보고","이다","고","라고","이라고","며","이고","이며","이면","면","아","야","여","이여","이시여","요","은","는","도","만","조차","밖에","뿐","나","이나","깨나","일랑","부터","까지","라고","이라고","라도","이라도","마는","들", "그려", "그래", "손", "이야", "야", "다가", "커녕", "치고", "마다", "서껀", "야말로", "이야말로", "엔들", "이란", "란", "곧", "대로", "따라", "토록", "든지", "이든지", "이라야", "인즉"]
+      base_dic = base_dic+josa
+      return base_dic
     end
     
     def edit
@@ -78,14 +138,13 @@ class HomeController < ApplicationController
         
       end
     end
-    
+  
     def detail
       # 카테고리아이디를 이용해서 크롤러 접근 후 
       # 블로그에서 크롤러 아이디를 이용해서 데이터찾기
-      
       @cate_param = params[:category_id]
-      @crawler_id = Crawler.where(category_id: @category_id).ids
-      @blog = Blog.where(crawler_id: @crawler_id)
+      @crawler_id = Crawler.where(category_id: @cate_param).ids
+      # @blog = Blog.where(crawler_id: @crawler_id)
     end 
     
     def growth

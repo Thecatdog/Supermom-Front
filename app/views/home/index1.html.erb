@@ -1,40 +1,77 @@
 <div class="row">
         
         <!-- ./col -->
-        <%@categories_array.each do |cate|%>
-          <%if @categories.include? cate%>
-            <div class="col-lg-3 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-<%=["black","red","aqua","blue","navy","teal","green","olive","yellow","orange","fuchsia","purple","maroon"].sample(1).join%>">
-              <div class="inner">
-                <p>65 VIEW</p>
-                
-                <h3><center><%=cate%></center></h3><br><hr>
-                <center>
-                  <p>1위. </p>
-                  <p>2위. </p>
-                  <p>3위. </p>
-                  <p>4위. </p>
-                  <p>5위. </p>
-                </center>
-  
-  
-              </div>
-              <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-              </div>
+
+        
+        <%if @categories==""%>
+        <div class="container" align="center">
+          <h1><b>SUPER</b>MoM</h1>
+          <h4>TAKE CARE OF OUR MoM</h4>
+          <p><엄마를 부탁해> 는 검색에 미숙하고 최신 트렌드에 뒤쳐진 엄마를 위한 사이트입니다.</p>
+          <p>1. 원하는 카테고리를 선택한 후 SEARCH 버튼을 클릭합니다. <img src= "<%= image_path '/category.png' %>" width="190px"></p>
+          <p>2. </p>
+        </div>
+        <%else%>
+          <%@categories_array.each do |cate|%>
+              <%if @categories.include? cate%>
+                <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-<%=["black","red","aqua","blue","navy","teal","green","olive","yellow","orange","fuchsia","purple","maroon"].sample(1).join%>">
+                  <div class="inner">
+                    <p>65 VIEW</p>
+                    <%@cate_send = cate%>
+                    <h3><center>
+                      <%
+                      @baby_age = User.find(current_user.id).baby_age
+                      if @baby_age.include? "m"
+                        cate = "아기 "+cate
+                      elsif @baby_age.include? "개월"
+                        cate = "아기 "+cate
+                      else
+                        @baby_age = @baby_age.to_i
+                        case
+                        	when @baby_age<=3 then
+                        		cate = "아기 "+cate
+                        	when @baby_age >3 && @baby_age<=7 then
+                        		cate = "유아 "+cate
+                        	when @baby_age >=8 && @baby_age<=13 then
+                        		cate = "초등학생 "+cate
+                        	else
+                        		cate = "청소년 "+cate
+                        end
+                      end
+                      %>
+                      <%=cate%></center></h3><br><hr>
+                      <%
+                      require '~/workspace/lib/naver_crawler.rb'
+    	                require 'twitter-korean-text-ruby'
+    	                @test = Naver_cralwer.new
+                      @agent = Mechanize.new
+                      @agent = @test.keyword_rslt(cate)
+      	              @test.shift_to_blog(@agent, cate)
+                      %>
+                    <center>
+                      <p>1위. </p>
+                      <p>2위. </p>
+                      <p>3위. </p>
+                      <p>4위. </p>
+                      <p>5위. </p>
+                    </center>
+      
+      
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-pie-graph"></i>
+                  </div>
+                  <% @cate_index = @categories_array.index(@cate_send) %>
+                  <a href="/home/ranking/<%=@cate_index+1%>" class="small-box-footer">
+                    More infdasdaso <i class="fa fa-arrow-circle-right"></i>
+                  </a>
+                </div>
+                </div>
+                <!-- ./col -->
               
-              <!-- Find array index -->
-              <% @cate_index = @categories_array.index(cate) %>
-              <!-- /Find array index -->
-              
-              <a href="/home/ranking/<%= @cate_index+1 %>" class="small-box-footer">
-                More info <i class="fa fa-arrow-circle-right"></i>
-              </a>
-            </div>
-            </div>
-            <!-- ./col -->
-          
+          <%end%>
           <%end%>
         <%end%>
         </div>
