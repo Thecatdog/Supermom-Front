@@ -1,24 +1,31 @@
+# Supermom
 
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+* README:       https://github.com/Thecatdog/supermom2
+* Bug Reports:  https://github.com/Thecatdog/supermom2/issues
 
+## Description
 
-Welcome to your Rails project on Cloud9 IDE!
+'Supermom' is for working mother who are not good in searching on the Internet.
+It shows ranking of user's interest.
 
-To get started, just do the following:
+## Features
 
-1. Run the project with the "Run Project" button in the menu bar on top of the IDE.
-2. Preview your new app by clicking on the URL that appears in the Run panel below (https://HOSTNAME/).
-
-Happy coding!
-The Cloud9 IDE team
+* List of vaccination for user's child.
+* Measuring a child's growth.
+* Naver Blog scrapping.
+* twitter-korean-text provides 'normalization', 'tokenization', 'stemming', 'phrase extraction' features.
 
 
-## Support & Documentation
+## Ruby version 
 
-Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE. 
-To watch some training videos, visit http://www.youtube.com/user/c9ide
+ruby 2.4.1
+
+## API Reference
+
+* naver_blog_crawler
+* twitter-korean-text-ruby 
+
+## Development
+
+
+## License

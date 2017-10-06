@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get 'get_location_info' => 'meetings#get_location_info'
   get 'meetings' => 'meetings#new'
+  get 'home/index'
   get 'home/index1'
   post '/home/index1' => 'home#index1'
   get 'home/hospital'

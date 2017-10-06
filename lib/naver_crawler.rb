@@ -51,8 +51,7 @@ class Naver_cralwer
 	
 	# -----------------------------------------
 	# 메인에서 블로그 이동
-	def shift_to_blog(agent)
-		
+	def shift_to_blog(agent, key)
 
 		# 메인에서 블로그 이동
 		page = agent.page.link_with(:text => '블로그').click
@@ -99,7 +98,7 @@ class Naver_cralwer
 
 				ary = Array.new	
 				# 주소가 blog와 관련된 것만 태그를 뽑아옴 
-				if blog_link_uri.include? "blog"
+				if blog_link_uri.include? ("blog.me" || "naver.blog.com")
 					ary=get_tag(blog_link_uri)
 				end	
 				@blog_tag << ary
@@ -119,14 +118,9 @@ class Naver_cralwer
 				@blog.tag=@blog_tag[k]
 				@blog.tag = @blog.tag.squish
 				@blog.save
-				@crawler.category_id = Category.where(keyword: "장난감").take.id
+				@crawler.category_id = Category.where(keyword: key).take.id
 				@crawler.save
 			end
-			# @blog.save
-
-			# @category = Category.find(keyword: keyword)
-			# @crawler.category_id = Category.where(keyword: "장난감").take.id
-			# @crawler.save
 		end
 	end
 	# -----------------------------------------
