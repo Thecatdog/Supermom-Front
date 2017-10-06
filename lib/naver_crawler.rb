@@ -16,15 +16,16 @@ class Naver_cralwer
 			page = agent.get(second_uri)
 			page = page.search('frame').attr('src')
 			blog_link_uri = "http://m.blog.naver.com" + page
-		else
+		else if blog_link_uri.include? "blog.naver.com"
 			blog_link_uri = blog_link_uri.gsub("http://", "http://m.")
+		else
+
 		end
 	
 		page  = agent.get(blog_link_uri)
 		
 		page.search('div.post_tag').each do |t|
 	  		@tags= t.text.gsub('#', '')
-
 	  	end
 	
 		# 원래 페이지로 돌아가기
