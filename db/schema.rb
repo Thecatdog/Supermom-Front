@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171005043655) do
+ActiveRecord::Schema.define(version: 20171006041721) do
 
   create_table "blogs", force: :cascade do |t|
     t.string   "blog_link"
@@ -108,5 +108,16 @@ ActiveRecord::Schema.define(version: 20171005043655) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
+
+  create_table "vaccinations", force: :cascade do |t|
+    t.string   "disease"
+    t.string   "vaccine_value"
+    t.string   "age"
+    t.string   "vaccination_count"
+    t.string   "order"
+    t.string   "other"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
 end

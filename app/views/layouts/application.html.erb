@@ -71,85 +71,15 @@
           <span class="icon-bar"></span>
         </a>
   
-        <div class="navbar-custom-menu">
-          <ul class="nav navbar-nav">
-          
-            <li class="dropdown messages-menu">
-
-              <ul class="dropdown-menu">
-                
-                  
-                  <ul class="menu">
-                    <li><!-- start message -->
-                      <a href="#">
-                        <div class="pull-left">
-                          <img src= "<%= image_path 'user2-160x160.jpg' %>" class="img-circle" alt="User Image">
-                          <!--<img src="app/assets/imges/user2-160x160.jpg" class="img-circle" alt="User Image">-->
-                        </div>
-                        <h4>
-  
-                          <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                        </h4>
-                        <p>Why not buy a new awesome theme?</p>
-                      </a>
-                    </li>
+        <!--<div class="navbar-custom-menu">-->
+        <!--  <ul class="nav navbar-nav">-->
+        <!--    <li class="dropdown messages-menu">-->
+        <!--      <ul class="dropdown-menu">-->
+        <!--      </ul>-->
+        <!--    </li>-->
             
-                    <li>
-                      <a href="#">
-                        <div class="pull-left">
-                          <img src= "<%= image_path 'user3-128x128.jpg' %>" class="img-circle" alt="User Image">
-                        </div>
-                        <h4>
-              
-                          <small><i class="fa fa-clock-o"></i> 2 hours</small>
-                        </h4>
-                        <p>Why not buy a new awesome theme?</p>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="pull-left">
-                          <img src="<%= image_path 'user4-128x128.jpg' %>" class="img-circle" alt="User Image">
-                        </div>
-                        <h4>
-                
-                          <small><i class="fa fa-clock-o"></i> Today</small>
-                        </h4>
-                        <p>Why not buy a new awesome theme?</p>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="pull-left">
-                          <img src="<%= image_path 'user3-128x128.jpg' %>" class="img-circle" alt="User Image">
-                        </div>
-                        <h4>
-                     
-                          <small><i class="fa fa-clock-o"></i> Yesterday</small>
-                        </h4>
-                        <p>Why not buy a new awesome theme?</p>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="pull-left">
-                          <img src="<%= image_path 'user4-128x128.jpg' %>" class="img-circle" alt="User Image">
-                        </div>
-                        <h4>
-                    
-                          <small><i class="fa fa-clock-o"></i> 2 days</small>
-                        </h4>
-                        <p>Why not buy a new awesome theme?</p>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-               
-              </ul>
-            </li>
-            
-          </ul>
-        </div>
+        <!--  </ul>-->
+        <!--</div>-->
       </nav>
     </header>
    
@@ -159,7 +89,7 @@
          <!--Sidebar user panel -->
         <div class="user-panel">
           <div class="pull-left image">
-            <img src= "<%= image_path 'user2-160x160.jpg' %>" class="img-circle" alt="User Image">
+            <img src= "<%#= image_path 'user2-160x160.jpg' %>" class="img-circle" alt="User Image">
           </div>
           <div class="info pull-left">
             <p><a href="/home/update/<%=current_user.id%>"><%=current_user.name%></a></p>
@@ -212,7 +142,7 @@
             <div class="box" style="margin-bottom:20px">
               <li><i class="fa fa-circle-o text-red" style="margin-top:20px; margin-left:10px"></i>
               <a href="/home/hospital" style="color:#000">
-              <i class="fa fa-hospital-o"></i> <span>병원정보</span>
+              <i class="fa fa-hospital-o"></i> <span>예방접종</span>
               <!--<span class="pull-right-container">-->
               <!--  <small class="label pull-right bg-green">new</small>-->
               <!--</span>-->

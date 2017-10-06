@@ -1,0 +1,75 @@
+<div class="box">
+    <div class="box-header">
+        <h3 class="box-title">당신의 아이에게 필요한 <strong style="color:red">표준예방접종</strong>입니다.</h3>
+    </div>
+    <div class="box-body">
+                
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>대상감염병</th>
+                    <th>백신종류및방법</th>
+                    <th>총 접종횟수</th>
+                    <th>회차</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for i in 0..@arr.count-1 do %>
+                    <tr>
+                        <td><%=@arr[i]["disease"]%></td>
+                        <td><%=@arr[i]["vaccine_value"]%></td>
+                        <td><%=@arr[i]["vaccination_count"]%></td>
+                        <td><%=@arr[i]["order"]%></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+        <br>
+        <p>제공 : <a href="http://cdc.go.kr/CDC/intro.html">질병관리본부</a></p>
+        <p>자세한 정보는 주관기관에서 확인하시기 바랍니다.</p>
+    </div>
+</div>
+
+<% if @other[0].nil? %>
+<% else %>
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">당신의 아이에게 필요한 <strong style="color:red">기타예방접종</strong>입니다.</h3>
+        </div>
+        <div class="box-body">
+                    
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>대상감염병</th>
+                        <th>백신종류및방법</th>
+                        <th>총 접종횟수</th>
+                        <th>회차</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for i in 0..@other.count-1 do %>
+                        <tr>
+                            <td><%=@other[i]["disease"]%></td>
+                            <td><%=@other[i]["vaccine_value"]%></td>
+                            <td><%=@other[i]["vaccination_count"]%></td>
+                            <td><%=@other[i]["order"]%></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+            <br>
+            <p>제공 : <a href="http://cdc.go.kr/CDC/intro.html">질병관리본부</a></p>
+            <p>자세한 정보는 주관기관에서 확인하시기 바랍니다.</p>
+        </div>
+    </div>
+<% end %>
+
+<div class="box">
+    <div class="box-header">
+        <h3 class="box-title">표준예방접종일정표</h3>
+    </div>
+    <div class="box-body">
+        <center><img src="<%= image_path 'vaccination_schedule.jpg' %>" /></center>   
+    </div>
+</div>
