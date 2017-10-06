@@ -19,6 +19,12 @@ CSV.foreach(Rails.root.join('db',"db_boy.csv"), {headers: true, encoding: "UTF-8
   end
 end
 
+CSV.foreach(Rails.root.join('db',"vaccination.csv"), {headers: true, encoding: "UTF-8"}) do |row|
+  unless row["disease"].nil?
+      Vaccination.create! row.to_hash
+  end
+end
+
 admin_user = User.create(email: 'admin@email.com', password: '123456', name:'관리자', address: '서울', 
                         baby_name: '김아가', baby_sex: '남', baby_age: '16m', baby_height: '82', baby_weight: '11.10', baby_head_length: '46.2')
 admin_user.add_role :admin

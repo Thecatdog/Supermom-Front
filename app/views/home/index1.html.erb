@@ -1,6 +1,4 @@
-
-
-      <div class="row">
+<div class="row">
         
         <!-- ./col -->
 
@@ -71,10 +69,17 @@
                 </div>
                 </div>
                 <!-- ./col -->
-              
-              <%end%>
+              <% @cate_index = @categories_array.index(cate) %>
+              <a href="/home/ranking/<%= @cate_index+1 %>" class="small-box-footer">
+                More info <i class="fa fa-arrow-circle-right"></i>
+              </a>
+            </div>
+            </div>
+            <!-- ./col -->
+          
           <%end%>
         <%end%>
         </div>
       <!-- /.row -->
+
 

@@ -206,4 +206,54 @@ class HomeController < ApplicationController
       @user.save
       redirect_to '/'
     end
+    
+    def hospital
+      if current_user.baby_age.eql? "3m"
+        search = "2m"
+      elsif current_user.baby_age.eql? "5m" 
+        search = "4m"
+      elsif current_user.baby_age.eql? ("7m" || "8m" || "9m" || "10m" || "11m")
+        search = "6m"
+      elsif current_user.baby_age.eql? ("13m" || "14m")
+        search = "12m"
+      elsif current_user.baby_age.eql? ("16m" || "17m")
+        search = "15m"  
+      elsif current_user.baby_age.eql? ("20m" || "21m" || "22m" || "23m")
+        search = "19m"  
+      elsif current_user.baby_age.eql? "3"
+        search = "2"  
+      elsif current_user.baby_age.eql? "5"
+        search = "4"  
+      elsif current_user.baby_age.eql? ("7" || "8" || "9" || "10")
+        search = "6"  
+      else 
+        search = current_user.baby_age
+      end
+      
+      @arr = Array.new
+      @other = Array.new
+      Vaccination.where(age: search).each do |v|
+        vac = Hash.new
+        vac["disease"] = v.disease
+        vac["vaccine_value"] = v.vaccine_value
+        vac["vaccination_count"] = v.vaccination_count
+        vac["order"] = v.order
+        
+        if v.other.eql? "1"
+          @other << vac
+        else
+          @arr << vac   
+        end
+        
+      end
+    end
+    
+    def detail
+      # 카테고리아이디를 이용해서 크롤러 접근 후 
+      # 블로그에서 크롤러 아이디를 이용해서 데이터찾기
+      
+      @cate_param = params[:category_id]
+      @crawler_id = Crawler.where(category_id: @category_id).ids
+      @blog = Blog.where(crawler_id: @crawler_id)
+    end 
 end

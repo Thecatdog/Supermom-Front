@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get '/home/edit/:user_id' => 'home#edit'
   post '/home/edit/:user_id' => 'home#edit'
   
+  get '/home/ranking/:category_id' => 'home#detail'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

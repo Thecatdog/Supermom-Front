@@ -71,85 +71,15 @@
           <span class="icon-bar"></span>
         </a>
   
-        <div class="navbar-custom-menu">
-          <ul class="nav navbar-nav">
-          
-            <li class="dropdown messages-menu">
-
-              <ul class="dropdown-menu">
-                
-                  
-                  <ul class="menu">
-                    <li><!-- start message -->
-                      <a href="#">
-                        <div class="pull-left">
-                          <img src= "<%= image_path 'user2-160x160.jpg' %>" class="img-circle" alt="User Image">
-                          <!--<img src="app/assets/imges/user2-160x160.jpg" class="img-circle" alt="User Image">-->
-                        </div>
-                        <h4>
-  
-                          <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                        </h4>
-                        <p>Why not buy a new awesome theme?</p>
-                      </a>
-                    </li>
+        <!--<div class="navbar-custom-menu">-->
+        <!--  <ul class="nav navbar-nav">-->
+        <!--    <li class="dropdown messages-menu">-->
+        <!--      <ul class="dropdown-menu">-->
+        <!--      </ul>-->
+        <!--    </li>-->
             
-                    <li>
-                      <a href="#">
-                        <div class="pull-left">
-                          <img src= "<%= image_path 'user3-128x128.jpg' %>" class="img-circle" alt="User Image">
-                        </div>
-                        <h4>
-              
-                          <small><i class="fa fa-clock-o"></i> 2 hours</small>
-                        </h4>
-                        <p>Why not buy a new awesome theme?</p>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="pull-left">
-                          <img src="<%= image_path 'user4-128x128.jpg' %>" class="img-circle" alt="User Image">
-                        </div>
-                        <h4>
-                
-                          <small><i class="fa fa-clock-o"></i> Today</small>
-                        </h4>
-                        <p>Why not buy a new awesome theme?</p>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="pull-left">
-                          <img src="<%= image_path 'user3-128x128.jpg' %>" class="img-circle" alt="User Image">
-                        </div>
-                        <h4>
-                     
-                          <small><i class="fa fa-clock-o"></i> Yesterday</small>
-                        </h4>
-                        <p>Why not buy a new awesome theme?</p>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="pull-left">
-                          <img src="<%= image_path 'user4-128x128.jpg' %>" class="img-circle" alt="User Image">
-                        </div>
-                        <h4>
-                    
-                          <small><i class="fa fa-clock-o"></i> 2 days</small>
-                        </h4>
-                        <p>Why not buy a new awesome theme?</p>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-               
-              </ul>
-            </li>
-            
-          </ul>
-        </div>
+        <!--  </ul>-->
+        <!--</div>-->
       </nav>
     </header>
    
@@ -159,7 +89,7 @@
          <!--Sidebar user panel -->
         <div class="user-panel">
           <div class="pull-left image">
-            <img src= "<%= image_path 'user2-160x160.jpg' %>" class="img-circle" alt="User Image">
+            <img src= "<%#= image_path 'user2-160x160.jpg' %>" class="img-circle" alt="User Image">
           </div>
           <div class="info pull-left">
             <p><a href="/home/update/<%=current_user.id%>"><%=current_user.name%></a></p>
@@ -182,7 +112,7 @@
               <li><i class="fa fa-circle-o text-red" style="margin-top:20px; margin-left:10px"></i> <span>나이 : <%=current_user.baby_age%></span></a></li>
               <li><i class="fa fa-circle-o text-yellow" style="margin-top:10px;margin-bottom:10px; margin-left:10px"></i> <span>신장 : <%=current_user.baby_height%>cm</span></a></li>
               <li><i class="fa fa-circle-o text-aqua" style="margin-bottom:10px; margin-left:10px"></i> <span>몸무게 : <%=current_user.baby_weight%>kg</span></a></li>
-              <%if current_user.baby_age.include? "m" or current_user.baby_age.to_i < 7%>
+              <%if current_user.baby_age.include? "m" || current_user.baby_age.to_i < 7%>
                 <li><i class="fa fa-circle-o text-red" style="margin-bottom:20px; margin-left:10px"></i> <span>머리둘레 : <%=current_user.baby_head_length%>cm</span></a></li>
               <%end%>
             </div>
@@ -210,14 +140,17 @@
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header" style="background-color:#FFA500; color:#000; font-weight:bold">SUB MENU</li>
             <div class="box" style="margin-bottom:20px">
-              <li><i class="fa fa-circle-o text-red" style="margin-top:20px; margin-left:10px"></i>
-              <a href="/home/hospital" style="color:#000">
-              <i class="fa fa-hospital-o"></i> <span>병원정보</span>
-              <!--<span class="pull-right-container">-->
-              <!--  <small class="label pull-right bg-green">new</small>-->
-              <!--</span>-->
-            </a>
-            </li>
+              <%if current_user.baby_age.include? "m" || current_user.baby_age.to_i < 13%>
+                <li><i class="fa fa-circle-o text-red" style="margin-top:20px; margin-left:10px"></i>
+                <a href="/home/hospital" style="color:#000">
+                <i class="fa fa-hospital-o"></i> <span>예방접종</span>
+                
+                <!--<span class="pull-right-container">-->
+                <!--  <small class="label pull-right bg-green">new</small>-->
+                <!--</span>-->
+                </a>
+                </li>
+              <%end%>
               <li><i class="fa fa-circle-o text-yellow" style="margin-top:10px;margin-bottom:10px; margin-left:10px"></i>
                 <a href="/home/growth" style="color:#000">
                 <i class="fa fa-pie-chart"></i>
