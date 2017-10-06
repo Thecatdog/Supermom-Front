@@ -148,7 +148,7 @@
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header" style="background-color:#FFA500; color:#000; font-weight:bold">SUB MENU</li>
             <div class="box" style="margin-bottom:20px">
-              <%if current_user.baby_age.include? "m" || current_user.baby_age.to_i < 13%>
+              <%if current_user.baby_age.include? "m" or current_user.baby_age.to_i < 13%>
                 <li><i class="fa fa-circle-o text-red" style="margin-top:20px; margin-left:10px"></i>
                 <a href="/home/hospital" style="color:#000">
                 <i class="fa fa-hospital-o"></i> <span>예방접종</span>
