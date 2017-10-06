@@ -22,7 +22,36 @@
                   <div class="inner">
                     <p>65 VIEW</p>
                     
-                    <h3><center><%=cate%></center></h3><br><hr>
+                    <h3><center>
+                      <%
+                      @baby_age = User.find(current_user.id).baby_age
+                      if @baby_age.include? "m"
+                        cate = "아기 "+cate
+                      elsif @baby_age.include? "개월"
+                        cate = "아기 "+cate
+                      else
+                        @baby_age = @baby_age.to_i
+                        case
+                        	when @baby_age<=3 then
+                        		cate = "아기 "+cate
+                        	when @baby_age >3 && @baby_age<=7 then
+                        		cate = "유아 "+cate
+                        	when @baby_age >=8 && @baby_age<=13 then
+                        		cate = "초등학생 "+cate
+                        	else
+                        		cate = "청소년 "+cate
+                        end
+                      end
+                      %>
+                      <%=cate%></center></h3><br><hr>
+                      <%
+                      require '~/workspace/lib/naver_crawler.rb'
+    	                require 'twitter-korean-text-ruby'
+    	                @test = Naver_cralwer.new
+                      @agent = Mechanize.new
+                      @agent = @test.keyword_rslt(cate)
+      	              @test.shift_to_blog(@agent, cate)
+                      %>
                     <center>
                       <p>1위. </p>
                       <p>2위. </p>

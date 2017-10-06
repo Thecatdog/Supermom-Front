@@ -1,0 +1,4 @@
+disease,vaccine_value,age,vaccination_count,order
+결핵,BCG(피내용),0,1,1
+B형간염,heeB,1m,3,1차
+디프테리아,abc,2m,3,2차
