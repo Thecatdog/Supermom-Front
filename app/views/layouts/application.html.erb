@@ -92,8 +92,8 @@
             <img src= "<%#= image_path 'user2-160x160.jpg' %>" class="img-circle" alt="User Image">
           </div>
           <div class="info pull-left">
-            <p><a href="/home/update/<%=current_user.id%>"><%=current_user.name%></a></p>
-            <i class="fa fa-circle text-red"></i> Online</a>
+            <p><a href="/home/update/<%=current_user.id%>"><%=current_user.name%></p>
+            <i class="fa fa-circle text-red"></i> 정보수정</a>
           </div>
           <%= button_to "logout", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure?"}, style: "color:#fff; background:#ff6464; border:0px;height:40px ;vertical-align: middle", class:"menuLink btn btn-primary pull-right" %>
         </div>
