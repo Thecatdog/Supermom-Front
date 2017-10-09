@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # get 'home/ranking'
   get 'home/detail'
   get 'home/growth'
-
+  
   get '/home/update/:user_id' => 'home#update'
   get '/home/edit/:user_id' => 'home#edit'
   post '/home/edit/:user_id' => 'home#edit'
