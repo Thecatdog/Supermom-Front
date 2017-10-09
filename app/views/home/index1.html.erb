@@ -5,11 +5,13 @@
         
         <%if @categories==""%>
         <div class="container" align="center">
-          <h1><b>SUPER</b>MoM</h1>
-          <h4>TAKE CARE OF OUR MoM</h4>
-          <p><엄마를 부탁해> 는 검색에 미숙하고 최신 트렌드에 뒤쳐진 엄마를 위한 사이트입니다.</p>
-          <p>1. 원하는 카테고리를 선택한 후 SEARCH 버튼을 클릭합니다. <img src= "<%= image_path '/category.png' %>" width="190px"></p>
-          <p>2. </p>
+          <!--<h1><b>SUPER</b>MoM</h1>-->
+          <!--<h4>TAKE CARE OF OUR MoM</h4>-->
+          <!--<p><엄마를 부탁해> 는 검색에 미숙하고 최신 트렌드에 뒤쳐진 엄마를 위한 사이트입니다.</p>-->
+          <!--<p>1. 원하는 카테고리를 선택한 후 SEARCH 버튼을 클릭합니다.</p>-->
+          <!--<img src= "<%#= image_path '/category.png' %>" width="190px">-->
+          <!--<p>2. 사용자는 네이버를 크롤링한 결과를 정제한 키워드를 순위별(내림차순)로 확인할 수 있습니다.</p>-->
+          <img src= "<%= image_path '/menual.png' %>">
         </div>
         <%else%>
           <%@categories_array.each do |cate|%>
@@ -42,20 +44,32 @@
                       end
                       %>
                       <%=cate%></center></h3><br><hr>
-                      <%
+                      <%#
                       require '~/workspace/lib/naver_crawler.rb'
-    	                require 'twitter-korean-text-ruby'
     	                @test = Naver_cralwer.new
                       @agent = Mechanize.new
                       @agent = @test.keyword_rslt(cate)
       	              @test.shift_to_blog(@agent, cate)
+      	              Crawler.where(category_id: Category.where(keyword: cate).take.id).each do |c|
+      	                Blog.where(blog_link: c.blog_link).each do |b|
+      	                  keyword_extraction(b.blog_title, cate.gsub(" ", ""))
+      	                end
+      	              end
                       %>
+                      
                     <center>
-                      <p>1위. </p>
-                      <p>2위. </p>
-                      <p>3위. </p>
-                      <p>4위. </p>
-                      <p>5위. </p>
+                      <%sort_h = keyword_ranking(cate)%>
+                      <%if sort_h.size==0%>
+                        <p>1위. </p>
+                        <p>2위. </p>
+                        <p>3위. </p>
+                        <p>4위. </p>
+                        <p>5위. </p>
+                      <%else%>
+                        <%for i in 0..4%>
+                        <p><%=i+1%>위. <%=sort_h[i][0]%></p>
+                        <%end%>
+                      <%end%>
                     </center>
       
       
@@ -65,7 +79,7 @@
                   </div>
                   <% @cate_index = @categories_array.index(@cate_send) %>
                   <a href="/home/ranking/<%=@cate_index+1%>" class="small-box-footer">
-                    More infdasdaso <i class="fa fa-arrow-circle-right"></i>
+                    More Ranking <i class="fa fa-arrow-circle-right"></i>
                   </a>
                 </div>
                 </div>
