@@ -1,7 +1,10 @@
 class HomeController < ApplicationController
   before_filter :authenticate_user!, :except =>[:index]
-  require 'twitter-korean-text-ruby'
-  @module = TwitterKorean::Processor.new
+  # require 'twitter-korean-text-ruby'
+  # @module = TwitterKorean::Processor.new
+  helper_method :keyword_extraction
+  helper_method :keyword_ranking
+  
     def index1
       require '~/workspace/lib/naver_crawler.rb'
       if params[:choose_categories].nil?
@@ -12,8 +15,29 @@ class HomeController < ApplicationController
       @categories_array = ["건강","교육","도서","생활용품","장난감","음식","여행","패션"]
 
     end
-    
+    def keyword_ranking(cate)
+      h = Hash.new
+      Crawler.where(category_id: Category.where(keyword: cate).take.id).each do |c|
+        c.regulated_tag.split(" ").each do |rt|
+          if h.has_key?(rt)
+          else
+            h[rt] = 0
+          end
+        end
+      end
+      h.keys.each do |key|
+        Blog.all.each do |b|
+          if b.blog_s_content.gsub(" ","").include? key
+            h[key] = h[key]+1
+          end
+        end
+      end
+      sort_h = h.sort_by { |keyword, cnt| cnt }.reverse
+      return sort_h
+    end
     def keyword_extraction(blog_title,keyword)
+      require 'twitter-korean-text-ruby'
+      @module = TwitterKorean::Processor.new
       blog = Blog.where(blog_title: blog_title).take
       blog_tags = blog.tag
       blog_tags_ary = blog_tags.split(" ")
@@ -255,4 +279,8 @@ class HomeController < ApplicationController
       @crawler_id = Crawler.where(category_id: @cate_param).ids
       # @blog = Blog.where(crawler_id: @crawler_id)
     end 
+    def keyworddetail
+      @keyword_ranking = params[:ranking_num].to_i
+      @cate_param = params[:category_id]
+    end
 end
