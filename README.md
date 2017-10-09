@@ -30,7 +30,7 @@ SUPER MoM ~ TAKE CARE OF OUR MoM ~
 [![image.png](https://s1.postimg.org/4r89tu4kv3/image.png)](https://postimg.org/image/96qoz3gz2z/)
 
 ## User menual
-[![menual_en.png](https://s1.postimg.org/6alwwei1n3/menual_en.png)](https://postimg.org/image/6alwwei1mz/)
+[![menual_en2.png](https://s1.postimg.org/3lwqb5n5m7/menual_en2.png)](https://postimg.org/image/403620vgh7/)
 
 ## Ruby version 
 
