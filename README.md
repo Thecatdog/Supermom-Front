@@ -28,6 +28,10 @@ SUPER MoM ~ TAKE CARE OF OUR MoM ~
 
 ## :computer: Overview
 [![image.png](https://s1.postimg.org/4r89tu4kv3/image.png)](https://postimg.org/image/96qoz3gz2z/)
+
+## User menual
+[![menual_en.png](https://s1.postimg.org/6alwwei1n3/menual_en.png)](https://postimg.org/image/6alwwei1mz/)
+
 ## Ruby version 
 
 ruby 2.4.1
