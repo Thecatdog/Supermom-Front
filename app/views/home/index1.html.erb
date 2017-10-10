@@ -20,7 +20,7 @@
                 <!-- small box -->
                 <div class="small-box bg-<%=["black","red","aqua","blue","navy","teal","green","olive","yellow","orange","fuchsia","purple","maroon"].sample(1).join%>">
                   <div class="inner">
-                    <p>65 VIEW</p>
+                    <p></p>
                     <%@cate_send = cate%>
                     <h3><center>
                       <%
@@ -44,7 +44,7 @@
                       end
                       %>
                       <%=cate%></center></h3><br><hr>
-                      <%#
+                      <%
                       require '~/workspace/lib/naver_crawler.rb'
     	                @test = Naver_cralwer.new
                       @agent = Mechanize.new
