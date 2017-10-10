@@ -104,9 +104,15 @@ class Naver_cralwer
 				# 주소가 blog와 관련된 것만 태그를 뽑아옴 
 
 				if blog_link_uri.include? "blog.me"
+<<<<<<< HEAD
 					ary=get_tag(blog_link_uri)
 				elsif blog_link_uri.include? "blog.naver.com"
 					ary=get_tag(blog_link_uri)
+=======
+					ary=get_tag(blog_link_uri)
+				elsif blog_link_uri.include? "blog.naver.com"
+					ary=get_tag(blog_link_uri)
+>>>>>>> 01def064ad02f66d8ce92ae67410653ad4d4b0d0
 				else
 				end	
 				@blog_tag << ary
