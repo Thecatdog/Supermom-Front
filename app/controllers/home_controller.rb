@@ -13,22 +13,21 @@ class HomeController < ApplicationController
         @categories = params[:choose_categories]
       end
       @categories_array = ["건강","교육","도서","생활용품","장난감","음식","여행","패션"]
-      # scheduler = Rufus::Scheduler.new
-      # scheduler.in '10s' do
-      #   require '~/workspace/lib/naver_crawler.rb'
-      # 	  Category.all.each do |cate|
-      # 	    @test = Naver_cralwer.new
-      #       @agent = Mechanize.new
-      #       @agent = @test.keyword_rslt(cate.keyword)
-      # 	    @test.shift_to_blog(@agent, cate.keyword)
-      # 	    Crawler.where(category_id: Category.where(keyword: cate.keyword).take.id).each do |c|
-      # 	      Blog.where(blog_link: c.blog_link).each do |b|
-      # 	        keyword_extraction(b.blog_title, cate.keyword.gsub(" ", ""))
-      # 	      end
-      # 	    end
-      # 	  end
-      # end
-      # scheduler.join
+      scheduler = Rufus::Scheduler.new
+      scheduler.every '10h' do
+        require '~/workspace/lib/naver_crawler.rb'
+      	  Category.all.each do |cate|
+      	    @test = Naver_cralwer.new
+            @agent = Mechanize.new
+            @agent = @test.keyword_rslt(cate.keyword)
+      	    @test.shift_to_blog(@agent, cate.keyword)
+      	    Crawler.where(category_id: Category.where(keyword: cate.keyword).take.id).each do |c|
+      	      Blog.where(blog_link: c.blog_link).each do |b|
+      	        keyword_extraction(b.blog_title, cate.keyword.gsub(" ", ""))
+      	      end
+      	    end
+      	  end
+      end
 
     end
     def keyword_ranking(cate)
@@ -43,7 +42,7 @@ class HomeController < ApplicationController
       end
       h.keys.each do |key|
         Blog.all.each do |b|
-          if b.blog_s_content.gsub(" ","").include? key
+          if b.blog_title.gsub(" ","").include? key
             h[key] = h[key]+1
           end
         end

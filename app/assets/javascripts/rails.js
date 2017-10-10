@@ -1,4 +1,4 @@
-(function($, undefined) {
+(function($) {
 
 /**
  * Unobtrusive scripting adapter for jQuery
