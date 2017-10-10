@@ -44,27 +44,11 @@
                       end
                       %>
                       <%=cate%></center></h3><br><hr>
-                      <%#
-                      require '~/workspace/lib/naver_crawler.rb'
-    	                @test = Naver_cralwer.new
-                      @agent = Mechanize.new
-                      @agent = @test.keyword_rslt(cate)
-      	              @test.shift_to_blog(@agent, cate)
-      	              Crawler.where(category_id: Category.where(keyword: cate).take.id).each do |c|
-      	                Blog.where(blog_link: c.blog_link).each do |b|
-      	                  keyword_extraction(b.blog_title, cate.gsub(" ", ""))
-      	                end
-      	              end
-                      %>
                       
                     <center>
                       <%sort_h = keyword_ranking(cate)%>
                       <%if sort_h.size==0%>
-                        <p>1위. </p>
-                        <p>2위. </p>
-                        <p>3위. </p>
-                        <p>4위. </p>
-                        <p>5위. </p>
+                        <p>아직 정보가 수집되지 않았습니다!</p>
                       <%else%>
                         <%for i in 0..4%>
                         <p><%=i+1%>위. <%=sort_h[i][0]%></p>

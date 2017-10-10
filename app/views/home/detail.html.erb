@@ -2,17 +2,30 @@
     <div class="col-md-2"></div>
         <div class="col-md-8">
             <!-- Box Comment -->
-            <div class="box box-widget">
-                <div class="box-body">
+            <div class="box box-widget" style="width:500px; vertical-align: middle;margin:auto">
+                <div class="box-body" style="width:500px" align="center">
                   <%sort_h = keyword_ranking(Category.find(@cate_param).keyword)%>
                   <%if sort_h.size==0%>
                         <p>아직 정보가 수집되지 않았습니다!</p>
                   <%else%>
+                    <table class="table table-hover">
+                        <p style="font-size:20px"><키워드 : <b><%=Category.find(@cate_param).keyword%></b> > 으로 수집된 결과입니다.</p>
+                        <thead>
+                            <th>순위</th>
+                            <th>키워드</th>
+                        </thead>
                     <%for i in 0..sort_h.size-1%>
-                    <div class="attachment-block clearfix" align="center" >
-                          <h4 class="attachment-heading"><a href="/home/ranking/<%=@cate_param%>/<%=i+1%>"><%=i+1%>위. <%=sort_h[i][0]%></a></h4>
-                    </div>
+                      <tbody>
+                          <tr>
+                              <td ><p><%=i+1%>위.</p></td>
+                              <td ><a href="/home/ranking/<%=@cate_param%>/<%=i+1%>"><%=sort_h[i][0]%></a></td>
+                          </tr>
+                      </tbody>
+                    <!--<div class="attachment-block clearfix" align="center" >-->
+                    <!--      <h4 class="attachment-heading"><a href="/home/ranking/<%=@cate_param%>/<%=i+1%>"><%=i+1%>위. <%=sort_h[i][0]%></a></h4>-->
+                    <!--</div>-->
                     <%end%>
+                    </table>
                   <%end%>
                 </div>
                 

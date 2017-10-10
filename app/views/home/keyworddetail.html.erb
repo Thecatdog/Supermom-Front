@@ -2,7 +2,7 @@
     <div class="col-md-2"></div>
         <div class="col-md-8">
             <!-- Box Comment -->
-            <div class="box box-widget">
+            <div class="box box-widget" style="width:900px; vertical-align: middle;margin:auto">
                 <div class="box-body">
                   <!--  <%#@crawler_id.each do |c_id|%>-->
                   <!--      <%#@blog = Blog.where(crawler_id: c_id).take%>-->
@@ -17,20 +17,45 @@
                   <!--<%#end%>-->
                   <%sort_h = keyword_ranking(Category.find(@cate_param).keyword)%>
                   <%sort_h_keyword = sort_h[@keyword_ranking-1][0]%>
-                  <h3><%=sort_h_keyword%>(으)로 검색한 결과입니다.</h3>
+                  <p style="font-size:20px"><키워드 : <b><%=sort_h_keyword%></b> > 으로 검색한 결과입니다.</p>
                   <%if sort_h.size==0%>
                         <p>아직 정보가 수집되지 않았습니다!</p>
                   <%else%>
-                  <%Blog.all.each do |b|%>
-            		<%if b.blog_s_content.gsub(" ","").include? sort_h_keyword%>
-            		<div class="attachment-block clearfix">
-            			<h4 class="attachment-heading"><a href="<%= b.blog_link %>"target="_blank"><%= b.blog_title %></a></h4><br>
-            			<div class="attachment-text">
-                           <p><%= b.blog_s_content%></p>
-                        </div>
-                        </div>
-            		<%end%>
-            	  <%end%>
+                  <table class="table">
+                      <% i = 1%>
+                      <%Blog.all.each do |b|%>
+                		<%if b.blog_s_content.gsub(" ","").include? sort_h_keyword%>
+                		<tbody>
+                		    <tr>
+                		        <td colspan="2"><b>#<%=i%></b></td>
+                		        <%i=i+1%>
+                		    </tr>
+                		    <tr>
+                		        <td>
+                		            <b>TITLE</b>
+                		        </td>
+                		        <td>
+                		            <a href="<%= b.blog_link %>"target="_blank"><%= b.blog_title %></a>
+                		        </td>
+                		    </tr>
+                		    <tr>
+                		        <td>
+                		            <b>SHORT<br/>CONTENT</b>
+                		        </td>
+                		        <td>
+                		            <p><%= b.blog_s_content%></p>
+                		        </td>
+                		    </tr>
+                		</tbody>
+                		<!--<div class="attachment-block clearfix">-->
+                		<!--	<h4 class="attachment-heading"><a href="<%#= b.blog_link %>"target="_blank"><%#= b.blog_title %></a></h4><br>-->
+                		<!--	<div class="attachment-text">-->
+                  <!--             <p><%#= b.blog_s_content%></p>-->
+                  <!--          </div>-->
+                  <!--          </div>-->
+                		<%end%>
+                	  <%end%>
+                  </table>
             	  <%end%>
                 </div>
                 

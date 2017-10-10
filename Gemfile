@@ -6,6 +6,7 @@ gem 'rest-client'
 gem "ruby-readability", :require => 'readability'
 gem 'rjb'
 gem 'twitter-korean-text-ruby'
+gem "rufus-scheduler"
 
 #회원가입
 gem 'devise'
