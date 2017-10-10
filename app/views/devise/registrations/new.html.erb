@@ -1,11 +1,11 @@
-<body class="hold-transition register-page">
+<body class="hold-transition register-page" style="background-color: #4169E1">
 <div class="register-box" style="width:400px">
   <div class="register-logo">
-    <b>SUPER</b>MoM</a>
+    <img src= "<%= image_path '/logo_supermom.PNG' %>" width="360px">
   </div>
 
   <div class="register-box-body" style="background-color: #4169E1">
-    <p class="login-box-msg" style="color:#F6F4F4">Register a new membership</p>
+    <h4><p class="login-box-msg" style="color:#F6F4F4">Register a new membership</p></h4>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>

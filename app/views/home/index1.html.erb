@@ -1,40 +1,88 @@
 <div class="row">
         
         <!-- ./col -->
-        <%@categories_array.each do |cate|%>
-          <%if @categories.include? cate%>
-            <div class="col-lg-3 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-<%=["black","red","aqua","blue","navy","teal","green","olive","yellow","orange","fuchsia","purple","maroon"].sample(1).join%>">
-              <div class="inner">
-                <p>65 VIEW</p>
-                
-                <h3><center><%=cate%></center></h3><br><hr>
-                <center>
-                  <p>1위. </p>
-                  <p>2위. </p>
-                  <p>3위. </p>
-                  <p>4위. </p>
-                  <p>5위. </p>
-                </center>
-  
-  
-              </div>
-              <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-              </div>
+
+        
+        <%if @categories==""%>
+        <div class="container" align="center">
+          <!--<h1><b>SUPER</b>MoM</h1>-->
+          <!--<h4>TAKE CARE OF OUR MoM</h4>-->
+          <!--<p><엄마를 부탁해> 는 검색에 미숙하고 최신 트렌드에 뒤쳐진 엄마를 위한 사이트입니다.</p>-->
+          <!--<p>1. 원하는 카테고리를 선택한 후 SEARCH 버튼을 클릭합니다.</p>-->
+          <!--<img src= "<%#= image_path '/category.png' %>" width="190px">-->
+          <!--<p>2. 사용자는 네이버를 크롤링한 결과를 정제한 키워드를 순위별(내림차순)로 확인할 수 있습니다.</p>-->
+          <img src= "<%= image_path '/menual.png' %>">
+        </div>
+        <%else%>
+          <%@categories_array.each do |cate|%>
+              <%if @categories.include? cate%>
+                <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-<%=["black","red","aqua","blue","navy","teal","green","olive","yellow","orange","fuchsia","purple","maroon"].sample(1).join%>">
+                  <div class="inner">
+                    <p></p>
+                    <%@cate_send = cate%>
+                    <h3><center>
+                      <%
+                      @baby_age = User.find(current_user.id).baby_age
+                      if @baby_age.include? "m"
+                        cate = "아기 "+cate
+                      elsif @baby_age.include? "개월"
+                        cate = "아기 "+cate
+                      else
+                        @baby_age = @baby_age.to_i
+                        case
+                        	when @baby_age<=3 then
+                        		cate = "아기 "+cate
+                        	when @baby_age >3 && @baby_age<=7 then
+                        		cate = "유아 "+cate
+                        	when @baby_age >=8 && @baby_age<=13 then
+                        		cate = "초등학생 "+cate
+                        	else
+                        		cate = "청소년 "+cate
+                        end
+                      end
+                      %>
+                      <%=cate%></center></h3><br><hr>
+                      <%#
+                      require '~/workspace/lib/naver_crawler.rb'
+    	                @test = Naver_cralwer.new
+                      @agent = Mechanize.new
+                      @agent = @test.keyword_rslt(cate)
+      	              @test.shift_to_blog(@agent, cate)
+      	              Crawler.where(category_id: Category.where(keyword: cate).take.id).each do |c|
+      	                Blog.where(blog_link: c.blog_link).each do |b|
+      	                  keyword_extraction(b.blog_title, cate.gsub(" ", ""))
+      	                end
+      	              end
+                      %>
+
+                      
+                    <center>
+                      <%sort_h = keyword_ranking(cate)%>
+                      <%if sort_h.size==0%>
+                        <p>아직 정보가 수집되지 않았습니다!</p>
+                      <%else%>
+                        <%for i in 0..4%>
+                        <p><%=i+1%>위. <%=sort_h[i][0]%></p>
+                        <%end%>
+                      <%end%>
+                    </center>
+      
+      
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-pie-graph"></i>
+                  </div>
+                  <% @cate_index = @categories_array.index(@cate_send) %>
+                  <a href="/home/ranking/<%=@cate_index+1%>" class="small-box-footer">
+                    More Ranking <i class="fa fa-arrow-circle-right"></i>
+                  </a>
+                </div>
+                </div>
+                <!-- ./col -->
               
-              <!-- Find array index -->
-              <% @cate_index = @categories_array.index(cate) %>
-              <!-- /Find array index -->
-              
-              <a href="/home/ranking/<%= @cate_index+1 %>" class="small-box-footer">
-                More info <i class="fa fa-arrow-circle-right"></i>
-              </a>
-            </div>
-            </div>
-            <!-- ./col -->
-          
+          <%end%>
           <%end%>
         <%end%>
         </div>

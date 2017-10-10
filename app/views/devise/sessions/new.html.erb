@@ -27,15 +27,16 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="background-color: #4169E1">
 <div class="login-box" style="margin-top:200px">
   <div class="login-logo">
-    <b>SUPER</b>MoM</a>
+    <!--<b>SUPER</b>MoM</a>-->
+    <img src= "<%= image_path '/logo_supermom.PNG' %>" width="360px">
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body" style="background-color: #4169E1">
     <p class="login-box-msg" style="color:#F6F4F4">LOGIN please, Super MoM!</p>
-
+    
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <!--<form action="../../index2.html" method="post">-->
       <div class="field">

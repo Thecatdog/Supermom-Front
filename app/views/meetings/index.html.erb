@@ -92,7 +92,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container" align="center">
-  <span class="logo-lg" style="font-size:40px"><b>EVENT CALENDAR</b></span>
+  <span class="logo-lg" style="font-size:40px"><b>EVENT CALENDAR</b></span><br>
   <%= link_to 'NEW EVENT', new_meeting_path,style: "color:#fff; background:#ff6464; border:0px;vertical-align: middle; margin-bottom:20px; margin-left:10px", class:"menuLink btn btn-primary" %>
   <a href="get_location_info" style="color:#fff; background:#ff6464; border:0px;vertical-align: middle; margin-bottom:20px; margin-left:10px" class="menuLink btn btn-primary">GET FESTIVAL INFO</a>
 
@@ -101,10 +101,17 @@
      <%= date.day %>
       <% meetings.each do |meeting| %>
         <div>
-          <%= meeting.name %>
-          <%= link_to 'Edit', edit_meeting_path(meeting) %>
-          <%= button_to 'Destroy', meeting, method: :delete, data: { confirm: "Are you sure?" } %>
-          <%#= link_to 'Delete',meeting,:method => :delete,:confirm => 'Are you sure you want to delete this item?' %>
+          <%= meeting.name %><br>
+          <div class="btn-group">
+          <div class="pull-left">
+            <%#= link_to 'Edit', edit_meeting_path(meeting), style: "color:#fff; background:#ff6464; border:0px;vertical-align: middle; margin-bottom:20px; margin-left:10px"%>
+            <%= button_to 'Edit', edit_meeting_path(meeting), style: "color:#fff; background:#ff6464; border:0px;vertical-align: middle; margin-bottom:20px; margin-left:10px", :method => :get%>
+          </div>
+          <div class="pull-left">
+            <%= button_to 'Destroy', meeting, method: :delete, data: { confirm: "Are you sure?" }, style: "color:#fff; background:#ff6464; border:0px;vertical-align: middle; margin-bottom:20px; margin-left:10px" %>
+            <%#= link_to 'Delete',meeting,:method => :delete,:confirm => 'Are you sure you want to delete this item?' %>
+          </div>
+          </div>
         </div>
       <% end %>
     <% end %>

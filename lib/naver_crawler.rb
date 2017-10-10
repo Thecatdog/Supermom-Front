@@ -11,6 +11,7 @@ class Naver_cralwer
 	def get_tag(blog_link_uri)
 		agent = Mechanize.new
 		@tags = []
+		
 		if blog_link_uri.include? "blog.me"
 			html = agent.get(blog_link_uri)
 			second_uri = html.search('frame').attr('src')
@@ -22,10 +23,9 @@ class Naver_cralwer
 		end
 	
 		page  = agent.get(blog_link_uri)
-		
 		page.search('div.post_tag').each do |t|
 	  		@tags= t.text.gsub('#', '')
-
+	  		# puts @tags
 	  	end
 	
 		# 원래 페이지로 돌아가기
@@ -59,7 +59,7 @@ class Naver_cralwer
 		page = agent.page.link_with(:text => '블로그').click
 		
 		# 페이지를 5번째 페이지까지
-		for i in 1..5
+		for i in 1..1
 			@blog_title = []
 			@blog_s_content = []
 			@blog_link = []
@@ -75,14 +75,14 @@ class Naver_cralwer
 		
 			# title 10개를 차례대로 뽑기
 			blog_head.each_with_index do |v, i|
-				puts v.attr('title')
+				# puts v.attr('title')
 				@blog_title << v.attr('title')
 				# @blog.blog_title = v.attr('title')
 			end
 		
 			# 소주제 10개를 차례대로 뽑기
 			blog_mini_content.each_with_index do |v, i|
-				puts v.text
+				# puts v.text
 				@blog_s_content << v.text
 				# @blog.blog_s_content = v.text
 			end
@@ -93,6 +93,8 @@ class Naver_cralwer
 			
 			for j in 0..8
 				blog_link_uri = blog_head[j].attr('href')
+				# blog link_uri
+				
 				
 				@blog_link << blog_link_uri
 				# @blog.blog_link = blog_link_uri
@@ -100,11 +102,14 @@ class Naver_cralwer
 
 				ary = Array.new	
 				# 주소가 blog와 관련된 것만 태그를 뽑아옴 
-				if blog_link_uri.include? ("blog.me" || "naver.blog.com")
+
+				if blog_link_uri.include? "blog.me"
 					ary=get_tag(blog_link_uri)
+				elsif blog_link_uri.include? "blog.naver.com"
+					ary=get_tag(blog_link_uri)
+				else
 				end	
 				@blog_tag << ary
-				# @blog.tag = ary
 			end
 			
 			for k in 0..8
