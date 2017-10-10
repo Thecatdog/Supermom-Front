@@ -4,6 +4,7 @@ class Naver_cralwer
 	require 'rubygems'
 	require 'mechanize'
 	require 'rest-client'
+	
 	# -----------------------------------------
 	# blog 본문에 들어가 tag를 가져오는 메소드 시작
 	
@@ -49,6 +50,7 @@ class Naver_cralwer
 	end
 	# -----------------------------------------
 	
+
 	# -----------------------------------------
 	# 메인에서 블로그 이동
 	def shift_to_blog(agent, key)
@@ -124,5 +126,6 @@ class Naver_cralwer
 		end
 	end
 	# -----------------------------------------
+
 end
 
