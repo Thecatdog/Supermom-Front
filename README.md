@@ -14,7 +14,7 @@ ruby 2.4.1
 
 * The website receives information from the **user (mothers)**, as well as the input of the **child's** information.
 * The server extracts the postings of the **Naver blog post based on the user's information**. The server outputs the most appropriate search results to the user's view.
-* And The server removes the factors that let users worry about the results of the search. 
+* The server helps prevent users from being buried in a lot of information.
 * The keywords that appear as a search result are calculated by using their own algorithm.
 * The server then checks the frequency of the observed keyword and arranges it in descending order.
 * Users can be provided **a better growth environment for their children** by using the information that the server has printed on the screen.
