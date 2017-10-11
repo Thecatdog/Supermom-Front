@@ -14,7 +14,7 @@ class HomeController < ApplicationController
       end
       @categories_array = ["건강","교육","도서","생활용품","장난감","음식","여행","패션"]
       scheduler = Rufus::Scheduler.new
-      scheduler.every '10h' do
+      scheduler.cron '5 0 * * *' do
         require '~/workspace/lib/naver_crawler.rb'
       	  Category.all.each do |cate|
       	    @test = Naver_cralwer.new
