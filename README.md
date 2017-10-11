@@ -33,6 +33,10 @@ SUPER MoM ~ TAKE CARE OF OUR MoM ~
 ## User menual
 <img src='https://s1.postimg.org/6e5iu4b4ct/menual_en.png' border='0' alt='menual_en'/>
 
+
+
+![demo](https://github.com/Thecatdog/supermom2/blob/master/supermom_demo.gif)
+
 ## Ruby version 
 
 ruby 2.4.1
