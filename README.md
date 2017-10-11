@@ -44,8 +44,8 @@ ruby 2.4.1
 
 ## API Reference
 
-* naver_blog_crawler
-* twitter-korean-text-ruby 
+* [naver_crawler](https://github.com/Thecatdog/naver_crawler)
+* [twitter-korean-text-ruby] (https://github.com/twitter/twitter-korean-text)
 
 ## Development
 
