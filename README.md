@@ -29,6 +29,7 @@ ruby 2.4.1
 - [ ] User-defiend preference category.
 - [x] Show festivals and fairs at Calendar automatically.
 - [ ] Extract website with readability that help us more than easy Morphological analysis.
+- [x] Batch Job Scheduler for Crawler (Crawler will be active every midnight.)
 
 
 ## :computer: Overview
@@ -51,6 +52,7 @@ ruby 2.4.1
 
 * [naver_crawler](https://github.com/Thecatdog/naver_crawler)
 * [twitter-korean-text-ruby](https://github.com/twitter/twitter-korean-text)
+* [rufus-scheduler](https://github.com/jmettraux/rufus-scheduler)
 
 ## License
 [GNU](https://github.com/Thecatdog/Supermom-Front/blob/master/LICENSE)
