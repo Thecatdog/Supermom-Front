@@ -59,7 +59,7 @@ class Naver_cralwer
 		page = agent.page.link_with(:text => '블로그').click
 		
 		# 페이지를 5번째 페이지까지
-		for i in 1..1
+		for i in 1..5
 			@blog_title = []
 			@blog_s_content = []
 			@blog_link = []

@@ -70,6 +70,7 @@
           MOM
         </text>
         
+
       </symbol>
       
       <g class="g-ants">
@@ -130,6 +131,39 @@
                           	else
                           		cate = "청소년 "+cate
                           end
+=======
+        <%if @categories==""%>
+        <div class="container" align="center">
+          <img src= "<%= image_path '/menual.png' %>">
+        </div>
+        <%else%>
+          <%@categories_array.each do |cate|%>
+              <%if @categories.include? cate%>
+                <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-<%=["black","red","aqua","blue","navy","teal","green","olive","yellow","orange","fuchsia","purple","maroon"].sample(1).join%>">
+                  <div class="inner">
+                    <p></p>
+                    <%@cate_send = cate%>
+                    <h3><center>
+                      <%
+                      @baby_age = User.find(current_user.id).baby_age
+                      if @baby_age.include? "m"
+                        cate = "아기 "+cate
+                      elsif @baby_age.include? "개월"
+                        cate = "아기 "+cate
+                      else
+                        @baby_age = @baby_age.to_i
+                        case
+                        	when @baby_age<=3 then
+                        		cate = "아기 "+cate
+                        	when @baby_age >3 && @baby_age<=7 then
+                        		cate = "유아 "+cate
+                        	when @baby_age >=8 && @baby_age<=13 then
+                        		cate = "초등학생 "+cate
+                        	else
+                        		cate = "청소년 "+cate
+
                         end
                         %>
                         <%=cate%></center></h3><br><hr>
