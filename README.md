@@ -2,8 +2,8 @@ SUPER MoM ~ TAKE CARE OF OUR MoM ~
 =========
 [![image.png](https://s1.postimg.org/53zo00l4wv/image.png)](https://postimg.org/image/1kdqa7if4r/)
 
-* README:       https://github.com/Thecatdog/supermom2
-* Bug Reports:  https://github.com/Thecatdog/supermom2/issues
+* README:       https://github.com/Thecatdog/Supermom-Front
+* Bug Reports:  https://github.com/Thecatdog/Supermom-Front/issues
 
 ## Ruby version 
 
@@ -36,7 +36,7 @@ ruby 2.4.1
 
 ## Demo
 
-![demo](https://github.com/Thecatdog/supermom2/blob/master/supermom_demo.gif)
+![demo](https://github.com/Thecatdog/Supermom-Front/blob/master/supermom_demo.gif)
 
 ## User menual
 
@@ -53,4 +53,4 @@ ruby 2.4.1
 * [twitter-korean-text-ruby](https://github.com/twitter/twitter-korean-text)
 
 ## License
-[GNU](https://github.com/Thecatdog/supermom2/blob/master/LICENSE)
+[GNU](https://github.com/Thecatdog/Supermom-Front/blob/master/LICENSE)
