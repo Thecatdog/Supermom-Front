@@ -5,6 +5,10 @@ SUPER MoM ~ TAKE CARE OF OUR MoM ~
 * README:       https://github.com/Thecatdog/supermom2
 * Bug Reports:  https://github.com/Thecatdog/supermom2/issues
 
+## Ruby version 
+
+ruby 2.4.1
+
 ## :star2: Description
 " **SUPER MoM** " is a web service for mothers who are not so familiar for searching because of inexperienced search skills and trends.
 
@@ -38,17 +42,10 @@ SUPER MoM ~ TAKE CARE OF OUR MoM ~
 
 <img src='https://s1.postimg.org/6e5iu4b4ct/menual_en.png' border='0' alt='menual_en'/>
 
-## Ruby version 
-
-ruby 2.4.1
-
 ## API Reference
 
 * [naver_crawler](https://github.com/Thecatdog/naver_crawler)
 * [twitter-korean-text-ruby](https://github.com/twitter/twitter-korean-text)
-
-## Development
-
 
 ## License
 [GNU](https://github.com/Thecatdog/supermom2/blob/master/LICENSE)
