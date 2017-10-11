@@ -30,12 +30,13 @@ SUPER MoM ~ TAKE CARE OF OUR MoM ~
 ## :computer: Overview
 [![image.png](https://s1.postimg.org/4r89tu4kv3/image.png)](https://postimg.org/image/96qoz3gz2z/)
 
-## User menual
-<img src='https://s1.postimg.org/6e5iu4b4ct/menual_en.png' border='0' alt='menual_en'/>
-
-
+## Demo
 
 ![demo](https://github.com/Thecatdog/supermom2/blob/master/supermom_demo.gif)
+
+## User menual
+
+<img src='https://s1.postimg.org/6e5iu4b4ct/menual_en.png' border='0' alt='menual_en'/>
 
 ## Ruby version 
 
@@ -50,3 +51,4 @@ ruby 2.4.1
 
 
 ## License
+[GNU](https://github.com/Thecatdog/supermom2/blob/master/LICENSE)
