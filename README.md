@@ -50,9 +50,9 @@ ruby 2.4.1
 
 ## API Reference
 
-* [naver_crawler](https://github.com/Thecatdog/naver_crawler)
-* [twitter-korean-text-ruby](https://github.com/twitter/twitter-korean-text)
-* [rufus-scheduler](https://github.com/jmettraux/rufus-scheduler)
+* [Naver_Crawler](https://github.com/Thecatdog/naver_crawler)
+* [Twitter-Korean-Text-Ruby](https://github.com/twitter/twitter-korean-text)
+* [Rufus-Scheduler](https://github.com/jmettraux/rufus-scheduler)
 
 ## License
 [GNU](https://github.com/Thecatdog/Supermom-Front/blob/master/LICENSE)
