@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
-  
+
+# Use Unicorn as the app server
 gem 'unicorn'
 
 gem "simple_calendar", "~> 2.0"
@@ -41,11 +42,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use Unicorn as the app server
-# gem 'unicorn'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+gem 'figaro'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -63,4 +63,8 @@ end
 
 group :assets do
   gem 'jquery-rails'
+end
+
+group :production do
+  gem 'mysql2'
 end
