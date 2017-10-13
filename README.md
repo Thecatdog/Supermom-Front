@@ -44,9 +44,50 @@ ruby 2.4.1
 <img src='https://s1.postimg.org/6e5iu4b4ct/menual_en.png' border='0' alt='menual_en'/>
 
 ## 📎Deploy with Docker
+Users can easily receive this project through Dockerfile.
+
 
 ```
+
+FROM centos/ror-42-centos7
+MAINTAINER Thecatdog
+
+USER root
+
+#jdk 8 setting
+RUN yum install -y java-1.8.0-openjdk-devel.x86_64
+ENV JAVA_HOME /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.144-0.b01.el7_4.x86_64
+RUN source /etc/profile
+
+#project clone
+RUN git clone https://github.com/Thecatdog/Supermom-Front
+
 ```
+
+First, the user enters Docker folder.  
+Second, build the image via Dockerfile.
+```
+ docker build --tag=<your new image name> .
+```
+Third, start the generated image.
+```
+docker run -i -t --privileged --name <your container name> --publish <your rails server port number> --user root <image id or name> /bin/bash
+
+ex. ) docker run -i -t --privileged --name rubyprojectSupermom --publish 3000:3000 --user root supermomimage /bin/bash
+```
+If the user successfully started the Docker image, the user can immediately check the " Supermom - Front " directory via "ls" command.  
+Finally, the user enters the " Supermom-Front " directory and enters the Ruby default command.
+```
+bundle install
+rake db:migrate
+rake db:seed
+```
+Since then, users can operate this project normally.
+```
+rails s -b 0.0.0.0
+```
+
+
 
 ## API Reference
 
