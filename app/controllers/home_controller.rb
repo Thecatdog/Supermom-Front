@@ -64,6 +64,7 @@ class HomeController < ApplicationController
       	 end
       	end
         end
+        User.find(current_user.id).sign_in_count=User.find(current_user.id).sign_in_count+1  
       end
 
     end
