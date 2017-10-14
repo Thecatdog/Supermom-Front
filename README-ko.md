@@ -47,7 +47,6 @@ ruby 2.4.1
 ## 📎Deploy with Docker
 Users can easily receive this project through Dockerfile.
 
-
 ```
 
 FROM centos/ror-42-centos7
