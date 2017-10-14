@@ -18,6 +18,8 @@ class Naver_cralwer
 			page = agent.get(second_uri)
 			page = page.search('frame').attr('src')
 			blog_link_uri = "http://m.blog.naver.com" + page
+		else if blog_link_uri.inclue? "MovileErrorView"
+			return @tags
 		else
 			blog_link_uri = blog_link_uri.gsub("http://", "http://m.")
 		end
