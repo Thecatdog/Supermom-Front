@@ -22,6 +22,7 @@ ruby 2.4.1
 
 ## :pencil2: Features
 
+- [x] Responsive Web Design
 - [x] List of vaccination for user's child.
 - [x] Measuring a child's growth.
 - [x] Naver Blog scrapping and Information cleanup work.
