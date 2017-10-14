@@ -16,6 +16,7 @@
                   <div class="inner">
                     <p></p>
                     <%@cate_send = cate%>
+                    <% @cate_index = @categories_array.index(@cate_send) %>
                     <h3><center>
                       <%
                       if @baby_age.include? "m"
@@ -29,10 +30,13 @@
                               cate = "아기 "+cate
                            when @baby_age >3 && @baby_age<=7 then
                               cate = "유아 "+cate
+                              @cate_index = @cate_index+8
                            when @baby_age >=8 && @baby_age<=13 then
                               cate = "초등학생 "+cate
+                              @cate_index = @cate_index+16
                            else
                               cate = "청소년 "+cate
+                              @cate_index+24
                         end
                       end
                       %>
@@ -56,7 +60,6 @@
                   <div class="icon">
                     <i class="ion ion-pie-graph"></i>
                   </div>
-                  <% @cate_index = @categories_array.index(@cate_send) %>
                   <a href="/home/ranking/<%=@cate_index+1%>" class="small-box-footer">
                     More Ranking <i class="fa fa-arrow-circle-right"></i>
                   </a>

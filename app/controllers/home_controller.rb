@@ -69,6 +69,9 @@ class HomeController < ApplicationController
     def keyword_ranking(cate)
       h = Hash.new
       Crawler.where(category_id: Category.where(keyword: cate).take.id).each do |c|
+        if c.regulated_tag.nil?
+          c.regulated_tag = ""
+        end
         c.regulated_tag.split(" ").each do |rt|
           if h.has_key?(rt)
           else
