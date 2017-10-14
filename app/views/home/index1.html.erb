@@ -15,7 +15,8 @@
                 <div class="small-box bg-<%=["black","red","aqua","blue","navy","teal","green","olive","yellow","orange","fuchsia","purple","maroon"].sample(1).join%>">
                   <div class="inner">
                     <p></p>
-                    <%@cate_send = cate%>
+                    <%@cate_send = cate
+                    @baby_age = User.find(current_user.id).baby_age%>
                     <% @cate_index = @categories_array.index(@cate_send) %>
                     <h3><center>
                       <%

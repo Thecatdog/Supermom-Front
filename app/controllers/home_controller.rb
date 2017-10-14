@@ -51,7 +51,8 @@ class HomeController < ApplicationController
         end
       end
       
-      for j in i..i+7
+      if User.find(current_user.id).sign_in_count==0
+        for j in i..i+7
         cate = Category.find(j)
         @test = Naver_cralwer.new
         @agent = Mechanize.new
@@ -62,8 +63,8 @@ class HomeController < ApplicationController
       	   keyword_extraction(b.blog_title, cate.keyword.gsub(" ", ""))
       	 end
       	end
+        end
       end
-
 
     end
     def keyword_ranking(cate)
