@@ -38,18 +38,6 @@
                       end
                       %>
                       <%=cate%></center></h3><br><hr>
-                      <%#
-                      require '~/workspace/lib/naver_crawler.rb'
-                       @test = Naver_cralwer.new
-                      @agent = Mechanize.new
-                      @agent = @test.keyword_rslt(cate)
-                       @test.shift_to_blog(@agent, cate)
-                       Crawler.where(category_id: Category.where(keyword: cate).take.id).each do |c|
-                         Blog.where(blog_link: c.blog_link).each do |b|
-                           keyword_extraction(b.blog_title, cate.gsub(" ", ""))
-                         end
-                       end
-                      %>
 
                       
                     <center>

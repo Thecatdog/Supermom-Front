@@ -6,7 +6,7 @@ class HomeController < ApplicationController
   helper_method :keyword_extraction
   helper_method :keyword_ranking
     def index1
-      require '~/workspace/lib/naver_crawler.rb'
+      require '~/Supermom-Front/lib/naver_crawler.rb'
       if params[:choose_categories].nil?
         @categories = ""
       else
@@ -15,7 +15,7 @@ class HomeController < ApplicationController
       @categories_array = ["건강","교육","도서","생활용품","장난감","음식","여행","패션"]
       scheduler = Rufus::Scheduler.new
       scheduler.cron '5 0 * * *' do
-        require '~/workspace/lib/naver_crawler.rb'
+        require '~/Supermom-Front/lib/naver_crawler.rb'
       	  Category.all.each do |cate|
       	    @test = Naver_cralwer.new
             @agent = Mechanize.new
@@ -28,6 +28,18 @@ class HomeController < ApplicationController
       	    end
       	  end
       end
+      Category.all.each do |cate|
+      	  @test = Naver_cralwer.new
+          @agent = Mechanize.new
+          @agent = @test.keyword_rslt(cate.keyword)
+      	 @test.shift_to_blog(@agent, cate.keyword)
+      	 Crawler.where(category_id: Category.where(keyword: cate.keyword).take.id).each do |c|
+      	   Blog.where(blog_link: c.blog_link).each do |b|
+      	     keyword_extraction(b.blog_title, cate.keyword.gsub(" ", ""))
+      	   end
+      	 end
+      	end
+
 
     end
     def keyword_ranking(cate)
