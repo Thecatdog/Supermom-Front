@@ -85,11 +85,11 @@ rake db:seed
 ```
 Since then, users can operate this project normally.
 ```
-rails s -b 0.0.0.0
+rails s -b 0.0.0.0 -p3000
 ```
-
-
-
+Before accessing the web application, the user must check the ip address(docker vm(windows / mac) or linux os).  
+And user can access web application at that ip address.  
+(If the user fails to connect to the web application, they should check whether or not to open 3000 port.)
 ## API Reference
 
 * [Naver_Crawler](https://github.com/Thecatdog/naver_crawler)
