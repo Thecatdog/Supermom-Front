@@ -25,7 +25,7 @@ production:
   # database: db/production.sqlite3
   adapter: mysql2
   host: 127.0.0.1
-  database: supermom_production
+  database: supermom-front_production
   username: root
   password: <%= ENV.fetch("DATABASE_PASSWORD"){ "" } %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
