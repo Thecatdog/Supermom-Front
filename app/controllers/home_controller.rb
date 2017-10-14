@@ -13,32 +13,56 @@ class HomeController < ApplicationController
         @categories = params[:choose_categories]
       end
       @categories_array = ["건강","교육","도서","생활용품","장난감","음식","여행","패션"]
+      @baby_age = User.find(current_user.id).baby_age
       scheduler = Rufus::Scheduler.new
+      
+      
+      if @baby_age.include? "m"
+        i=1
+      elsif @baby_age.include? "개월"
+        i=1
+      else
+        @baby_age = @baby_age.to_i
+        case
+        when @baby_age<=3 then
+          i=1
+        when @baby_age >3 && @baby_age<=7 then
+          i=9
+        when @baby_age >=8 && @baby_age<=13 then
+          i=17
+        else
+          i=25
+        end
+      end
+      
       scheduler.cron '5 0 * * *' do
         require '~/Supermom-Front/lib/naver_crawler.rb'
-      	  Category.all.each do |cate|
-      	    @test = Naver_cralwer.new
-            @agent = Mechanize.new
-            @agent = @test.keyword_rslt(cate.keyword)
-      	    @test.shift_to_blog(@agent, cate.keyword)
-      	    Crawler.where(category_id: Category.where(keyword: cate.keyword).take.id).each do |c|
-      	      Blog.where(blog_link: c.blog_link).each do |b|
-      	        keyword_extraction(b.blog_title, cate.keyword.gsub(" ", ""))
-      	      end
-      	    end
-      	  end
-      end
-      Category.all.each do |cate|
-      	  @test = Naver_cralwer.new
+      	for j in i..i+7
+          cate = Category.find(j)
+          @test = Naver_cralwer.new
           @agent = Mechanize.new
           @agent = @test.keyword_rslt(cate.keyword)
-      	 @test.shift_to_blog(@agent, cate.keyword)
-      	 Crawler.where(category_id: Category.where(keyword: cate.keyword).take.id).each do |c|
-      	   Blog.where(blog_link: c.blog_link).each do |b|
-      	     keyword_extraction(b.blog_title, cate.keyword.gsub(" ", ""))
-      	   end
+        	@test.shift_to_blog(@agent, cate.keyword)
+        	Crawler.where(category_id: Category.where(keyword: cate.keyword).take.id).each do |c|
+        	 Blog.where(blog_link: c.blog_link).each do |b|
+        	   keyword_extraction(b.blog_title, cate.keyword.gsub(" ", ""))
+        	 end
+        	end
+        end
+      end
+      
+      for j in i..i+7
+        cate = Category.find(j)
+        @test = Naver_cralwer.new
+        @agent = Mechanize.new
+        @agent = @test.keyword_rslt(cate.keyword)
+      	@test.shift_to_blog(@agent, cate.keyword)
+      	Crawler.where(category_id: Category.where(keyword: cate.keyword).take.id).each do |c|
+      	 Blog.where(blog_link: c.blog_link).each do |b|
+      	   keyword_extraction(b.blog_title, cate.keyword.gsub(" ", ""))
       	 end
       	end
+      end
 
 
     end

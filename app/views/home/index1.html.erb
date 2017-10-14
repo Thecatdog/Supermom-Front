@@ -18,7 +18,6 @@
                     <%@cate_send = cate%>
                     <h3><center>
                       <%
-                      @baby_age = User.find(current_user.id).baby_age
                       if @baby_age.include? "m"
                         cate = "아기 "+cate
                       elsif @baby_age.include? "개월"
