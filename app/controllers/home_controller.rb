@@ -51,7 +51,7 @@ class HomeController < ApplicationController
         end
       end
       
-      if User.find(current_user.id).sign_in_count==0
+      if User.find(current_user.id).sign_in_count==1
         for j in i..i+7
         cate = Category.find(j)
         @test = Naver_cralwer.new
