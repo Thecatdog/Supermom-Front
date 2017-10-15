@@ -14,7 +14,7 @@ SUPER MoM ~ TAKE CARE OF OUR MoM ~
 ![image.png](https://img.shields.io/badge/ruby-v%20--%202.4.1-red.svg)
 
 ## JDK version
-![image.png](https://img.shields.io/badge/JDK-v%201.8.0-yellowgreen.svg)
+![image.png](https://img.shields.io/badge/JDK-v%201.8.0-blue.svg)
 
 ## :star2: Description
 " **SUPER MoM** " 은 미숙한 검색 능력과 트렌드 추적에 능숙하지 않은, 정보를 수집하는 데에 있어서 어려움을 겪고 있는 어머니들을 위한 웹 애플리케이션입니다.
