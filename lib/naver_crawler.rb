@@ -23,8 +23,7 @@ class Naver_cralwer
 		if blog_link_uri.include? "blog.me"
 			second_uri = html.search('frame').attr('src')
 			page = agent.get(second_uri)
-			page = page.search('frame').attr('src')
-			blog_link_uri = "http://m.blog.naver.com" + page
+			blog_link_uri = page.uri
 		else
 			blog_link_uri = blog_link_uri.gsub("http://", "http://m.")
 		end
