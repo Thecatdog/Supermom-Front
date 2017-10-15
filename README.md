@@ -1,6 +1,6 @@
 
 SUPER MoM ~ TAKE CARE OF OUR MoM ~
-
+[![Build Status](https://travis-ci.org/Thecatdog/Supermom-Front.png?branch=master)](https://travis-ci.org/Thecatdog/Supermom-Front)
 =========
 [![image.png](https://s1.postimg.org/53zo00l4wv/image.png)](https://postimg.org/image/1kdqa7if4r/)
 
