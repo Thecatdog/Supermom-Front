@@ -15,7 +15,7 @@ class HomeController < ApplicationController
       @categories_array = ["건강","교육","도서","생활용품","장난감","음식","여행","패션"]
       @baby_age = User.find(current_user.id).baby_age
       scheduler = Rufus::Scheduler.new
-      
+      current_u = User.find(current_user.id)
       
       if @baby_age.include? "m"
         i=1
@@ -51,7 +51,7 @@ class HomeController < ApplicationController
         end
       end
       
-      if User.find(current_user.id).sign_in_count==1
+      if current_u.sign_in_count==1
         for j in i..i+7
         cate = Category.find(j)
         @test = Naver_cralwer.new
@@ -64,10 +64,9 @@ class HomeController < ApplicationController
       	 end
       	end
         end
-        User.find(current_user.id).sign_in_count=User.find(current_user.id).sign_in_count+1  
-	
+        current_u.sign_in_count=current_u.sign_in_count+1  
+	current_u.save!
       end
-	User.find(current_user.id).save
     end
     def keyword_ranking(cate)
       h = Hash.new
