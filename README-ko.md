@@ -95,7 +95,7 @@ rails s -b 0.0.0.0 -p3000
 
 ## API Reference
 
-* [Naver_Crawler](https://github.com/Thecatdog/naver_crawler)
+* [Naver_Crawler-ruby-Supermom-API](https://github.com/Thecatdog/Naver_Crawler-ruby-Supermom-API)
 * [Twitter-Korean-Text-Ruby](https://github.com/twitter/twitter-korean-text)
 * [Rufus-Scheduler](https://github.com/jmettraux/rufus-scheduler)
 
