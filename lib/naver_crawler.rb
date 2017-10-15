@@ -32,7 +32,6 @@ class Naver_cralwer
 		page  = agent.get(blog_link_uri)
 		page.search('div.post_tag').each do |t|
 	  		@tags= t.text.gsub('#', '')
-	  		puts @tags
 	  	end
 	
 		# 원래 페이지로 돌아가기
