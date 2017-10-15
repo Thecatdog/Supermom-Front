@@ -65,8 +65,9 @@ class HomeController < ApplicationController
       	end
         end
         User.find(current_user.id).sign_in_count=User.find(current_user.id).sign_in_count+1  
+	
       end
-
+	User.find(current_user.id).save
     end
     def keyword_ranking(cate)
       h = Hash.new
