@@ -4,7 +4,8 @@ SUPER MoM ~ TAKE CARE OF OUR MoM ~ [![Build Status](https://travis-ci.org/Thecat
 =========
 [![image.png](https://s1.postimg.org/53zo00l4wv/image.png)](https://postimg.org/image/1kdqa7if4r/)
 
-* README:       https://github.com/Thecatdog/Supermom-Front
+* README_EN:       https://github.com/Thecatdog/Supermom-Front
+* README_KOR: https://github.com/Thecatdog/Supermom-Front/blob/master/README-ko.md
 * Bug Reports:  https://github.com/Thecatdog/Supermom-Front/issues
 ## Ruby version 
 
