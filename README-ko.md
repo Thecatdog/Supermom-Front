@@ -1,15 +1,20 @@
 
 SUPER MoM ~ TAKE CARE OF OUR MoM ~
 [![Build Status](https://travis-ci.org/Thecatdog/Supermom-Front.png?branch=master)](https://travis-ci.org/Thecatdog/Supermom-Front)
+![image.png](https://img.shields.io/badge/naver__crawler-v01-green.svg)
 =========
 [![image.png](https://s1.postimg.org/53zo00l4wv/image.png)](https://postimg.org/image/1kdqa7if4r/)
 
-* README:       https://github.com/Thecatdog/Supermom-Front
+* README_EN:       https://github.com/Thecatdog/Supermom-Front
+* README_KOR: https://github.com/Thecatdog/Supermom-Front/blob/master/README-ko.md
 * Bug Reports:  https://github.com/Thecatdog/Supermom-Front/issues
 
 ## Ruby version 
 
-ruby 2.4.1
+![image.png](https://img.shields.io/badge/ruby-v%20--%202.4.1-red.svg)
+
+## JDK version
+![image.png](https://img.shields.io/badge/JDK-v%201.8.0-blue.svg)
 
 ## :star2: Description
 " **SUPER MoM** " 은 미숙한 검색 능력과 트렌드 추적에 능숙하지 않은, 정보를 수집하는 데에 있어서 어려움을 겪고 있는 어머니들을 위한 웹 애플리케이션입니다.
