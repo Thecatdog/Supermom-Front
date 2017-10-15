@@ -8,8 +8,10 @@ SUPER MoM ~ TAKE CARE OF OUR MoM ~ [![Build Status](https://travis-ci.org/Thecat
 * README_KOR: https://github.com/Thecatdog/Supermom-Front/blob/master/README-ko.md
 * Bug Reports:  https://github.com/Thecatdog/Supermom-Front/issues
 ## Ruby version 
-
 ![image.png](https://img.shields.io/badge/ruby-v%20--%202.4.1-red.svg)
+## JDK version
+![image.png](https://img.shields.io/badge/JDK-v%201.8.0-yellowgreen.svg)
+
 ## :star2: Description
 " **SUPER MoM** " is a web service for mothers who are not so familiar for searching because of inexperienced search skills and trends.
 
