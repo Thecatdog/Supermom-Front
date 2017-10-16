@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'rubysl-resolv'
 # Use Unicorn as the app server
 gem 'unicorn'
 

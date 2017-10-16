@@ -4,12 +4,18 @@ class Naver_cralwer
 	require 'rubygems'
 	require 'mechanize'
 	require 'rest-client'
-	
+	require 'resolv-replace.rb' 
+
 	# -----------------------------------------
 	# blog 본문에 들어가 tag를 가져오는 메소드 시작
 	
 	def get_tag(blog_link_uri)
 		agent = Mechanize.new
+
+		agent.ignore_bad_chunking = true
+		agent.follow_meta_refresh = true
+		agent.user_agent_alias = 'Windows Chrome'
+
 		@tags = []
 		
 		# 새로운 에러
@@ -23,10 +29,10 @@ class Naver_cralwer
 		if blog_link_uri.include? "blog.me"
 			second_uri = html.search('frame').attr('src')
 			page = agent.get(second_uri)
-			blog_link_uri = page.uri
-		else
-			blog_link_uri = blog_link_uri.gsub("http://", "http://m.")
+			blog_link_uri = page.uri.to_s
 		end
+		blog_link_uri = blog_link_uri.gsub("http://", "http://m.")
+		
 	
 		page  = agent.get(blog_link_uri)
 		page.search('div.post_tag').each do |t|
@@ -45,6 +51,11 @@ class Naver_cralwer
 	def keyword_rslt(key)
 		# main가져오기
 		agent = Mechanize.new
+
+		agent.ignore_bad_chunking = true
+		agent.follow_meta_refresh = true
+		agent.user_agent_alias = 'Windows Chrome'
+
 		page = agent.get "http://naver.com"
 		search_form = page.form_with :name => "sform"
 		search_form.field_with(:name=>"query").value = key

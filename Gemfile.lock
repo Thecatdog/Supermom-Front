@@ -213,6 +213,7 @@ GEM
     ruby-readability (0.7.0)
       guess_html_encoding (>= 0.0.4)
       nokogiri (>= 1.6.0)
+    rubysl-resolv (2.1.2)
     rufus-scheduler (3.4.2)
       et-orbi (~> 1.0)
     sass (3.5.2)
@@ -296,6 +297,7 @@ DEPENDENCIES
   rjb
   rolify
   ruby-readability
+  rubysl-resolv
   rufus-scheduler
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
