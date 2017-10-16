@@ -61,6 +61,11 @@ class HomeController < ApplicationController
         cate = Category.find(j)
         @test = Naver_cralwer.new
         @agent = Mechanize.new
+
+        @agent.ignore_bad_chunking = true
+        @agent.follow_meta_refresh = true
+        @agent.user_agent_alias = 'Windows Chrome'
+
         @agent = @test.keyword_rslt(cate.keyword)
       	@test.shift_to_blog(@agent, cate.keyword)
       	Crawler.where(category_id: Category.where(keyword: cate.keyword).take.id).each do |c|
