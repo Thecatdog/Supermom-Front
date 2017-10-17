@@ -4,6 +4,7 @@ gem 'rubysl-resolv'
 # Use Unicorn as the app server
 gem 'unicorn'
 
+gem 'sqlite3'
 gem "simple_calendar", "~> 2.0"
 gem 'mechanize', '~> 2.7', '>= 2.7.4'
 gem 'rest-client'
