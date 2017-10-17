@@ -1,8 +1,8 @@
 class Crawling
-    require 'naver_crawler.rb'
-    
+    require '~/workspace/lib/naver_crawler.rb'
+
     def crawler
-        Category.all.each do |c|
+        Category.all.map.each do |c|
             cate = c
             @n_crawler = Naver_cralwer.new
             @agent = Mechanize.new
@@ -89,5 +89,3 @@ class Crawling
     end
     
 end
-@f_crawler_m = Crawling.new
-@f_crawler_m.crawler
