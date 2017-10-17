@@ -1,5 +1,5 @@
 class Crawling
-    require '~/workspace/lib/naver_crawler.rb'
+    require '~/Supermom-Front/lib/naver_crawler.rb'
 
     def crawler
         Category.all.map.each do |c|

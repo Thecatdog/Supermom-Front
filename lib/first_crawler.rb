@@ -1,3 +1,3 @@
-require '~/workspace/lib/crawling.rb'
+require '~/Supermom-Front/lib/crawling.rb'
 @f_crawler_m = Crawling.new
 @f_crawler_m.crawler
