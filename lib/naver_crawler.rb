@@ -4,15 +4,13 @@ class Naver_cralwer
 	require 'rubygems'
 	require 'mechanize'
 	require 'rest-client'
-	require "resolv-replace.rb" 
+	require 'resolv-replace.rb'
 
 	# -----------------------------------------
 	# blog 본문에 들어가 tag를 가져오는 메소드 시작
 	
 	def get_tag(blog_link_uri)
 		agent = Mechanize.new
-
-		agent.set_handle_robots(false);
 		@tags = []
 		
 		# 새로운 에러
@@ -48,9 +46,6 @@ class Naver_cralwer
 	def keyword_rslt(key)
 		# main가져오기
 		agent = Mechanize.new
-
-		agent.set_handle_robots(false);
-
 		page = agent.get "http://naver.com"
 		search_form = page.form_with :name => "sform"
 		search_form.field_with(:name=>"query").value = key

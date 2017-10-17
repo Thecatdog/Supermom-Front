@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   # @module = TwitterKorean::Processor.new
   require 'rufus-scheduler'
   require '~/Supermom-Front/lib/naver_crawler.rb'
-  require '~/Supermom-Front/lib/first_crawler.rb'
+  require '~/Supermom-Front/lib/crawling.rb'
   helper_method :keyword_extraction
   helper_method :keyword_ranking
 
@@ -41,7 +41,7 @@ class HomeController < ApplicationController
       	for j in i..i+7
           cate = Category.find(j)
           @n_crawler = Naver_cralwer.new
-          @f_crawler_m = First_crawling.new
+          @f_crawler_m = Crawling.new
           @agent = Mechanize.new
           @agent = @n_crawler.keyword_rslt(cate.keyword)
         	@n_crawler.shift_to_blog(@agent, cate.keyword)
@@ -192,7 +192,7 @@ class HomeController < ApplicationController
       @crawler_id = Crawler.where(category_id: @cate_param).ids
       # @blog = Blog.where(crawler_id: @crawler_id)
     end 
-        def keyworddetail
+    def keyworddetail
       @keyword_ranking = params[:ranking_num].to_i
       @cate_param = params[:category_id]
     end

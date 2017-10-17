@@ -1,6 +1,7 @@
-class First_crawling
-    require '~/Supermom-Front/lib/naver_crawler.rb'
-    def main
+class Crawling
+    require 'naver_crawler.rb'
+    
+    def crawler
         Category.all.each do |c|
             cate = c
             @n_crawler = Naver_cralwer.new
@@ -86,4 +87,7 @@ class First_crawling
           base_dic = base_dic+josa
           return base_dic
     end
+    
 end
+@f_crawler_m = Crawling.new
+@f_crawler_m.crawler
