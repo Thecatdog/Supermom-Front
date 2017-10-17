@@ -4,7 +4,7 @@ class Naver_cralwer
 	require 'rubygems'
 	require 'mechanize'
 	require 'rest-client'
-	require 'resolv-replace.rb' 
+	require "resolv-replace.rb" 
 
 	# -----------------------------------------
 	# blog 본문에 들어가 tag를 가져오는 메소드 시작
@@ -12,10 +12,7 @@ class Naver_cralwer
 	def get_tag(blog_link_uri)
 		agent = Mechanize.new
 
-		agent.ignore_bad_chunking = true
-		agent.follow_meta_refresh = true
-		agent.user_agent_alias = 'Windows Chrome'
-
+		agent.set_handle_robots(false);
 		@tags = []
 		
 		# 새로운 에러
@@ -52,9 +49,7 @@ class Naver_cralwer
 		# main가져오기
 		agent = Mechanize.new
 
-		agent.ignore_bad_chunking = true
-		agent.follow_meta_refresh = true
-		agent.user_agent_alias = 'Windows Chrome'
+		agent.set_handle_robots(false);
 
 		page = agent.get "http://naver.com"
 		search_form = page.form_with :name => "sform"
