@@ -7,6 +7,7 @@ SUPER MoM ~ TAKE CARE OF OUR MoM ~ [![Build Status](https://travis-ci.org/Thecat
 * README_EN:       https://github.com/Thecatdog/Supermom-Front
 * README_KOR: https://github.com/Thecatdog/Supermom-Front/blob/master/README-ko.md
 * Bug Reports:  https://github.com/Thecatdog/Supermom-Front/issues
+* Test Page : http://13.124.194.182 (admin@email.com : 123456 / a@a : 123456 / b@b : 123456 / c@c : 123456)
 ## Ruby version 
 ![image.png](https://img.shields.io/badge/ruby-v%20--%202.4.1-red.svg)
 ## JDK version
