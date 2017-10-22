@@ -8,6 +8,7 @@ SUPER MoM ~ TAKE CARE OF OUR MoM ~
 * README_EN:       https://github.com/Thecatdog/Supermom-Front
 * README_KOR: https://github.com/Thecatdog/Supermom-Front/blob/master/README-ko.md
 * Bug Reports:  https://github.com/Thecatdog/Supermom-Front/issues
+* Test Page : http://13.124.194.182 (admin@email.com : 123456 / a@a : 123456 / b@b : 123456 / c@c : 123456)
 
 ## Ruby version 
 
