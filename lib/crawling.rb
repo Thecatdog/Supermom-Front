@@ -1,18 +1,18 @@
 class Crawling
     require '~/Supermom-Front/lib/naver_crawler.rb'
 
-    def crawler
-        Category.all.map.each do |c|
-            cate = c
-            @n_crawler = Naver_cralwer.new
-            @agent = Mechanize.new
-            @agent = @n_crawler.keyword_rslt(cate.keyword)
-            @n_crawler.shift_to_blog(@agent, cate.keyword)
-            Crawler.where(category_id: Category.where(keyword: cate.keyword).take.id).each do |c|
-             Blog.where(blog_link: c.blog_link).each do |b|
-               keyword_extraction(b.blog_title, cate.keyword.gsub(" ", ""))
-             end
-            end
+    def crawler(category,proxies)
+	@n_crawler = Naver_cralwer.new
+	@a_proxy = proxies
+        cate = category
+        @n_crawler = Naver_cralwer.new
+        @agent = Mechanize.new
+        @agent = @n_crawler.keyword_rslt(cate.keyword,@a_proxy)
+        @n_crawler.shift_to_blog(@agent, cate.keyword,@a_proxy)
+        Crawler.where(category_id: Category.where(keyword: cate.keyword).take.id).each do |c|
+         Blog.where(blog_link: c.blog_link).each do |b|
+           keyword_extraction(b.blog_title, cate.keyword.gsub(" ", ""))
+         end
         end
     end
         

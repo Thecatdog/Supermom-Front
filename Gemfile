@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'proxy_fetcher', git: 'https://github.com/nbulaj/proxy_fetcher.git'
 
 gem 'rubysl-resolv'
 # Use Unicorn as the app server

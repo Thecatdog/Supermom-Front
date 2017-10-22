@@ -28,5 +28,5 @@ production:
   database: supermom-front_production
   username: root
   password: <%= ENV.fetch("DATABASE_PASSWORD"){ "" } %>
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 30 } %>
   timeout: 5000

@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/nbulaj/proxy_fetcher.git
+  revision: 1b9654ba3a89680c15394e1b4498140f6890d838
+  specs:
+    proxy_fetcher (0.5.0)
+      nokogiri (~> 1.6, >= 1.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -289,6 +296,7 @@ DEPENDENCIES
   jquery-rails
   mechanize (~> 2.7, >= 2.7.4)
   mysql2
+  proxy_fetcher!
   rails (= 4.2.5)
   rails4-autocomplete
   rails_admin

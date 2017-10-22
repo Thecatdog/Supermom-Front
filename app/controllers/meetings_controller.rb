@@ -1,17 +1,26 @@
 class MeetingsController < ApplicationController
   before_action :set_meeting, only: [:show, :edit, :update, :destroy]
-  
+  require '~/Supermom-Front/lib/naver_crawler.rb'
   def get_location_info
     require 'rubygems'
     require 'mechanize'
-    require 'rest-client'
-    
+    require 'rest-client' 
+
     festival_date = []
     festival_name = []
     search_arr = ['축제', '베이비페어']
+    @n_c = Naver_cralwer.new
+    proxies = @n_c.create_proxy
 
     search_arr.each do | search |
       agent = Mechanize.new
+      proxies.each do |proxy|
+	if @n_c.check_vaild_proxy("http://naver.com",proxy)
+		agent.set_proxy(proxy.addr,proxy.port)
+		break;
+        end
+      end
+  
       page = agent.get "http://naver.com"
       search_form = page.form_with :name => "sform"
       search_form.field_with(:name=>"query").value = search
@@ -42,8 +51,8 @@ class MeetingsController < ApplicationController
       @meeting.start_time = DateTime.strptime(festival_date[i], "%Y-%m-%d")
       @meeting.save
     end
-
-    redirect_to '/meetings'     
+    
+    redirect_to '/meetings'
   end
 
   # GET /meetings

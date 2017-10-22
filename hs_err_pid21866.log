@@ -1,0 +1,789 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 1052672 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2643), pid=21866, tid=0x00007f1e0d4eb700
+#
+# JRE version: OpenJDK Runtime Environment (8.0_131-b11) (build 1.8.0_131-8u131-b11-2ubuntu1.16.04.3-b11)
+# Java VM: OpenJDK 64-Bit Server VM (25.131-b11 mixed mode linux-amd64 compressed oops)
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000055af2dd71800):  VMThread [stack: 0x00007f1e0d3eb000,0x00007f1e0d4ec000] [id=23635]
+
+Stack: [0x00007f1e0d3eb000,0x00007f1e0d4ec000],  sp=0x00007f1e0d4e9db0,  free space=1019k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0xa6a1bb]
+V  [libjvm.so+0x4c5a6c]
+V  [libjvm.so+0x8b85a0]
+V  [libjvm.so+0x8b2a1e]
+V  [libjvm.so+0xa66ab4]
+V  [libjvm.so+0x5cc019]
+V  [libjvm.so+0x5cc4ea]
+V  [libjvm.so+0x5b8bb6]
+V  [libjvm.so+0x4cecac]
+V  [libjvm.so+0x615a12]
+V  [libjvm.so+0x98b993]
+V  [libjvm.so+0x989a67]
+V  [libjvm.so+0x98a158]
+V  [libjvm.so+0x3c9416]
+V  [libjvm.so+0x3c8c6a]
+V  [libjvm.so+0x3c8df8]
+V  [libjvm.so+0x5ca850]
+V  [libjvm.so+0x5b6f38]
+V  [libjvm.so+0x4cc0c0]
+V  [libjvm.so+0x5b81c8]
+V  [libjvm.so+0x44d69f]
+V  [libjvm.so+0xa6b2c1]
+V  [libjvm.so+0xa70f57]
+V  [libjvm.so+0xa6e727]
+V  [libjvm.so+0xa6fbaf]
+V  [libjvm.so+0xa700a1]
+V  [libjvm.so+0x8b5a82]
+
+VM_Operation (0x00007ffccff226d0): GenCollectForAllocation, mode: safepoint, requested by thread 0x000055af2e342800
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x000055af311ac800 JavaThread "Service Thread" daemon [_thread_blocked, id=23641, stack(0x00007f1dffafb000,0x00007f1dffbfc000)]
+  0x000055af2f201800 JavaThread "C1 CompilerThread1" daemon [_thread_blocked, id=23640, stack(0x00007f1e0d0e8000,0x00007f1e0d1e9000)]
+  0x000055af3136b000 JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=23639, stack(0x00007f1e0c3db000,0x00007f1e0c4dc000)]
+  0x000055af2e9ac800 JavaThread "Attach Listener" daemon [_thread_blocked, id=23638, stack(0x00007f1e0c5dd000,0x00007f1e0c6de000)]
+  0x000055af2e838800 JavaThread "Finalizer" daemon [_thread_blocked, id=23637, stack(0x00007f1dffeff000,0x00007f1e00000000)]
+  0x000055af2e633800 JavaThread "Reference Handler" daemon [_thread_blocked, id=23636, stack(0x00007f1e0d683000,0x00007f1e0d784000)]
+  0x000055af2e342800 JavaThread "main" [_thread_blocked, id=21866, stack(0x00007ffccfe2d000,0x00007ffccff2d000)]
+
+Other Threads:
+=>0x000055af2dd71800 VMThread [stack: 0x00007f1e0d3eb000,0x00007f1e0d4ec000] [id=23635]
+  0x000055af2fb85000 WatcherThread [stack: 0x00007f1dff2f3000,0x00007f1dff3f4000] [id=23642]
+
+VM state:at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x000055af2ebbbb40] Threads_lock - owner thread: 0x000055af2dd71800
+[0x000055af2ebbc040] Heap_lock - owner thread: 0x000055af2e342800
+
+Heap:
+ def new generation   total 8448K, used 8447K [0x00000000f0800000, 0x00000000f1120000, 0x00000000f5aa0000)
+  eden space 7552K, 100% used [0x00000000f0800000, 0x00000000f0f60000, 0x00000000f0f60000)
+  from space 896K,  99% used [0x00000000f0f60000, 0x00000000f103fff8, 0x00000000f1040000)
+  to   space 896K,   0% used [0x00000000f1040000, 0x00000000f1040030, 0x00000000f1120000)
+ tenured generation   total 18628K, used 18197K [0x00000000f5aa0000, 0x00000000f6cd1000, 0x0000000100000000)
+   the space 18628K,  97% used [0x00000000f5aa0000, 0x00000000f6c65520, 0x00000000f6c65600, 0x00000000f6cd1000)
+ Metaspace       used 7572K, capacity 8504K, committed 8704K, reserved 1056768K
+  class space    used 1154K, capacity 1192K, committed 1280K, reserved 1048576K
+
+Card table byte_map: [0x00007f1e0d606000,0x00007f1e0d683000] byte_map_base: 0x00007f1e0ce82000
+
+Polling page: 0x00007f1e16948000
+
+CodeCache: size=245760Kb used=3433Kb max_used=3433Kb free=242326Kb
+ bounds [0x00007f1dd5000000, 0x00007f1dd5360000, 0x00007f1de4000000]
+ total_blobs=1206 nmethods=945 adapters=175
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 822.040 Thread 0x000055af2f201800 nmethod 973 0x00007f1dd535b7d0 code [0x00007f1dd535b940, 0x00007f1dd535bac0]
+Event: 824.229 Thread 0x000055af2f201800  976       2       scala.collection.immutable.HashSet$HashTrieSet$$anon$1::getElem (8 bytes)
+Event: 847.915 Thread 0x000055af2f201800 nmethod 976 0x00007f1dd535bb50 code [0x00007f1dd535bcc0, 0x00007f1dd535be50]
+Event: 849.117 Thread 0x000055af2f201800  991       2       sun.misc.URLClassPath$JarLoader::findResource (18 bytes)
+Event: 874.067 Thread 0x000055af2f201800 nmethod 991 0x00007f1dd535bf10 code [0x00007f1dd535c080, 0x00007f1dd535c230]
+Event: 876.212 Thread 0x000055af2f201800  993       1       java.lang.System::getSecurityManager (4 bytes)
+Event: 886.209 Thread 0x000055af2f201800 nmethod 993 0x00007f1dd535c310 code [0x00007f1dd535c460, 0x00007f1dd535c550]
+Event: 888.119 Thread 0x000055af2f201800  992       2       java.io.UnixFileSystem::prefixLength (25 bytes)
+Event: 931.036 Thread 0x000055af2f201800 nmethod 992 0x00007f1dd535c590 code [0x00007f1dd535c700, 0x00007f1dd535c920]
+Event: 933.443 Thread 0x000055af2f201800  994   !   2       sun.net.www.ParseUtil::decode (316 bytes)
+
+GC Heap History (10 events):
+Event: 255.001 GC heap after
+Heap after GC invocations=17 (full 2):
+ def new generation   total 8448K, used 0K [0x00000000f0800000, 0x00000000f1120000, 0x00000000f5aa0000)
+  eden space 7552K,   0% used [0x00000000f0800000, 0x00000000f0800000, 0x00000000f0f60000)
+  from space 896K,   0% used [0x00000000f0f60000, 0x00000000f0f60000, 0x00000000f1040000)
+  to   space 896K,   0% used [0x00000000f1040000, 0x00000000f1040000, 0x00000000f1120000)
+ tenured generation   total 18628K, used 11175K [0x00000000f5aa0000, 0x00000000f6cd1000, 0x0000000100000000)
+   the space 18628K,  59% used [0x00000000f5aa0000, 0x00000000f6589f50, 0x00000000f658a000, 0x00000000f6cd1000)
+ Metaspace       used 7561K, capacity 8472K, committed 8704K, reserved 1056768K
+  class space    used 1152K, capacity 1160K, committed 1280K, reserved 1048576K
+}
+Event: 363.014 GC heap before
+{Heap before GC invocations=17 (full 2):
+ def new generation   total 8448K, used 7552K [0x00000000f0800000, 0x00000000f1120000, 0x00000000f5aa0000)
+  eden space 7552K, 100% used [0x00000000f0800000, 0x00000000f0f60000, 0x00000000f0f60000)
+  from space 896K,   0% used [0x00000000f0f60000, 0x00000000f0f60000, 0x00000000f1040000)
+  to   space 896K,   0% used [0x00000000f1040000, 0x00000000f1040000, 0x00000000f1120000)
+ tenured generation   total 18628K, used 11175K [0x00000000f5aa0000, 0x00000000f6cd1000, 0x0000000100000000)
+   the space 18628K,  59% used [0x00000000f5aa0000, 0x00000000f6589f50, 0x00000000f658a000, 0x00000000f6cd1000)
+ Metaspace       used 7565K, capacity 8504K, committed 8704K, reserved 1056768K
+  class space    used 1154K, capacity 1192K, committed 1280K, reserved 1048576K
+Event: 373.570 GC heap after
+Heap after GC invocations=18 (full 2):
+ def new generation   total 8448K, used 637K [0x00000000f0800000, 0x00000000f1120000, 0x00000000f5aa0000)
+  eden space 7552K,   0% used [0x00000000f0800000, 0x00000000f0800000, 0x00000000f0f60000)
+  from space 896K,  71% used [0x00000000f1040000, 0x00000000f10df488, 0x00000000f1120000)
+  to   space 896K,   0% used [0x00000000f0f60000, 0x00000000f0f60000, 0x00000000f1040000)
+ tenured generation   total 18628K, used 11175K [0x00000000f5aa0000, 0x00000000f6cd1000, 0x0000000100000000)
+   the space 18628K,  59% used [0x00000000f5aa0000, 0x00000000f6589f50, 0x00000000f658a000, 0x00000000f6cd1000)
+ Metaspace       used 7565K, capacity 8504K, committed 8704K, reserved 1056768K
+  class space    used 1154K, capacity 1192K, committed 1280K, reserved 1048576K
+}
+Event: 510.477 GC heap before
+{Heap before GC invocations=18 (full 2):
+ def new generation   total 8448K, used 8189K [0x00000000f0800000, 0x00000000f1120000, 0x00000000f5aa0000)
+  eden space 7552K, 100% used [0x00000000f0800000, 0x00000000f0f60000, 0x00000000f0f60000)
+  from space 896K,  71% used [0x00000000f1040000, 0x00000000f10df488, 0x00000000f1120000)
+  to   space 896K,   0% used [0x00000000f0f60000, 0x00000000f0f60000, 0x00000000f1040000)
+ tenured generation   total 18628K, used 11175K [0x00000000f5aa0000, 0x00000000f6cd1000, 0x0000000100000000)
+   the space 18628K,  59% used [0x00000000f5aa0000, 0x00000000f6589f50, 0x00000000f658a000, 0x00000000f6cd1000)
+ Metaspace       used 7565K, capacity 8504K, committed 8704K, reserved 1056768K
+  class space    used 1154K, capacity 1192K, committed 1280K, reserved 1048576K
+Event: 532.249 GC heap after
+Heap after GC invocations=19 (full 2):
+ def new generation   total 8448K, used 699K [0x00000000f0800000, 0x00000000f1120000, 0x00000000f5aa0000)
+  eden space 7552K,   0% used [0x00000000f0800000, 0x00000000f0800000, 0x00000000f0f60000)
+  from space 896K,  78% used [0x00000000f0f60000, 0x00000000f100ef38, 0x00000000f1040000)
+  to   space 896K,   0% used [0x00000000f1040000, 0x00000000f1040000, 0x00000000f1120000)
+ tenured generation   total 18628K, used 11730K [0x00000000f5aa0000, 0x00000000f6cd1000, 0x0000000100000000)
+   the space 18628K,  62% used [0x00000000f5aa0000, 0x00000000f6614848, 0x00000000f6614a00, 0x00000000f6cd1000)
+ Metaspace       used 7565K, capacity 8504K, committed 8704K, reserved 1056768K
+  class space    used 1154K, capacity 1192K, committed 1280K, reserved 1048576K
+}
+Event: 786.499 GC heap before
+{Heap before GC invocations=19 (full 2):
+ def new generation   total 8448K, used 8251K [0x00000000f0800000, 0x00000000f1120000, 0x00000000f5aa0000)
+  eden space 7552K, 100% used [0x00000000f0800000, 0x00000000f0f60000, 0x00000000f0f60000)
+  from space 896K,  78% used [0x00000000f0f60000, 0x00000000f100ef38, 0x00000000f1040000)
+  to   space 896K,   0% used [0x00000000f1040000, 0x00000000f1040000, 0x00000000f1120000)
+ tenured generation   total 18628K, used 11730K [0x00000000f5aa0000, 0x00000000f6cd1000, 0x0000000100000000)
+   the space 18628K,  62% used [0x00000000f5aa0000, 0x00000000f6614848, 0x00000000f6614a00, 0x00000000f6cd1000)
+ Metaspace       used 7567K, capacity 8504K, committed 8704K, reserved 1056768K
+  class space    used 1154K, capacity 1192K, committed 1280K, reserved 1048576K
+Event: 801.000 GC heap after
+Heap after GC invocations=20 (full 2):
+ def new generation   total 8448K, used 896K [0x00000000f0800000, 0x00000000f1120000, 0x00000000f5aa0000)
+  eden space 7552K,   0% used [0x00000000f0800000, 0x00000000f0800000, 0x00000000f0f60000)
+  from space 896K, 100% used [0x00000000f1040000, 0x00000000f1120000, 0x00000000f1120000)
+  to   space 896K,   0% used [0x00000000f0f60000, 0x00000000f0f60000, 0x00000000f1040000)
+ tenured generation   total 18628K, used 14350K [0x00000000f5aa0000, 0x00000000f6cd1000, 0x0000000100000000)
+   the space 18628K,  77% used [0x00000000f5aa0000, 0x00000000f68a3868, 0x00000000f68a3a00, 0x00000000f6cd1000)
+ Metaspace       used 7567K, capacity 8504K, committed 8704K, reserved 1056768K
+  class space    used 1154K, capacity 1192K, committed 1280K, reserved 1048576K
+}
+Event: 948.903 GC heap before
+{Heap before GC invocations=20 (full 2):
+ def new generation   total 8448K, used 8448K [0x00000000f0800000, 0x00000000f1120000, 0x00000000f5aa0000)
+  eden space 7552K, 100% used [0x00000000f0800000, 0x00000000f0f60000, 0x00000000f0f60000)
+  from space 896K, 100% used [0x00000000f1040000, 0x00000000f1120000, 0x00000000f1120000)
+  to   space 896K,   0% used [0x00000000f0f60000, 0x00000000f0f60000, 0x00000000f1040000)
+ tenured generation   total 18628K, used 14350K [0x00000000f5aa0000, 0x00000000f6cd1000, 0x0000000100000000)
+   the space 18628K,  77% used [0x00000000f5aa0000, 0x00000000f68a3868, 0x00000000f68a3a00, 0x00000000f6cd1000)
+ Metaspace       used 7571K, capacity 8504K, committed 8704K, reserved 1056768K
+  class space    used 1154K, capacity 1192K, committed 1280K, reserved 1048576K
+Event: 969.103 GC heap after
+Heap after GC invocations=21 (full 2):
+ def new generation   total 8448K, used 895K [0x00000000f0800000, 0x00000000f1120000, 0x00000000f5aa0000)
+  eden space 7552K,   0% used [0x00000000f0800000, 0x00000000f0800000, 0x00000000f0f60000)
+  from space 896K,  99% used [0x00000000f0f60000, 0x00000000f103fff8, 0x00000000f1040000)
+  to   space 896K,   0% used [0x00000000f1040000, 0x00000000f1040000, 0x00000000f1120000)
+ tenured generation   total 18628K, used 17116K [0x00000000f5aa0000, 0x00000000f6cd1000, 0x0000000100000000)
+   the space 18628K,  91% used [0x00000000f5aa0000, 0x00000000f6b57328, 0x00000000f6b57400, 0x00000000f6cd1000)
+ Metaspace       used 7571K, capacity 8504K, committed 8704K, reserved 1056768K
+  class space    used 1154K, capacity 1192K, committed 1280K, reserved 1048576K
+}
+Event: 1006.636 GC heap before
+{Heap before GC invocations=21 (full 2):
+ def new generation   total 8448K, used 8447K [0x00000000f0800000, 0x00000000f1120000, 0x00000000f5aa0000)
+  eden space 7552K, 100% used [0x00000000f0800000, 0x00000000f0f60000, 0x00000000f0f60000)
+  from space 896K,  99% used [0x00000000f0f60000, 0x00000000f103fff8, 0x00000000f1040000)
+  to   space 896K,   0% used [0x00000000f1040000, 0x00000000f1040000, 0x00000000f1120000)
+ tenured generation   total 18628K, used 17116K [0x00000000f5aa0000, 0x00000000f6cd1000, 0x0000000100000000)
+   the space 18628K,  91% used [0x00000000f5aa0000, 0x00000000f6b57328, 0x00000000f6b57400, 0x00000000f6cd1000)
+ Metaspace       used 7572K, capacity 8504K, committed 8704K, reserved 1056768K
+  class space    used 1154K, capacity 1192K, committed 1280K, reserved 1048576K
+
+Deoptimization events (5 events):
+Event: 0.871 Thread 0x000055af2e342800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f1dd518f7f8 method=java.lang.String.replace(CC)Ljava/lang/String; @ 2
+Event: 1.085 Thread 0x000055af2e342800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f1dd51b4e9c method=java.lang.String.indexOf([CII[CIII)I @ 134
+Event: 1.238 Thread 0x000055af2e342800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f1dd523153c method=java.io.BufferedReader.readLine(Z)Ljava/lang/String; @ 55
+Event: 1.251 Thread 0x000055af2e342800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f1dd521b390 method=com.twitter.penguin.korean.util.CharArrayMap.equals([CII[C)Z @ 92
+Event: 1.263 Thread 0x000055af2e342800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f1dd524e3ac method=java.io.BufferedReader.readLine(Z)Ljava/lang/String; @ 55
+
+Internal exceptions (8 events):
+Event: 0.168 Thread 0x000055af2e342800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.defineClass(Ljava/lang/String;[BII)Ljava/lang/Class; name or signature does not match> (0x00000000f0807ca8) thrown at [/build/openjdk-8-pZyJp3/openjdk-8-8u131-b11/src/hotspot/src/share/vm/
+Event: 0.168 Thread 0x000055af2e342800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.prefetchRead(Ljava/lang/Object;J)V name or signature does not match> (0x00000000f0807f90) thrown at [/build/openjdk-8-pZyJp3/openjdk-8-8u131-b11/src/hotspot/src/share/vm/prims/jni.cpp, lin
+Event: 0.862 Thread 0x000055af2e342800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000f09b9310) thrown at [/build/openjdk-8-pZyJp3/openjdk-8-8u131-b11/src/hotspot/src/share/vm/prims/jvm.cpp, line 1390]
+Event: 0.863 Thread 0x000055af2e342800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000f09b9708) thrown at [/build/openjdk-8-pZyJp3/openjdk-8-8u131-b11/src/hotspot/src/share/vm/prims/jvm.cpp, line 1390]
+Event: 0.863 Thread 0x000055af2e342800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000f09bbb60) thrown at [/build/openjdk-8-pZyJp3/openjdk-8-8u131-b11/src/hotspot/src/share/vm/prims/jvm.cpp, line 1390]
+Event: 0.863 Thread 0x000055af2e342800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000f09bbf58) thrown at [/build/openjdk-8-pZyJp3/openjdk-8-8u131-b11/src/hotspot/src/share/vm/prims/jvm.cpp, line 1390]
+Event: 0.863 Thread 0x000055af2e342800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000f09bce00) thrown at [/build/openjdk-8-pZyJp3/openjdk-8-8u131-b11/src/hotspot/src/share/vm/prims/jvm.cpp, line 1390]
+Event: 0.863 Thread 0x000055af2e342800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000f09bd1f8) thrown at [/build/openjdk-8-pZyJp3/openjdk-8-8u131-b11/src/hotspot/src/share/vm/prims/jvm.cpp, line 1390]
+
+Events (10 events):
+Event: 891.395 Thread 0x000055af2e342800 DEOPT UNPACKING pc=0x00007f1dd5047373 sp=0x00007ffccff22508 mode 0
+Event: 913.399 Thread 0x000055af2e342800 DEOPT PACKING pc=0x00007f1dd525794b sp=0x00007ffccff227c0
+Event: 914.400 Thread 0x000055af2e342800 DEOPT UNPACKING pc=0x00007f1dd5047373 sp=0x00007ffccff22508 mode 0
+Event: 931.532 Thread 0x000055af2e342800 DEOPT PACKING pc=0x00007f1dd525794b sp=0x00007ffccff227c0
+Event: 932.393 Thread 0x000055af2e342800 DEOPT UNPACKING pc=0x00007f1dd5047373 sp=0x00007ffccff22508 mode 0
+Event: 946.324 Executing VM operation: GenCollectForAllocation
+Event: 970.154 Executing VM operation: GenCollectForAllocation done
+Event: 986.409 Thread 0x000055af2e342800 DEOPT PACKING pc=0x00007f1dd525794b sp=0x00007ffccff227c0
+Event: 987.312 Thread 0x000055af2e342800 DEOPT UNPACKING pc=0x00007f1dd5047373 sp=0x00007ffccff22508 mode 0
+Event: 1004.650 Executing VM operation: GenCollectForAllocation
+
+
+Dynamic libraries:
+f0800000-f1120000 rw-p 00000000 00:00 0 
+f1120000-f5aa0000 ---p 00000000 00:00 0 
+f5aa0000-f6cd1000 rw-p 00000000 00:00 0 
+f6dd2000-100000000 ---p 00000000 00:00 0 
+100000000-100140000 rw-p 00000000 00:00 0 
+100140000-140000000 ---p 00000000 00:00 0 
+55af26e9b000-55af27182000 r-xp 00000000 ca:01 774716                     /home/ubuntu/.rbenv/versions/2.3.4/bin/ruby
+55af27382000-55af27387000 r--p 002e7000 ca:01 774716                     /home/ubuntu/.rbenv/versions/2.3.4/bin/ruby
+55af27387000-55af27388000 rw-p 002ec000 ca:01 774716                     /home/ubuntu/.rbenv/versions/2.3.4/bin/ruby
+55af27388000-55af27399000 rw-p 00000000 00:00 0 
+55af2866c000-55af31eeb000 rw-p 00000000 00:00 0                          [heap]
+7f1dd5000000-7f1dd5360000 rwxp 00000000 00:00 0 
+7f1dd5360000-7f1de4000000 ---p 00000000 00:00 0 
+7f1de4000000-7f1de4732000 rw-p 00000000 00:00 0 
+7f1de4732000-7f1de8000000 ---p 00000000 00:00 0 
+7f1dec000000-7f1dec8da000 rw-p 00000000 00:00 0 
+7f1dec8da000-7f1df0000000 ---p 00000000 00:00 0 
+7f1df0000000-7f1df07d8000 rw-p 00000000 00:00 0 
+7f1df07d8000-7f1df4000000 ---p 00000000 00:00 0 
+7f1df4000000-7f1df471a000 rw-p 00000000 00:00 0 
+7f1df471a000-7f1df8000000 ---p 00000000 00:00 0 
+7f1df8000000-7f1df887c000 rw-p 00000000 00:00 0 
+7f1df887c000-7f1dfc000000 ---p 00000000 00:00 0 
+7f1dfc59c000-7f1dfc76a000 r--s 03c13000 ca:01 265089                     /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar
+7f1dfc76a000-7f1dfceaa000 rw-p 00000000 00:00 0 
+7f1dfceaa000-7f1dfcf6a000 ---p 00000000 00:00 0 
+7f1dfcf6a000-7f1dfcf78000 rw-p 00000000 00:00 0 
+7f1dfcf78000-7f1dfd32a000 ---p 00000000 00:00 0 
+7f1dfd32a000-7f1dfd332000 r-xp 00000000 ca:01 265116                     /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libzip.so
+7f1dfd332000-7f1dfd531000 ---p 00008000 ca:01 265116                     /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libzip.so
+7f1dfd531000-7f1dfd532000 r--p 00007000 ca:01 265116                     /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libzip.so
+7f1dfd532000-7f1dfd533000 rw-p 00008000 ca:01 265116                     /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libzip.so
+7f1dfd533000-7f1dfd53e000 r-xp 00000000 ca:01 2047                       /lib/x86_64-linux-gnu/libnss_nis-2.23.so
+7f1dfd53e000-7f1dfd73d000 ---p 0000b000 ca:01 2047                       /lib/x86_64-linux-gnu/libnss_nis-2.23.so
+7f1dfd73d000-7f1dfd73e000 r--p 0000a000 ca:01 2047                       /lib/x86_64-linux-gnu/libnss_nis-2.23.so
+7f1dfd73e000-7f1dfd73f000 rw-p 0000b000 ca:01 2047                       /lib/x86_64-linux-gnu/libnss_nis-2.23.so
+7f1dfd73f000-7f1dfd755000 r-xp 00000000 ca:01 2040                       /lib/x86_64-linux-gnu/libnsl-2.23.so
+7f1dfd755000-7f1dfd954000 ---p 00016000 ca:01 2040                       /lib/x86_64-linux-gnu/libnsl-2.23.so
+7f1dfd954000-7f1dfd955000 r--p 00015000 ca:01 2040                       /lib/x86_64-linux-gnu/libnsl-2.23.so
+7f1dfd955000-7f1dfd956000 rw-p 00016000 ca:01 2040                       /lib/x86_64-linux-gnu/libnsl-2.23.so
+7f1dfd956000-7f1dfd958000 rw-p 00000000 00:00 0 
+7f1dfd958000-7f1dfd960000 r-xp 00000000 ca:01 2053                       /lib/x86_64-linux-gnu/libnss_compat-2.23.so
+7f1dfd960000-7f1dfdb5f000 ---p 00008000 ca:01 2053                       /lib/x86_64-linux-gnu/libnss_compat-2.23.so
+7f1dfdb5f000-7f1dfdb60000 r--p 00007000 ca:01 2053                       /lib/x86_64-linux-gnu/libnss_compat-2.23.so
+7f1dfdb60000-7f1dfdb61000 rw-p 00008000 ca:01 2053                       /lib/x86_64-linux-gnu/libnss_compat-2.23.so
+7f1dfdb61000-7f1dfdb8e000 r-xp 00000000 ca:01 265131                     /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libjava.so
+7f1dfdb8e000-7f1dfdd8d000 ---p 0002d000 ca:01 265131                     /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libjava.so
+7f1dfdd8d000-7f1dfdd8e000 r--p 0002c000 ca:01 265131                     /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libjava.so
+7f1dfdd8e000-7f1dfdd90000 rw-p 0002d000 ca:01 265131                     /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libjava.so
+7f1dfdd90000-7f1dfdd9f000 r-xp 00000000 ca:01 265109                     /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libverify.so
+7f1dfdd9f000-7f1dfdf9e000 ---p 0000f000 ca:01 265109                     /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libverify.so
+7f1dfdf9e000-7f1dfdfa0000 r--p 0000e000 ca:01 265109                     /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libverify.so
+7f1dfdfa0000-7f1dfdfa1000 rw-p 00010000 ca:01 265109                     /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/libverify.so
+7f1dfdfa1000-7f1dfebf5000 r-xp 00000000 ca:01 265115                     /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server/libjvm.so
+7f1dfebf5000-7f1dfedf5000 ---p 00c54000 ca:01 265115                     /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server/libjvm.so
+7f1dfedf5000-7f1dfee88000 r--p 00c54000 ca:01 265115                     /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server/libjvm.so
+7f1dfee88000-7f1dfeeb1000 rw-p 00ce7000 ca:01 265115                     /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server/libjvm.so
+7f1dfeeb1000-7f1dfeee1000 rw-p 00000000 00:00 0 
+7f1dfeee1000-7f1dfeee8000 r-xp 00000000 ca:01 25863                      /usr/lib/x86_64-linux-gnu/libffi.so.6.0.4
+7f1dfeee8000-7f1dff0e7000 ---p 00007000 ca:01 25863                      /usr/lib/x86_64-linux-gnu/libffi.so.6.0.4
+7f1dff0e7000-7f1dff0e8000 r--p 00006000 ca:01 25863                      /usr/lib/x86_64-linux-gnu/libffi.so.6.0.4
+7f1dff0e8000-7f1dff0e9000 rw-p 00007000 ca:01 25863                      /usr/lib/x86_64-linux-gnu/libffi.so.6.0.4
+7f1dff0e9000-7f1dff0f2000 r-xp 00000000 ca:01 775484                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/fiddle.so
+7f1dff0f2000-7f1dff2f1000 ---p 00009000 ca:01 775484                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/fiddle.so
+7f1dff2f1000-7f1dff2f2000 r--p 00008000 ca:01 775484                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/fiddle.so
+7f1dff2f2000-7f1dff2f3000 rw-p 00009000 ca:01 775484                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/fiddle.so
+7f1dff2f3000-7f1dff2f4000 ---p 00000000 00:00 0 
+7f1dff2f4000-7f1dff4f5000 rw-p 00000000 00:00 0 
+7f1dff4f5000-7f1dff4f6000 ---p 00000000 00:00 0 
+7f1dff4f6000-7f1dff6f7000 rw-p 00000000 00:00 0 
+7f1dff6f7000-7f1dff6f8000 ---p 00000000 00:00 0 
+7f1dff6f8000-7f1dff8f9000 rw-p 00000000 00:00 0 
+7f1dff8f9000-7f1dff8fa000 ---p 00000000 00:00 0 
+7f1dff8fa000-7f1dffafb000 rw-p 00000000 00:00 0 
+7f1dffafb000-7f1dffafe000 ---p 00000000 00:00 0 
+7f1dffafe000-7f1dffcfd000 rw-p 00000000 00:00 0 
+7f1dffcfd000-7f1dffcfe000 ---p 00000000 00:00 0 
+7f1dffcfe000-7f1dffeff000 rw-p 00000000 00:00 0 
+7f1dffeff000-7f1dfff02000 ---p 00000000 00:00 0 
+7f1dfff02000-7f1e00000000 rw-p 00000000 00:00 0 
+7f1e00000000-7f1e00879000 rw-p 00000000 00:00 0 
+7f1e00879000-7f1e04000000 ---p 00000000 00:00 0 
+7f1e04000000-7f1e04912000 rw-p 00000000 00:00 0 
+7f1e04912000-7f1e08000000 ---p 00000000 00:00 0 
+7f1e08000000-7f1e08724000 rw-p 00000000 00:00 0 
+7f1e08724000-7f1e0c000000 ---p 00000000 00:00 0 
+7f1e0c0d8000-7f1e0c1d9000 rw-p 00000000 00:00 0 
+7f1e0c1d9000-7f1e0c1da000 ---p 00000000 00:00 0 
+7f1e0c1da000-7f1e0c3db000 rw-p 00000000 00:00 0 
+7f1e0c3db000-7f1e0c3de000 ---p 00000000 00:00 0 
+7f1e0c3de000-7f1e0c5dd000 rw-p 00000000 00:00 0 
+7f1e0c5dd000-7f1e0c5e0000 ---p 00000000 00:00 0 
+7f1e0c5e0000-7f1e0c7df000 rw-p 00000000 00:00 0 
+7f1e0c7df000-7f1e0c7e0000 ---p 00000000 00:00 0 
+7f1e0c7e0000-7f1e0c9e1000 rw-p 00000000 00:00 0 
+7f1e0c9e1000-7f1e0c9e2000 ---p 00000000 00:00 0 
+7f1e0c9e2000-7f1e0cbe3000 rw-p 00000000 00:00 0 
+7f1e0cbe3000-7f1e0cbe4000 ---p 00000000 00:00 0 
+7f1e0cbe4000-7f1e0cde5000 rw-p 00000000 00:00 0 
+7f1e0cde5000-7f1e0cde6000 ---p 00000000 00:00 0 
+7f1e0cde6000-7f1e0cfe7000 rw-p 00000000 00:00 0 
+7f1e0cfe7000-7f1e0cfe8000 ---p 00000000 00:00 0 
+7f1e0cfe8000-7f1e0d0e8000 rw-p 00000000 00:00 0 
+7f1e0d0e8000-7f1e0d0eb000 ---p 00000000 00:00 0 
+7f1e0d0eb000-7f1e0d1e9000 rw-p 00000000 00:00 0 
+7f1e0d1e9000-7f1e0d1ea000 ---p 00000000 00:00 0 
+7f1e0d1ea000-7f1e0d2ea000 rw-p 00000000 00:00 0 
+7f1e0d2ea000-7f1e0d2eb000 ---p 00000000 00:00 0 
+7f1e0d2eb000-7f1e0d3eb000 rw-p 00000000 00:00 0 
+7f1e0d3eb000-7f1e0d3ec000 ---p 00000000 00:00 0 
+7f1e0d3ec000-7f1e0d4ec000 rw-p 00000000 00:00 0 
+7f1e0d548000-7f1e0d54a000 r--s 00009000 ca:01 1033223                    /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/twitter-korean-text-ruby-0.9.2/lib/twitter_korean/jars/twitter-text-1.13.3.jar
+7f1e0d54a000-7f1e0d5a2000 r--s 00523000 ca:01 1033222                    /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/twitter-korean-text-ruby-0.9.2/lib/twitter_korean/jars/scala-library-2.11.7.jar
+7f1e0d5a2000-7f1e0d5ad000 r--s 001cc000 ca:01 1033221                    /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/twitter-korean-text-ruby-0.9.2/lib/twitter_korean/jars/korean-text-4.4.jar
+7f1e0d5ad000-7f1e0d5af000 r--s 00001000 ca:01 265095                     /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/dnsns.jar
+7f1e0d5af000-7f1e0d5b3000 r--s 00037000 ca:01 265094                     /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/sunpkcs11.jar
+7f1e0d5b3000-7f1e0d5bd000 rw-p 00000000 00:00 0 
+7f1e0d5bd000-7f1e0d606000 ---p 00000000 00:00 0 
+7f1e0d606000-7f1e0d60b000 rw-p 00000000 00:00 0 
+7f1e0d60b000-7f1e0d62f000 ---p 00000000 00:00 0 
+7f1e0d62f000-7f1e0d639000 rw-p 00000000 00:00 0 
+7f1e0d639000-7f1e0d682000 ---p 00000000 00:00 0 
+7f1e0d682000-7f1e0d683000 rw-p 00000000 00:00 0 
+7f1e0d683000-7f1e0d686000 ---p 00000000 00:00 0 
+7f1e0d686000-7f1e0d885000 rw-p 00000000 00:00 0 
+7f1e0d885000-7f1e0d887000 r-xp 00000000 ca:01 775496                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/iso_8859_1.so
+7f1e0d887000-7f1e0da86000 ---p 00002000 ca:01 775496                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/iso_8859_1.so
+7f1e0da86000-7f1e0da87000 r--p 00001000 ca:01 775496                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/iso_8859_1.so
+7f1e0da87000-7f1e0da88000 rw-p 00002000 ca:01 775496                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/iso_8859_1.so
+7f1e0da88000-7f1e0da89000 r-xp 00000000 ca:01 775575                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/fiber.so
+7f1e0da89000-7f1e0dc88000 ---p 00001000 ca:01 775575                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/fiber.so
+7f1e0dc88000-7f1e0dc89000 r--p 00000000 ca:01 775575                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/fiber.so
+7f1e0dc89000-7f1e0dc8a000 rw-p 00001000 ca:01 775575                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/fiber.so
+7f1e0dc8a000-7f1e0dcb9000 r-xp 00000000 ca:01 775491                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/ripper.so
+7f1e0dcb9000-7f1e0deb8000 ---p 0002f000 ca:01 775491                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/ripper.so
+7f1e0deb8000-7f1e0deba000 r--p 0002e000 ca:01 775491                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/ripper.so
+7f1e0deba000-7f1e0debb000 rw-p 00030000 ca:01 775491                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/ripper.so
+7f1e0debb000-7f1e0dec6000 r-xp 00000000 ca:01 2044                       /lib/x86_64-linux-gnu/libnss_files-2.23.so
+7f1e0dec6000-7f1e0e0c5000 ---p 0000b000 ca:01 2044                       /lib/x86_64-linux-gnu/libnss_files-2.23.so
+7f1e0e0c5000-7f1e0e0c6000 r--p 0000a000 ca:01 2044                       /lib/x86_64-linux-gnu/libnss_files-2.23.so
+7f1e0e0c6000-7f1e0e0c7000 rw-p 0000b000 ca:01 2044                       /lib/x86_64-linux-gnu/libnss_files-2.23.so
+7f1e0e0c7000-7f1e0e0cd000 rw-p 00000000 00:00 0 
+7f1e0e0cd000-7f1e0e0e3000 r-xp 00000000 ca:01 2038                       /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f1e0e0e3000-7f1e0e2e2000 ---p 00016000 ca:01 2038                       /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f1e0e2e2000-7f1e0e2e3000 rw-p 00015000 ca:01 2038                       /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f1e0e2e3000-7f1e0e455000 r-xp 00000000 ca:01 52798                      /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.21
+7f1e0e455000-7f1e0e655000 ---p 00172000 ca:01 52798                      /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.21
+7f1e0e655000-7f1e0e65f000 r--p 00172000 ca:01 52798                      /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.21
+7f1e0e65f000-7f1e0e661000 rw-p 0017c000 ca:01 52798                      /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.21
+7f1e0e661000-7f1e0e665000 rw-p 00000000 00:00 0 
+7f1e0e665000-7f1e0e9f8000 r-xp 00000000 ca:01 54736                      /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.6
+7f1e0e9f8000-7f1e0ebf7000 ---p 00393000 ca:01 54736                      /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.6
+7f1e0ebf7000-7f1e0ebfd000 r--p 00392000 ca:01 54736                      /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.6
+7f1e0ebfd000-7f1e0ec70000 rw-p 00398000 ca:01 54736                      /usr/lib/x86_64-linux-gnu/libmysqlclient.so.20.3.6
+7f1e0ec70000-7f1e0ec75000 rw-p 00000000 00:00 0 
+7f1e0ec75000-7f1e0ec85000 r-xp 00000000 ca:01 771150                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/mysql2-0.4.9/lib/mysql2/mysql2.so
+7f1e0ec85000-7f1e0ee85000 ---p 00010000 ca:01 771150                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/mysql2-0.4.9/lib/mysql2/mysql2.so
+7f1e0ee85000-7f1e0ee86000 r--p 00010000 ca:01 771150                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/mysql2-0.4.9/lib/mysql2/mysql2.so
+7f1e0ee86000-7f1e0ee87000 rw-p 00011000 ca:01 771150                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/mysql2-0.4.9/lib/mysql2/mysql2.so
+7f1e0ee87000-7f1e0ee8a000 r-xp 00000000 ca:01 775510                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/trans/utf_16_32.so
+7f1e0ee8a000-7f1e0f08a000 ---p 00003000 ca:01 775510                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/trans/utf_16_32.so
+7f1e0f08a000-7f1e0f08b000 r--p 00003000 ca:01 775510                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/trans/utf_16_32.so
+7f1e0f08b000-7f1e0f08c000 rw-p 00004000 ca:01 775510                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/trans/utf_16_32.so
+7f1e0f08c000-7f1e0f09d000 r-xp 00000000 ca:01 771913                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/rjb-1.5.5/lib/rjbcore.so
+7f1e0f09d000-7f1e0f29d000 ---p 00011000 ca:01 771913                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/rjb-1.5.5/lib/rjbcore.so
+7f1e0f29d000-7f1e0f29e000 r--p 00011000 ca:01 771913                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/rjb-1.5.5/lib/rjbcore.so
+7f1e0f29e000-7f1e0f29f000 rw-p 00012000 ca:01 771913                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/rjb-1.5.5/lib/rjbcore.so
+7f1e0f29f000-7f1e0f2a2000 r-xp 00000000 ca:01 775536                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/shift_jis.so
+7f1e0f2a2000-7f1e0f4a1000 ---p 00003000 ca:01 775536                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/shift_jis.so
+7f1e0f4a1000-7f1e0f4a2000 r--p 00002000 ca:01 775536                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/shift_jis.so
+7f1e0f4a2000-7f1e0f4a3000 rw-p 00003000 ca:01 775536                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/shift_jis.so
+7f1e0f4a3000-7f1e0f4a6000 r-xp 00000000 ca:01 775537                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/euc_jp.so
+7f1e0f4a6000-7f1e0f6a5000 ---p 00003000 ca:01 775537                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/euc_jp.so
+7f1e0f6a5000-7f1e0f6a6000 r--p 00002000 ca:01 775537                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/euc_jp.so
+7f1e0f6a6000-7f1e0f6a7000 rw-p 00003000 ca:01 775537                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/euc_jp.so
+7f1e0f6a7000-7f1e0f6ef000 r-xp 00000000 ca:01 775576                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/nkf.so
+7f1e0f6ef000-7f1e0f8ee000 ---p 00048000 ca:01 775576                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/nkf.so
+7f1e0f8ee000-7f1e0f8f5000 r--p 00047000 ca:01 775576                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/nkf.so
+7f1e0f8f5000-7f1e0f8f6000 rw-p 0004e000 ca:01 775576                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/nkf.so
+7f1e0f8f6000-7f1e0f8f9000 rw-p 00000000 00:00 0 
+7f1e0f8f9000-7f1e0f9c8000 r-xp 00000000 ca:01 25896                      /usr/lib/x86_64-linux-gnu/libsqlite3.so.0.8.6
+7f1e0f9c8000-7f1e0fbc8000 ---p 000cf000 ca:01 25896                      /usr/lib/x86_64-linux-gnu/libsqlite3.so.0.8.6
+7f1e0fbc8000-7f1e0fbcb000 r--p 000cf000 ca:01 25896                      /usr/lib/x86_64-linux-gnu/libsqlite3.so.0.8.6
+7f1e0fbcb000-7f1e0fbcd000 rw-p 000d2000 ca:01 25896                      /usr/lib/x86_64-linux-gnu/libsqlite3.so.0.8.6
+7f1e0fbcd000-7f1e0fbce000 rw-p 00000000 00:00 0 
+7f1e0fbce000-7f1e0fbd7000 r-xp 00000000 ca:01 772127                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sqlite3-1.3.13/lib/sqlite3/sqlite3_native.so
+7f1e0fbd7000-7f1e0fdd6000 ---p 00009000 ca:01 772127                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sqlite3-1.3.13/lib/sqlite3/sqlite3_native.so
+7f1e0fdd6000-7f1e0fdd7000 r--p 00008000 ca:01 772127                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sqlite3-1.3.13/lib/sqlite3/sqlite3_native.so
+7f1e0fdd7000-7f1e0fdd8000 rw-p 00009000 ca:01 772127                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/sqlite3-1.3.13/lib/sqlite3/sqlite3_native.so
+7f1e0fdd8000-7f1e0fdd9000 r-xp 00000000 ca:01 775572                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/fcntl.so
+7f1e0fdd9000-7f1e0ffd8000 ---p 00001000 ca:01 775572                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/fcntl.so
+7f1e0ffd8000-7f1e0ffd9000 r--p 00000000 ca:01 775572                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/fcntl.so
+7f1e0ffd9000-7f1e0ffda000 rw-p 00001000 ca:01 775572                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/fcntl.so
+7f1e0ffda000-7f1e0ffe0000 r-xp 00000000 ca:01 771493                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/raindrops-0.19.0/lib/raindrops_ext.so
+7f1e0ffe0000-7f1e101df000 ---p 00006000 ca:01 771493                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/raindrops-0.19.0/lib/raindrops_ext.so
+7f1e101df000-7f1e101e0000 r--p 00005000 ca:01 771493                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/raindrops-0.19.0/lib/raindrops_ext.so
+7f1e101e0000-7f1e101e1000 rw-p 00006000 ca:01 771493                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/raindrops-0.19.0/lib/raindrops_ext.so
+7f1e101e1000-7f1e101ed000 r-xp 00000000 ca:01 773211                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/unicorn-5.3.1/lib/unicorn_http.so
+7f1e101ed000-7f1e103ec000 ---p 0000c000 ca:01 773211                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/unicorn-5.3.1/lib/unicorn_http.so
+7f1e103ec000-7f1e103ed000 r--p 0000b000 ca:01 773211                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/unicorn-5.3.1/lib/unicorn_http.so
+7f1e103ed000-7f1e103ee000 rw-p 0000c000 ca:01 773211                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/unicorn-5.3.1/lib/unicorn_http.so
+7f1e103ee000-7f1e103f5000 r-xp 00000000 ca:01 2049                       /lib/x86_64-linux-gnu/librt-2.23.so
+7f1e103f5000-7f1e105f4000 ---p 00007000 ca:01 2049                       /lib/x86_64-linux-gnu/librt-2.23.so
+7f1e105f4000-7f1e105f5000 r--p 00006000 ca:01 2049                       /lib/x86_64-linux-gnu/librt-2.23.so
+7f1e105f5000-7f1e105f6000 rw-p 00007000 ca:01 2049                       /lib/x86_64-linux-gnu/librt-2.23.so
+7f1e105f6000-7f1e10601000 r-xp 00000000 ca:01 770991                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/kgio-2.11.0/lib/kgio_ext.so
+7f1e10601000-7f1e10800000 ---p 0000b000 ca:01 770991                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/kgio-2.11.0/lib/kgio_ext.so
+7f1e10800000-7f1e10801000 r--p 0000a000 ca:01 770991                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/kgio-2.11.0/lib/kgio_ext.so
+7f1e10801000-7f1e10802000 rw-p 0000b000 ca:01 770991                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/kgio-2.11.0/lib/kgio_ext.so
+7f1e10802000-7f1e10805000 r-xp 00000000 ca:01 775507                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/windows_31j.so
+7f1e10805000-7f1e10a04000 ---p 00003000 ca:01 775507                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/windows_31j.so
+7f1e10a04000-7f1e10a05000 r--p 00002000 ca:01 775507                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/windows_31j.so
+7f1e10a05000-7f1e10a06000 rw-p 00003000 ca:01 775507                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/windows_31j.so
+7f1e10a06000-7f1e10a07000 r-xp 00000000 ca:01 775580                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/io/wait.so
+7f1e10a07000-7f1e10c07000 ---p 00001000 ca:01 775580                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/io/wait.so
+7f1e10c07000-7f1e10c08000 r--p 00001000 ca:01 775580                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/io/wait.so
+7f1e10c08000-7f1e10c09000 rw-p 00002000 ca:01 775580                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/io/wait.so
+7f1e10c09000-7f1e10c35000 r-xp 00000000 ca:01 775493                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/socket.so
+7f1e10c35000-7f1e10e34000 ---p 0002c000 ca:01 775493                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/socket.so
+7f1e10e34000-7f1e10e35000 r--p 0002b000 ca:01 775493                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/socket.so
+7f1e10e35000-7f1e10e36000 rw-p 0002c000 ca:01 775493                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/socket.so
+7f1e10e36000-7f1e10e4d000 r-xp 00000000 ca:01 24911                      /usr/lib/x86_64-linux-gnu/gconv/CP932.so
+7f1e10e4d000-7f1e1104c000 ---p 00017000 ca:01 24911                      /usr/lib/x86_64-linux-gnu/gconv/CP932.so
+7f1e1104c000-7f1e1104d000 r--p 00016000 ca:01 24911                      /usr/lib/x86_64-linux-gnu/gconv/CP932.so
+7f1e1104d000-7f1e1104e000 rw-p 00017000 ca:01 24911                      /usr/lib/x86_64-linux-gnu/gconv/CP932.so
+7f1e1104e000-7f1e11052000 r-xp 00000000 ca:01 775482                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/racc/cparse.so
+7f1e11052000-7f1e11251000 ---p 00004000 ca:01 775482                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/racc/cparse.so
+7f1e11251000-7f1e11252000 r--p 00003000 ca:01 775482                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/racc/cparse.so
+7f1e11252000-7f1e11253000 rw-p 00004000 ca:01 775482                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/racc/cparse.so
+7f1e11253000-7f1e1147c000 r-xp 00000000 ca:01 772451                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/nokogiri-1.8.1/lib/nokogiri/nokogiri.so
+7f1e1147c000-7f1e1167c000 ---p 00229000 ca:01 772451                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/nokogiri-1.8.1/lib/nokogiri/nokogiri.so
+7f1e1167c000-7f1e11684000 r--p 00229000 ca:01 772451                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/nokogiri-1.8.1/lib/nokogiri/nokogiri.so
+7f1e11684000-7f1e11688000 rw-p 00231000 ca:01 772451                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/nokogiri-1.8.1/lib/nokogiri/nokogiri.so
+7f1e11688000-7f1e1168a000 rw-p 00000000 00:00 0 
+7f1e1168a000-7f1e116a3000 r-xp 00000000 ca:01 2192                       /lib/x86_64-linux-gnu/libz.so.1.2.8
+7f1e116a3000-7f1e118a2000 ---p 00019000 ca:01 2192                       /lib/x86_64-linux-gnu/libz.so.1.2.8
+7f1e118a2000-7f1e118a3000 r--p 00018000 ca:01 2192                       /lib/x86_64-linux-gnu/libz.so.1.2.8
+7f1e118a3000-7f1e118a4000 rw-p 00019000 ca:01 2192                       /lib/x86_64-linux-gnu/libz.so.1.2.8
+7f1e118a4000-7f1e118b4000 r-xp 00000000 ca:01 775490                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/zlib.so
+7f1e118b4000-7f1e11ab3000 ---p 00010000 ca:01 775490                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/zlib.so
+7f1e11ab3000-7f1e11ab4000 r--p 0000f000 ca:01 775490                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/zlib.so
+7f1e11ab4000-7f1e11ab5000 rw-p 00010000 ca:01 775490                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/zlib.so
+7f1e11ab5000-7f1e11ab6000 r-xp 00000000 ca:01 775567                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/digest/sha2.so
+7f1e11ab6000-7f1e11cb6000 ---p 00001000 ca:01 775567                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/digest/sha2.so
+7f1e11cb6000-7f1e11cb7000 r--p 00001000 ca:01 775567                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/digest/sha2.so
+7f1e11cb7000-7f1e11cb8000 rw-p 00002000 ca:01 775567                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/digest/sha2.so
+7f1e11cb8000-7f1e11cb9000 r-xp 00000000 ca:01 775564                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/digest/md5.so
+7f1e11cb9000-7f1e11eb8000 ---p 00001000 ca:01 775564                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/digest/md5.so
+7f1e11eb8000-7f1e11eb9000 r--p 00000000 ca:01 775564                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/digest/md5.so
+7f1e11eb9000-7f1e11eba000 rw-p 00001000 ca:01 775564                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/digest/md5.so
+7f1e11eba000-7f1e11ec4000 r-xp 00000000 ca:01 768705                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/json-1.8.6/lib/json/ext/generator.so
+7f1e11ec4000-7f1e120c3000 ---p 0000a000 ca:01 768705                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/json-1.8.6/lib/json/ext/generator.so
+7f1e120c3000-7f1e120c4000 r--p 00009000 ca:01 768705                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/json-1.8.6/lib/json/ext/generator.so
+7f1e120c4000-7f1e120c5000 rw-p 0000a000 ca:01 768705                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/json-1.8.6/lib/json/ext/generator.so
+7f1e120c5000-7f1e120c6000 r-xp 00000000 ca:01 775500                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/utf_32le.so
+7f1e120c6000-7f1e122c6000 ---p 00001000 ca:01 775500                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/utf_32le.so
+7f1e122c6000-7f1e122c7000 r--p 00001000 ca:01 775500                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/utf_32le.so
+7f1e122c7000-7f1e122c8000 rw-p 00002000 ca:01 775500                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/utf_32le.so
+7f1e122c8000-7f1e122c9000 r-xp 00000000 ca:01 775534                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/utf_32be.so
+7f1e122c9000-7f1e124c9000 ---p 00001000 ca:01 775534                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/utf_32be.so
+7f1e124c9000-7f1e124ca000 r--p 00001000 ca:01 775534                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/utf_32be.so
+7f1e124ca000-7f1e124cb000 rw-p 00002000 ca:01 775534                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/utf_32be.so
+7f1e124cb000-7f1e124cc000 r-xp 00000000 ca:01 775504                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/utf_16le.so
+7f1e124cc000-7f1e126cc000 ---p 00001000 ca:01 775504                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/utf_16le.so
+7f1e126cc000-7f1e126cd000 r--p 00001000 ca:01 775504                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/utf_16le.so
+7f1e126cd000-7f1e126ce000 rw-p 00002000 ca:01 775504                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/utf_16le.so
+7f1e126ce000-7f1e126cf000 r-xp 00000000 ca:01 775532                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/utf_16be.so
+7f1e126cf000-7f1e128cf000 ---p 00001000 ca:01 775532                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/utf_16be.so
+7f1e128cf000-7f1e128d0000 r--p 00001000 ca:01 775532                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/utf_16be.so
+7f1e128d0000-7f1e128d1000 rw-p 00002000 ca:01 775532                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/utf_16be.so
+7f1e128d1000-7f1e128d7000 r-xp 00000000 ca:01 768714                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/json-1.8.6/lib/json/ext/parser.so
+7f1e128d7000-7f1e12ad6000 ---p 00006000 ca:01 768714                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/json-1.8.6/lib/json/ext/parser.so
+7f1e12ad6000-7f1e12ad7000 r--p 00005000 ca:01 768714                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/json-1.8.6/lib/json/ext/parser.so
+7f1e12ad7000-7f1e12ad8000 rw-p 00006000 ca:01 768714                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/json-1.8.6/lib/json/ext/parser.so
+7f1e12ad8000-7f1e12aec000 r-xp 00000000 ca:01 775488                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/bigdecimal.so
+7f1e12aec000-7f1e12ceb000 ---p 00014000 ca:01 775488                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/bigdecimal.so
+7f1e12ceb000-7f1e12cec000 r--p 00013000 ca:01 775488                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/bigdecimal.so
+7f1e12cec000-7f1e12ced000 rw-p 00014000 ca:01 775488                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/bigdecimal.so
+7f1e12ced000-7f1e12d20000 r-xp 00000000 ca:01 775554                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/date_core.so
+7f1e12d20000-7f1e12f20000 ---p 00033000 ca:01 775554                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/date_core.so
+7f1e12f20000-7f1e12f21000 r--p 00033000 ca:01 775554                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/date_core.so
+7f1e12f21000-7f1e12f22000 rw-p 00034000 ca:01 775554                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/date_core.so
+7f1e12f22000-7f1e12f23000 rw-p 00000000 00:00 0 
+7f1e12f23000-7f1e12f29000 r-xp 00000000 ca:01 775574                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/strscan.so
+7f1e12f29000-7f1e13128000 ---p 00006000 ca:01 775574                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/strscan.so
+7f1e13128000-7f1e13129000 r--p 00005000 ca:01 775574                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/strscan.so
+7f1e13129000-7f1e1312a000 rw-p 00006000 ca:01 775574                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/strscan.so
+7f1e1312a000-7f1e13147000 r-xp 00000000 ca:01 25949                      /usr/lib/x86_64-linux-gnu/libyaml-0.so.2.0.4
+7f1e13147000-7f1e13347000 ---p 0001d000 ca:01 25949                      /usr/lib/x86_64-linux-gnu/libyaml-0.so.2.0.4
+7f1e13347000-7f1e13348000 r--p 0001d000 ca:01 25949                      /usr/lib/x86_64-linux-gnu/libyaml-0.so.2.0.4
+7f1e13348000-7f1e13349000 rw-p 0001e000 ca:01 25949                      /usr/lib/x86_64-linux-gnu/libyaml-0.so.2.0.4
+7f1e13349000-7f1e1334f000 r-xp 00000000 ca:01 775487                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/psych.so
+7f1e1334f000-7f1e1354e000 ---p 00006000 ca:01 775487                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/psych.so
+7f1e1354e000-7f1e1354f000 r--p 00005000 ca:01 775487                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/psych.so
+7f1e1354f000-7f1e13550000 rw-p 00006000 ca:01 775487                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/psych.so
+7f1e13550000-7f1e13551000 r-xp 00000000 ca:01 775585                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/cgi/escape.so
+7f1e13551000-7f1e13751000 ---p 00001000 ca:01 775585                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/cgi/escape.so
+7f1e13751000-7f1e13752000 r--p 00001000 ca:01 775585                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/cgi/escape.so
+7f1e13752000-7f1e13753000 rw-p 00002000 ca:01 775585                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/cgi/escape.so
+7f1e13753000-7f1e13754000 r-xp 00000000 ca:01 775579                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/io/nonblock.so
+7f1e13754000-7f1e13954000 ---p 00001000 ca:01 775579                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/io/nonblock.so
+7f1e13954000-7f1e13955000 r--p 00001000 ca:01 775579                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/io/nonblock.so
+7f1e13955000-7f1e13956000 rw-p 00002000 ca:01 775579                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/io/nonblock.so
+7f1e13956000-7f1e139b4000 r-xp 00000000 ca:01 2187                       /lib/x86_64-linux-gnu/libssl.so.1.0.0
+7f1e139b4000-7f1e13bb4000 ---p 0005e000 ca:01 2187                       /lib/x86_64-linux-gnu/libssl.so.1.0.0
+7f1e13bb4000-7f1e13bb8000 r--p 0005e000 ca:01 2187                       /lib/x86_64-linux-gnu/libssl.so.1.0.0
+7f1e13bb8000-7f1e13bbf000 rw-p 00062000 ca:01 2187                       /lib/x86_64-linux-gnu/libssl.so.1.0.0
+7f1e13bbf000-7f1e13c11000 r-xp 00000000 ca:01 775492                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/openssl.so
+7f1e13c11000-7f1e13e10000 ---p 00052000 ca:01 775492                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/openssl.so
+7f1e13e10000-7f1e13e12000 r--p 00051000 ca:01 775492                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/openssl.so
+7f1e13e12000-7f1e13e14000 rw-p 00053000 ca:01 775492                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/openssl.so
+7f1e13e14000-7f1e13e15000 rw-p 00000000 00:00 0 
+7f1e13e15000-7f1e13e3a000 r-xp 00000000 ca:01 2196                       /lib/x86_64-linux-gnu/libtinfo.so.5.9
+7f1e13e3a000-7f1e14039000 ---p 00025000 ca:01 2196                       /lib/x86_64-linux-gnu/libtinfo.so.5.9
+7f1e14039000-7f1e1403d000 r--p 00024000 ca:01 2196                       /lib/x86_64-linux-gnu/libtinfo.so.5.9
+7f1e1403d000-7f1e1403e000 rw-p 00028000 ca:01 2196                       /lib/x86_64-linux-gnu/libtinfo.so.5.9
+7f1e1403e000-7f1e1407b000 r-xp 00000000 ca:01 2219                       /lib/x86_64-linux-gnu/libreadline.so.6.3
+7f1e1407b000-7f1e1427b000 ---p 0003d000 ca:01 2219                       /lib/x86_64-linux-gnu/libreadline.so.6.3
+7f1e1427b000-7f1e1427d000 r--p 0003d000 ca:01 2219                       /lib/x86_64-linux-gnu/libreadline.so.6.3
+7f1e1427d000-7f1e14283000 rw-p 0003f000 ca:01 2219                       /lib/x86_64-linux-gnu/libreadline.so.6.3
+7f1e14283000-7f1e14284000 rw-p 00000000 00:00 0 
+7f1e14284000-7f1e1428b000 r-xp 00000000 ca:01 775483                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/readline.so
+7f1e1428b000-7f1e1448b000 ---p 00007000 ca:01 775483                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/readline.so
+7f1e1448b000-7f1e1448c000 r--p 00007000 ca:01 775483                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/readline.so
+7f1e1448c000-7f1e1448d000 rw-p 00008000 ca:01 775483                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/readline.so
+7f1e1448d000-7f1e146a7000 r-xp 00000000 ca:01 2186                       /lib/x86_64-linux-gnu/libcrypto.so.1.0.0
+7f1e146a7000-7f1e148a6000 ---p 0021a000 ca:01 2186                       /lib/x86_64-linux-gnu/libcrypto.so.1.0.0
+7f1e148a6000-7f1e148c2000 r--p 00219000 ca:01 2186                       /lib/x86_64-linux-gnu/libcrypto.so.1.0.0
+7f1e148c2000-7f1e148ce000 rw-p 00235000 ca:01 2186                       /lib/x86_64-linux-gnu/libcrypto.so.1.0.0
+7f1e148ce000-7f1e148d1000 rw-p 00000000 00:00 0 
+7f1e148d1000-7f1e148d2000 r-xp 00000000 ca:01 775563                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/digest/sha1.so
+7f1e148d2000-7f1e14ad1000 ---p 00001000 ca:01 775563                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/digest/sha1.so
+7f1e14ad1000-7f1e14ad2000 r--p 00000000 ca:01 775563                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/digest/sha1.so
+7f1e14ad2000-7f1e14ad3000 rw-p 00001000 ca:01 775563                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/digest/sha1.so
+7f1e14ad3000-7f1e14ad7000 r-xp 00000000 ca:01 775485                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/digest.so
+7f1e14ad7000-7f1e14cd6000 ---p 00004000 ca:01 775485                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/digest.so
+7f1e14cd6000-7f1e14cd7000 r--p 00003000 ca:01 775485                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/digest.so
+7f1e14cd7000-7f1e14cd8000 rw-p 00004000 ca:01 775485                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/digest.so
+7f1e14cd8000-7f1e14cde000 r-xp 00000000 ca:01 775577                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/etc.so
+7f1e14cde000-7f1e14edd000 ---p 00006000 ca:01 775577                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/etc.so
+7f1e14edd000-7f1e14ede000 r--p 00005000 ca:01 775577                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/etc.so
+7f1e14ede000-7f1e14edf000 rw-p 00006000 ca:01 775577                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/etc.so
+7f1e14edf000-7f1e14ee3000 r-xp 00000000 ca:01 775581                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/io/console.so
+7f1e14ee3000-7f1e150e3000 ---p 00004000 ca:01 775581                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/io/console.so
+7f1e150e3000-7f1e150e4000 r--p 00004000 ca:01 775581                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/io/console.so
+7f1e150e4000-7f1e150e5000 rw-p 00005000 ca:01 775581                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/io/console.so
+7f1e150e5000-7f1e150ec000 r-xp 00000000 ca:01 775568                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/pathname.so
+7f1e150ec000-7f1e152eb000 ---p 00007000 ca:01 775568                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/pathname.so
+7f1e152eb000-7f1e152ec000 r--p 00006000 ca:01 775568                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/pathname.so
+7f1e152ec000-7f1e152ed000 rw-p 00007000 ca:01 775568                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/pathname.so
+7f1e152ed000-7f1e152f5000 r-xp 00000000 ca:01 775552                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/stringio.so
+7f1e152f5000-7f1e154f4000 ---p 00008000 ca:01 775552                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/stringio.so
+7f1e154f4000-7f1e154f5000 r--p 00007000 ca:01 775552                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/stringio.so
+7f1e154f5000-7f1e154f6000 rw-p 00008000 ca:01 775552                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/stringio.so
+7f1e154f6000-7f1e154f8000 r-xp 00000000 ca:01 775523                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/trans/transdb.so
+7f1e154f8000-7f1e156f8000 ---p 00002000 ca:01 775523                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/trans/transdb.so
+7f1e156f8000-7f1e156f9000 r--p 00002000 ca:01 775523                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/trans/transdb.so
+7f1e156f9000-7f1e156fa000 rw-p 00003000 ca:01 775523                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/trans/transdb.so
+7f1e156fa000-7f1e156fc000 r-xp 00000000 ca:01 775545                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/encdb.so
+7f1e156fc000-7f1e158fb000 ---p 00002000 ca:01 775545                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/encdb.so
+7f1e158fb000-7f1e158fc000 r--p 00001000 ca:01 775545                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/encdb.so
+7f1e158fc000-7f1e158fd000 rw-p 00002000 ca:01 775545                     /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/2.3.0/x86_64-linux/enc/encdb.so
+7f1e158fd000-7f1e159fe000 rw-p 00000000 00:00 0 
+7f1e159fe000-7f1e15bbe000 r-xp 00000000 ca:01 2071                       /lib/x86_64-linux-gnu/libc-2.23.so
+7f1e15bbe000-7f1e15dbe000 ---p 001c0000 ca:01 2071                       /lib/x86_64-linux-gnu/libc-2.23.so
+7f1e15dbe000-7f1e15dc2000 r--p 001c0000 ca:01 2071                       /lib/x86_64-linux-gnu/libc-2.23.so
+7f1e15dc2000-7f1e15dc4000 rw-p 001c4000 ca:01 2071                       /lib/x86_64-linux-gnu/libc-2.23.so
+7f1e15dc4000-7f1e15dc8000 rw-p 00000000 00:00 0 
+7f1e15dc8000-7f1e15ed0000 r-xp 00000000 ca:01 2066                       /lib/x86_64-linux-gnu/libm-2.23.so
+7f1e15ed0000-7f1e160cf000 ---p 00108000 ca:01 2066                       /lib/x86_64-linux-gnu/libm-2.23.so
+7f1e160cf000-7f1e160d0000 r--p 00107000 ca:01 2066                       /lib/x86_64-linux-gnu/libm-2.23.so
+7f1e160d0000-7f1e160d1000 rw-p 00108000 ca:01 2066                       /lib/x86_64-linux-gnu/libm-2.23.so
+7f1e160d1000-7f1e160da000 r-xp 00000000 ca:01 2045                       /lib/x86_64-linux-gnu/libcrypt-2.23.so
+7f1e160da000-7f1e162d9000 ---p 00009000 ca:01 2045                       /lib/x86_64-linux-gnu/libcrypt-2.23.so
+7f1e162d9000-7f1e162da000 r--p 00008000 ca:01 2045                       /lib/x86_64-linux-gnu/libcrypt-2.23.so
+7f1e162da000-7f1e162db000 rw-p 00009000 ca:01 2045                       /lib/x86_64-linux-gnu/libcrypt-2.23.so
+7f1e162db000-7f1e16309000 rw-p 00000000 00:00 0 
+7f1e16309000-7f1e1630c000 r-xp 00000000 ca:01 2052                       /lib/x86_64-linux-gnu/libdl-2.23.so
+7f1e1630c000-7f1e1650b000 ---p 00003000 ca:01 2052                       /lib/x86_64-linux-gnu/libdl-2.23.so
+7f1e1650b000-7f1e1650c000 r--p 00002000 ca:01 2052                       /lib/x86_64-linux-gnu/libdl-2.23.so
+7f1e1650c000-7f1e1650d000 rw-p 00003000 ca:01 2052                       /lib/x86_64-linux-gnu/libdl-2.23.so
+7f1e1650d000-7f1e16525000 r-xp 00000000 ca:01 2046                       /lib/x86_64-linux-gnu/libpthread-2.23.so
+7f1e16525000-7f1e16724000 ---p 00018000 ca:01 2046                       /lib/x86_64-linux-gnu/libpthread-2.23.so
+7f1e16724000-7f1e16725000 r--p 00017000 ca:01 2046                       /lib/x86_64-linux-gnu/libpthread-2.23.so
+7f1e16725000-7f1e16726000 rw-p 00018000 ca:01 2046                       /lib/x86_64-linux-gnu/libpthread-2.23.so
+7f1e16726000-7f1e1672a000 rw-p 00000000 00:00 0 
+7f1e1672a000-7f1e16750000 r-xp 00000000 ca:01 2041                       /lib/x86_64-linux-gnu/ld-2.23.so
+7f1e16750000-7f1e16751000 r--s 0000a000 ca:01 265096                     /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/jaccess.jar
+7f1e16751000-7f1e16753000 r--s 00008000 ca:01 265099                     /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/sunec.jar
+7f1e16753000-7f1e16758000 r--s 0003b000 ca:01 265097                     /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/sunjce_provider.jar
+7f1e16758000-7f1e16773000 r--s 00394000 ca:01 265091                     /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/cldrdata.jar
+7f1e16773000-7f1e1677d000 r--s 00116000 ca:01 265093                     /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/localedata.jar
+7f1e1677d000-7f1e1677e000 r--s 00010000 ca:01 265100                     /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/zipfs.jar
+7f1e1677e000-7f1e16799000 r--s 001d6000 ca:01 265092                     /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/nashorn.jar
+7f1e16799000-7f1e167a1000 rw-s 00000000 ca:01 519277                     /tmp/hsperfdata_ubuntu/21866
+7f1e167a1000-7f1e167a8000 r--s 00000000 ca:01 24925                      /usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache
+7f1e167a8000-7f1e16940000 r--p 00000000 ca:01 29004                      /usr/lib/locale/locale-archive
+7f1e16940000-7f1e16944000 rw-p 00000000 00:00 0 
+7f1e16944000-7f1e16947000 r--s 0000f000 ca:01 265098                     /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/icedtea-sound.jar
+7f1e16947000-7f1e16948000 rw-p 00000000 00:00 0 
+7f1e16948000-7f1e16949000 ---p 00000000 00:00 0 
+7f1e16949000-7f1e1694a000 ---p 00000000 00:00 0 
+7f1e1694a000-7f1e1694f000 rw-p 00000000 00:00 0 
+7f1e1694f000-7f1e16950000 r--p 00025000 ca:01 2041                       /lib/x86_64-linux-gnu/ld-2.23.so
+7f1e16950000-7f1e16951000 rw-p 00026000 ca:01 2041                       /lib/x86_64-linux-gnu/ld-2.23.so
+7f1e16951000-7f1e16952000 rw-p 00000000 00:00 0 
+7ffccf72e000-7ffccfe2d000 rw-p 00000000 00:00 0 
+7ffccfe2d000-7ffccfe30000 ---p 00000000 00:00 0 
+7ffccfe30000-7ffccff2d000 rw-p 00000000 00:00 0                          [stack]
+7ffccff3d000-7ffccff3f000 r--p 00000000 00:00 0                          [vvar]
+7ffccff3f000-7ffccff41000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -Xrs 
+java_command: <unknown>
+java_class_path (initial): /home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/twitter-korean-text-ruby-0.9.2/lib/twitter_korean/jars/korean-text-4.4.jar:/home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/twitter-korean-text-ruby-0.9.2/lib/twitter_korean/jars/scala-library-2.11.7.jar:/home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/gems/twitter-korean-text-ruby-0.9.2/lib/twitter_korean/jars/twitter-text-1.13.3.jar
+Launcher Type: generic
+
+Environment Variables:
+JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+PATH=/home/ubuntu/.rbenv/versions/2.3.4/lib/ruby/gems/2.3.0/bin:/home/ubuntu/.rbenv/versions/2.3.4/bin:/home/ubuntu/.rbenv/libexec:/home/ubuntu/.rbenv/plugins/ruby-build/bin:/home/ubuntu/bin:/home/ubuntu/.local/bin:/home/ubuntu/.rbenv/shims:/home/ubuntu/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+SHELL=/bin/bash
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xa6ad10], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xa6ad10], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x8b3bc0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x8b3bc0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x8b3bc0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x8b3bc0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: [ruby+0xecb90], sa_mask[0]=00000000000000000000000000000000, sa_flags=SA_SIGINFO
+SIGUSR2: [libjvm.so+0x8b3a70], sa_mask[0]=00000000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [ruby+0xecb90], sa_mask[0]=00000000000000000000000000000000, sa_flags=SA_SIGINFO
+SIGINT: [ruby+0xecb90], sa_mask[0]=00000000000000000000000000000000, sa_flags=SA_SIGINFO
+SIGTERM: [ruby+0xecb90], sa_mask[0]=00000000000000000000000000000000, sa_flags=SA_SIGINFO
+SIGQUIT: [ruby+0xecb90], sa_mask[0]=00000000000000000000000000000000, sa_flags=SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=16.04
+DISTRIB_CODENAME=xenial
+DISTRIB_DESCRIPTION="Ubuntu 16.04.2 LTS"
+
+uname:Linux 4.4.0-1022-aws #31-Ubuntu SMP Tue Jun 27 11:27:55 UTC 2017 x86_64
+libc:glibc 2.23 NPTL 2.23 
+rlimit: STACK 8192k, CORE 0k, NPROC 3902, NOFILE 1048576, AS infinity
+load average:8.50 8.07 5.44
+
+/proc/meminfo:
+MemTotal:        1014660 kB
+MemFree:           55032 kB
+MemAvailable:          0 kB
+Buffers:              88 kB
+Cached:             8044 kB
+SwapCached:            0 kB
+Active:           888436 kB
+Inactive:           4268 kB
+Active(anon):     887492 kB
+Inactive(anon):     2940 kB
+Active(file):        944 kB
+Inactive(file):     1328 kB
+Unevictable:        3660 kB
+Mlocked:            3660 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+Dirty:                 0 kB
+Writeback:             0 kB
+AnonPages:        888256 kB
+Mapped:             4416 kB
+Shmem:              3412 kB
+Slab:              37288 kB
+SReclaimable:      19472 kB
+SUnreclaim:        17816 kB
+KernelStack:        3664 kB
+PageTables:         7424 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:      507328 kB
+Committed_AS:    1627556 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:    638976 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       47104 kB
+DirectMap2M:     1001472 kB
+
+
+CPU:total 1 (initial active 1) (1 cores per cpu, 1 threads per core) family 6 model 63 stepping 2, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, lzcnt, tsc, bmi1, bmi2
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU E5-2676 v3 @ 2.40GHz
+stepping	: 2
+microcode	: 0x3a
+cpu MHz		: 2400.056
+cache size	: 30720 KB
+physical id	: 0
+siblings	: 1
+core id		: 0
+cpu cores	: 1
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx rdtscp lm constant_tsc rep_good nopl xtopology eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm fsgsbase bmi1 avx2 smep bmi2 erms invpcid xsaveopt
+bugs		:
+bogomips	: 4800.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 1014660k(55400k free), swap 0k(0k free)
+
+vm_info: OpenJDK 64-Bit Server VM (25.131-b11) for linux-amd64 JRE (1.8.0_131-8u131-b11-2ubuntu1.16.04.3-b11), built on Jul 28 2017 01:23:32 by "buildd" with gcc 5.4.0 20160609
+
+time: Fri Oct 20 11:09:36 2017
+elapsed time: 1091 seconds (0d 0h 18m 11s)
+

@@ -5,14 +5,37 @@ class Naver_cralwer
 	require 'mechanize'
 	require 'rest-client'
 	require 'resolv-replace.rb'
+	
+	def create_proxy
+		manager = ProxyFetcher::Manager.new
+		manager.cleanup!
+		return manager.proxies
+	end	
 
+	def check_vaild_proxy(url, proxy)
+		begin
+			agent = Mechanize.new
+			agent.set_proxy(proxy.addr,proxy.port)
+			agent.get(url)
+		rescue
+			return false
+		end
+		return true	
+	end
 	# -----------------------------------------
 	# blog 본문에 들어가 tag를 가져오는 메소드 시작
 	
-	def get_tag(blog_link_uri)
+	def get_tag(blog_link_uri,proxy)
 		agent = Mechanize.new
+		agent.ssl_version = :TLSv1
 		@tags = []
-		
+		proxy.each do |p|
+			if check_vaild_proxy(blog_link_uri,p)
+				agent.set_proxy(p.addr,p.port)
+				break;
+			else
+			end
+		end
 		# 새로운 에러
 		# blog.me가 agent를 통해서 들어가게 되면 blog.com으로 바뀌는 현상
 		# agent를 if문 밖으로 빼서 blog_link_uri 를 갱신
@@ -33,7 +56,6 @@ class Naver_cralwer
 		page.search('div.post_tag').each do |t|
 	  		@tags= t.text.gsub('#', '')
 	  	end
-	
 		# 원래 페이지로 돌아가기
 		return @tags
 	end
@@ -43,9 +65,17 @@ class Naver_cralwer
 	
 	# -----------------------------------------
 	# 네이버 본문에서 keyword 검색 결과 가져오기
-	def keyword_rslt(key)
+	def keyword_rslt(key,proxy)
 		# main가져오기
 		agent = Mechanize.new
+		agent.ssl_version = :TLSv1
+		proxy.each do |p|
+			if check_vaild_proxy("http://naver.com",p)
+				agent.set_proxy(p.addr,p.port)
+				break;
+			else
+			end
+		end
 		page = agent.get "http://naver.com"
 		search_form = page.form_with :name => "sform"
 		search_form.field_with(:name=>"query").value = key
@@ -59,7 +89,7 @@ class Naver_cralwer
 
 	# -----------------------------------------
 	# 메인에서 블로그 이동
-	def shift_to_blog(agent, key)
+	def shift_to_blog(agent, key,proxy)
 
 		# 메인에서 블로그 이동
 		page = agent.page.link_with(:text => '블로그').click
@@ -110,9 +140,11 @@ class Naver_cralwer
 				# 주소가 blog와 관련된 것만 태그를 뽑아옴 
 
 				if blog_link_uri.include? "blog.me"
-					ary=get_tag(blog_link_uri)
+					ary=get_tag(blog_link_uri,proxy)
+					sleep 2
 				elsif blog_link_uri.include? "blog.naver.com"
-					ary=get_tag(blog_link_uri)
+					ary=get_tag(blog_link_uri,proxy)
+					sleep 2
 				else
 				end	
 				@blog_tag << ary
