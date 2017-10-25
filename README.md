@@ -44,7 +44,7 @@ SUPER MoM ~ TAKE CARE OF OUR MoM ~ [![Build Status](https://travis-ci.org/Thecat
 
 ![demo](https://github.com/Thecatdog/Supermom-Front/blob/master/supermom_demo.gif)
 
-## User menual
+## User manual
 
 <img src='https://s1.postimg.org/6e5iu4b4ct/menual_en.png' border='0' alt='menual_en'/>
 
